@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+  </head>
+
+  <body>
+    <h1>Hello Plunker!</h1>
+    <article id='article1' class='my-custom-class'>
+        <h3> Title of the article</h3>
+        <p>Paragraph 1</p>
+        <p class='special'>Paragraph 2</p>
+        <p class='special'>Paragraph 3</p>
+    </article>
+    <ul>
+
+        <li><input type='button'  value='submit 1' id='my-submit-button-1' /> </li>
+        <li><input type='button' value='submit 2' id='my-submit-button-2' /> </li>
+        <li><input type='button' value='submit 3' id='my-submit-button-3' /> </li>
+        <li><input type='button' value='submit 4' id='my-submit-button-4' /> </li>
+        <li><input type='button' value='submit 5' id='my-submit-button-5'/> </li>
+
+    </ul>
+  </body>
+
+  <script>     
+    var button = document.getElementById('my-submit-button-1');
+    button.addEventListener('click', () => {
+        alert('Button Clicked');
+    })
+    button.addEventListener('mouseover', () => {
+        alert('Moused over');
+    })
+    
+    // better 
+    var button2 = document.getElementById('my-submit-button-2');
+    var submitHandler = () => {
+        alert('submitted')
+    }
+    button2.addEventListener('click', submitHandler);
+    // remove te evenListner
+    button2.removeEventListener('click', submitHandler);
+
+        
+    </script>
+
+</html>  
+
+
+

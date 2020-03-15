@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+  </head>
+
+  <body>
+    <h1>Hello Plunker!</h1>
+    <article id='article1' class='my-custom-class'>
+        <h3> Title of the article</h3>
+        <p>Paragraph 1</p>
+        <p class='special'>Paragraph 2</p>
+        <p class='special'>Paragraph 3</p>
+    </article>
+
+    <div id="div1" style="width:200px; height:200px; background-color:blue;">
+        <div id="div2" style="width:100px; height:100px; background-color:red;">
+        </div>
+    </div>
+  </body>
+
+    <script>    
+        var div1 = document.getElementById('div1');
+        var div2 = document.getElementById('div2');
+        var clickHandler = function divClickHandler(event) {
+            console.log(this.id);
+        };
+        // div1.addEventListener('click', clickHandler, false);
+        // div2.addEventListener('click', clickHandler, false); // shows : div2, div1
+        // div1.addEventListener('click', clickHandler, true); 
+        // div2.addEventListener('click', clickHandler, true); // shows div1,div2, so the parent first
+        
+        var clickHandler = function divClickHandler(event) {
+            console.log(this.id);
+            console.log (event.type)
+            event.stopPropagation(); // stop propagating the event
+            event.preventDefault(); // prevent the default action of whatever was clicked, for exemple if we click on a link or a submit button, we want to prevent those default actions
+        };
+        
+        div1.addEventListener('click', clickHandler, true); 
+        div2.addEventListener('click', clickHandler, true); // we only get div1
+
+        
+    </script>
+
+</html>  
+
+
+

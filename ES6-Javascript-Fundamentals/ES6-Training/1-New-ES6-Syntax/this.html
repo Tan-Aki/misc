@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        var price = 5.99, quantity = 30;
+        console.log(this);
+
+        var myFn = function () {
+            console.log(this);
+        }
+        myFn();
+
+
+        let productView2 = {
+            price,
+            quantity,
+            calculateValue: () => {
+                console.log(this.price, this.quantity);
+                return this.price * this.quantity;
+            },
+        };
+
+        console.log(productView2.calculateValue());
+
+
+    </script>
+</head>
+
+<body>
+    <h1>Hello Plunker!</h1>
+</body>
+
+</html>

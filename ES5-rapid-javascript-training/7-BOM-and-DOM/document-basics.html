@@ -1,0 +1,55 @@
+
+
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+  </head>
+
+  <body>
+    <h1>Hello Plunker!</h1>
+    <article id='article1' class='my-custom-class'>
+        <h3> Title of the article</h3>
+        <p>Paragraph 1</p>
+        <p class='special'>Paragraph 2</p>
+        <p class='special'>Paragraph 3</p>
+    </article>
+  </body>
+
+    <script>     
+        var element = document.getElementById('article1');
+        console.log(element);
+
+
+        var elements = document.getElementsByTagName('p');
+        console.log(elements);
+        
+        /////// doesnt work on HTM collections
+        // elements.forEach(el => {
+            //     console.log(el)            
+            // });
+        for (el of elements) {
+            console.log (el);
+        };
+
+        var classElements = document.getElementsByClassName('special');
+        console.log(classElements);
+
+        var a = document.getElementById('article1');
+        console.log(a.getAttribute('class'));
+        a.setAttribute('class', 'dinamyc-style');
+        console.log(a.getAttribute('class'));
+        let childArray = a.childNodes;
+        console.log(childArray);// what shows as text are the white spaces or the \n in between the tags
+
+
+
+
+    </script>
+
+</html>  
+
+
+

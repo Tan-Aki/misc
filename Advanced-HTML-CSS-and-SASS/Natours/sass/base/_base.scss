@@ -1,0 +1,53 @@
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit; /*default the property on all the elements to inherhit from parent */
+}
+
+html {
+	font-size: 62.5%;
+	/*root font size for REM,   
+	it's going to be 62.5% of 16 px (so 10)
+	16 px is the default font-size of browsers,
+	and we do this in % because we don't want to hardcode the font-size 
+	so that users can change it if they want in the browser settings */
+
+	//////////////old media query ////
+	// @include respond-phone {
+	// 	font-size: 50%;
+	// }
+	//////////////////////////////
+
+	// this media query is useless because we already have one that sets it 50%
+	// @include respond(phone) {
+	// 	font-size: 50%;
+	// }
+
+	@include respond(tab-land) {
+		// width < 1200 ?
+		font-size: 56.25%; // 1rem = 9px, 9/16 = 56.25%
+	}
+	@include respond(tab-port) {
+		// width < 900 ?
+		font-size: 50%; // 1rem = 8px, 8/16 = 50%
+	}
+	@include respond(big-desktop) {
+		// width > 1800 ?
+		font-size: 75%; // 1rem = 12px, 12/16 = 75%
+	}
+}
+
+body {
+	box-sizing: border-box;
+	padding: 3rem;
+	@include respond(tab-port) {
+		padding: 0;
+	}
+}
+
+::selection {
+	background-color: $color-primary;
+	color: $color-white;
+}

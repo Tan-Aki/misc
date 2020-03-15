@@ -1,0 +1,110 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.container {
+	background-color: #ccc;
+	padding: 10px;
+	height: 1000px;
+	display: flex;
+
+	/* justify-content -- main axis
+    align-items -- cross axis */
+
+	/* flex-direction: column;
+	flex-direction: column-reverse;
+    flex-direction: row-reverse;   
+	flex-direction: row; */
+
+	justify-content: space-between;
+	/* no space at the beginning and at the end */
+	justify-content: space-around;
+	/* space left and right is the same */
+	justify-content: space-evenly;
+	/* almost same as above */
+	justify-content: flex-start;
+	/* default */
+	justify-content: center;
+	/* center content of container  */
+
+	align-items: stretch;
+	/*matches the size of the highest element */
+	align-items: center;
+	/*highest element is centered in regards to other items */
+	align-items: flex-start;
+	/* all the element start top aligned */
+	align-items: flex-end;
+	/* all the element start bottom aligned */
+	align-items: baseline;
+	/* all the elements are aligned in regards to text */
+
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+
+	flex-wrap: wrap;
+
+	align-content: flex-start;
+	/* align the rows across the cross axis inside the container, wether we want all the rows to start at the beginning of the container or at the end */
+	align-content: space-around;
+	align-content: space-between;
+}
+
+.item {
+	background-color: #f1425d;
+	padding: 30px;
+	margin: 5px;
+	color: #fff;
+	font-size: 40px;
+
+	/* flex-grow: 1;  */
+	/*  items will occupy as much space as possible on the main axis */
+}
+
+.i2 {
+	height: 200px;
+
+	/* flex-grow: 2; */
+	/* in comparison to the other flex-grow, if some other flex-grow is set to 1, this will be double the size */
+	/* If no other item as the flex-grow property, this item will take all the rest of the space */
+
+	flex-basis: 20%;
+	/* Item will occupy 20% of the main axis to the extent possible */
+	flex-basis: 300px;
+	/* Item will occupy 300px of the main axis to the extent possible */
+
+	flex-shrink: 1;
+	/* element is allowed to shrink */
+
+	flex-shrink: 0;
+	/* element is NOT allowed to shrink */
+
+	flex: 0 1 300px;
+	/* same as 
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: 300px; */
+}
+
+.i3 {
+	/* order: -2; */
+	order: 1;
+	flex-grow: 2;
+}
+
+.i4 {
+	align-self: flex-start;
+	align-self: stretch;
+	align-self: flex-end;
+
+	/* align-self: flex-end; */
+
+	order: -1;
+}
+
+.i5 {
+	font-size: 100px;
+	/* align-self: baseline; */
+}

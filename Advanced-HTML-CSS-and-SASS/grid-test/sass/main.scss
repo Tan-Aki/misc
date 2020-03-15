@@ -1,0 +1,363 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+.container-demo {
+	background-color: #eee;
+	width: 1000px;
+	margin: 30px auto;
+
+	display: grid;
+
+	grid-template-rows: 150px 150px;
+	//we define the height of our rows, so here, two rows
+	grid-template-rows: repeat(2, 150px);
+	// we can also use repeat, see above
+
+	grid-template-columns: 150px 150px 150px;
+	// we define the width of our columns, here 3 columns
+	grid-template-columns: repeat(3, 150px);
+	// we can also use repeat, see above
+
+	grid-template-columns: repeat(2, 150px) 360px;
+	// 2 columns 150px, 1 column 360px
+	grid-template-columns: repeat(2, 150px) 1fr;
+	// 2 columns 150px, 1 fractional unit ( a fraction of the available space)
+	//the last column will grow to the end of container
+	grid-template-columns: repeat(3, 1fr);
+	// 3 columns, all the same size
+	grid-template-columns: 1fr 2fr 1fr;
+	// 3 columns, the second column will be twice the size of the other columns
+	grid-template-columns: 50% 2fr 1fr;
+	// 3 columns,
+	// first column is 50% of container
+	// the second column will be 2/3 of the remaining available space
+	// the third column will be 1/3 of the remaining available space
+	// PERCENTAGE DOESN'T TAKE INTO ACCOUNT THE GAP, THE FRACTIONAL UNITS DO
+
+	// grid-template-rows: 1fr 2fr;
+	// THE FRACTIONAL UNITS (FR) WORK WITH HEIGHT OF ROWS AS WELL;
+
+	grid-template-columns: repeat(3, 1fr);
+
+	row-gap: 30px;
+	// adds a gap between all rows
+
+	column-gap: 30px;
+	// adds a gap between all columns
+
+	grid-gap: 30px;
+	// adds a 30px gap between all rows and all columns
+
+	grid-auto-rows: 80px;
+	// height of rows of implicit grid
+	grid-auto-columns: .5fr;
+
+	grid-auto-flow: column;
+	// by default is set to "row"
+	// fills the grid with columns first
+	// is used by the implicit grid
+	grid-auto-flow: column dense;
+	// to force the grid to fill up all empty spaces
+
+	align-items: strech;
+	align-items: center;
+	align-items: end;
+	align-items: start;
+	// aligns elements vertically inside their cells or inside a span
+	//default is stretch;
+
+	justify-items: strech;
+	justify-items: center;
+	justify-items: end;
+	justify-items: start;
+	// aligns elements horizontally inside their cells or inside a span
+	//default is stretch;
+
+	justify-content: center;
+	justify-content: start;
+	justify-content: end;
+	justify-content: space-between;
+	justify-content: space-around;
+	justify-content: space-evenly;
+	// aligns grid tracks horizontally inside grid container
+
+	align-content: center;
+	align-content: start;
+	align-content: end;
+	align-content: space-between;
+	align-content: space-around;
+	align-content: space-evenly;
+	// aligns grid tracks vertically inside grid container
+}
+
+.item-demo {
+	padding: 20px;
+	font-size: 30px;
+	font-family: sans-serif;
+	color: #fff;
+
+	&--1 {
+		background-color: orangered;
+
+		grid-row-start: 2;
+		grid-row-end: 3;
+		grid-column-start: 2;
+		grid-column-end: 3;
+		//to place your item where you want on the grid in a cell
+
+		grid-row: 2 / 3;
+		grid-column: 2 / 3;
+		// same as above
+
+		grid-row: 2 / 3;
+		grid-column: 2 / 4;
+		// will span the element on two columns
+
+		grid-row: 2 / 3;
+		grid-column: 2 / 3;
+
+		z-index: 1;
+		// if other element has a lower z-index,
+		// this elemeent will be on top on the other element already there if any
+	}
+	&--2 {
+		background-color: green;
+
+		grid-column: 1 / span 2;
+		// another way of spanning
+
+		grid-column: 1 / -1;
+		// spans all the way until the end of the EXPLICIT GRID
+	}
+	&--3 {
+		background-color: violet;
+
+		grid-column: 1/ 3;
+		// will span on the columns where it finds space on the rows
+		// can go on the "implicit row underneath if needed"
+
+		grid-row: 2/3;
+		grid-column: 1/ 3;
+		// if explicitely specified, it will hide the other element already sitting there
+	}
+	&--4 {
+		background-color: pink;
+		align-self: center;
+		// same as in flexbox, to override the align-items
+		justify-self: center;
+		// same as in flexbox, to override the align-items
+	}
+	&--5 {
+		background-color: blue;
+		grid-row: 1 / 2;
+		grid-column: 3 / 4;
+
+		grid-area: 1 / 3 / 2 / 4;
+		// same as above
+	}
+	&--6 {
+		background-color: brown;
+		grid-row: 1 / 2;
+		grid-column: 2 / 3;
+	}
+}
+
+/////////////////////////// METHOD 1 : LINE NUMBERS
+.challenge {
+	display: grid;
+
+	background-color: #eee;
+	width: 90%;
+	margin: 30px auto;
+
+	grid-template-columns: repeat(3, 1fr) 25%;
+	grid-template-rows: 1fr 2fr 4fr 1fr;
+
+	grid-gap: 15px;
+}
+
+.item {
+	padding: 20px;
+	font-size: 30px;
+	font-family: sans-serif;
+	color: #fff;
+	background-color: red;
+}
+
+.header {
+	grid-column: 1 / -1;
+}
+
+.main {
+	grid-column: 1 / -2;
+}
+
+.sidebar {
+	grid-row: 2 / -2;
+	grid-column: 4/5;
+}
+
+.footer {
+	grid-column: 1 / -1;
+}
+
+//////////////////// METHOD 2 : LINE NAMES
+.challenge {
+	display: grid;
+
+	background-color: #eee;
+	width: 90%;
+	margin: 30px auto;
+
+	grid-template-rows: [header-start] 100% [header-end box-start] 2fr [box-end main-start] 4fr
+		[main-end footer-start] 1fr [footer-end];
+	grid-template-columns: repeat(3, [col-start] 1fr [col-end]) 25% [grid-end];
+
+	grid-gap: 15px;
+}
+
+.item {
+	padding: 20px;
+	font-size: 30px;
+	font-family: sans-serif;
+	color: #fff;
+	background-color: red;
+}
+
+.header {
+	grid-column: col-start 1 / grid-end;
+}
+
+.main {
+	grid-column: col-start 1 / col-end 3;
+}
+
+.sidebar {
+	grid-row: box-start / main-end;
+	grid-column: col-end 3 / grid-end;
+}
+
+.footer {
+	grid-column: col-start 1 / grid-end;
+}
+
+//////////////////// METHOD 3 : GRID AREA NAMES
+
+.challenge {
+	display: grid;
+
+	background-color: #eee;
+	width: 90%;
+	margin: 30px auto;
+
+	grid-template-columns: repeat(3, 1fr) 25%;
+	grid-template-rows: 1fr 2fr 4fr 1fr;
+
+	grid-gap: 15px;
+
+	//prettier-ignore
+	grid-template-areas : "head head head ."
+						  "box-1 box-2 box-3 side"
+						  "main main main side"
+						  "foot foot foot foot";
+
+	// you can put a . instead of a name to get and empty cell
+}
+
+.item {
+	padding: 20px;
+	font-size: 30px;
+	font-family: sans-serif;
+	color: #fff;
+	background-color: red;
+}
+
+.header {
+	grid-area: head;
+}
+
+.main {
+	grid-area: main;
+}
+
+.small-box-1 {
+	grid-area: box-1;
+}
+.small-box-2 {
+	grid-area: box-2;
+}
+.small-box-3 {
+	grid-area: box-3;
+}
+
+.sidebar {
+	grid-area: side;
+}
+
+.footer {
+	grid-area: foot;
+}
+
+.container-demo-2 {
+	background-color: #eee;
+	width: 1000px;
+	margin: 30px auto;
+
+	display: grid;
+	// grid-template-rows: repeat(2, 150px);
+	grid-template-columns: max-content 1fr 1fr min-content;
+	// auto is almot equal to min-content
+
+	// grid-template-rows: repeat(2, min-content);
+	// grid-template-rows: 150px min-content;
+	grid-template-rows: repeat(2, minmax(150px, min-content));
+
+	// max-content, no line breaks, as large as possible
+	// min-content, as small as possible
+
+	//minmax function : minimum and maximum width of cell
+
+	grid-template-columns: repeat(auto-fill, 100px);
+	// creates as many tracks as fits inside the container;
+	grid-template-columns: repeat(auto-fit, 100px);
+	// create the exact number of tracks needed that fit inside the container
+	grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+	// TRICK
+	// create the exact number of tracks needed that fit inside the container,
+	// streches them if needed to fill the entire container
+	// cells will start relocating by themselves at the bottom
+}
+
+.item-demo-2 {
+	padding: 20px;
+	font-size: 30px;
+	font-family: sans-serif;
+	color: #fff;
+
+	&--1 {
+		background-color: orangered;
+	}
+	&--2 {
+		background-color: green;
+	}
+	&--3 {
+		background-color: violet;
+	}
+	&--4 {
+		background-color: pink;
+	}
+	&--5 {
+		background-color: blue;
+	}
+	&--6 {
+		background-color: brown;
+	}
+	&--7 {
+		background-color: yellow;
+	}
+	&--8 {
+		background-color: teal;
+	}
+}

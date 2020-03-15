@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+  </head>
+
+  <body>
+    <h1>Hello Plunker!</h1>
+    <article id='article1' class='my-custom-class'>
+        <h3> Title of the article</h3>
+        <p>Paragraph 1</p>
+        <!-- <p class='special' onmouseover="alert('mouse over !')">Paragraph 2</p> -->
+        <p class='special'>Paragraph 3</p>
+    </article>
+    <ul>
+
+        <li><input type='button'  value='submit 1' onclick="alert('foo')"/> </li>
+        <li><input type='button' value='submit 2'  onclick="submitForm()"/> </li>
+        <li><input type='button' value='submit 3' id='my-submit-button-3' onclick="submitForm3(this)"/> </li>
+        <li><input type='button' value='submit 4' id='my-submit-button-4' onclick="submitForm4(this,event)"/> </li>
+        <li><input type='button' value='submit 5' id='my-submit-button-5'/> </li>
+
+    </ul>
+  </body>
+
+    <script>     
+        let submitForm = () => {
+            alert('submitted');
+        } 
+        let submitForm3 = (element) => {
+            console.log(element.id);
+        } 
+        let submitForm4 = (element) => {
+            console.log(event.type);
+        } 
+        
+        var button = document.getElementById('my-submit-button-5');
+
+        button.onclick = () => {
+            console.log('button Clicked')
+        }
+        button.onclick = null; // we wipe our event handler, so button.onclick reçoit 
+        
+    </script>
+
+</html>  
+
+
+

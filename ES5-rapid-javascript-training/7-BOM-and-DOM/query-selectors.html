@@ -1,0 +1,38 @@
+
+
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+  </head>
+
+  <body>
+    <h1>Hello Plunker!</h1>
+    <article id='article1' class='my-custom-class'>
+        <h3> Title of the article</h3>
+        <p>Paragraph 1</p>
+        <p class='special'>Paragraph 2</p>
+        <p class='special'>Paragraph 3</p>
+    </article>
+  </body>
+
+    <script>     
+        var element = document.querySelector('article');  // 
+        console.log(element);
+        var element2 = document.querySelector('#article1');  // 
+        console.log(element2);
+        
+        var element3 = document.querySelector('.special');  // will return the first .special element
+        console.log(element3);
+
+        var elements = document.querySelectorAll('.special');  // will return the first .special element
+        console.log(elements);
+        
+    </script>
+
+</html>  
+
+
+

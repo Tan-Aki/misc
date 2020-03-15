@@ -1,0 +1,38 @@
+
+
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <script>     
+    console.log(window.screenLeft + ', ' + window.screenTop);
+    console.log(window.innerWidth + ', ' + window.outerWidth);
+    window.open('https://www.facebook.com', '_blank');
+    console.log(new Date().getSeconds());
+    
+    
+    var id = setTimeout (() => {    // can be window.setTimeout
+        console.log(new Date().getSeconds());
+    }, 1000);
+    clearTimeout(id); // si on veut clear le time out, cad empecher que la fonction dans le timeout s'execute avant la fin du délai
+    
+    
+    var id = setInterval (() => {    // intervals auxquels effectuer la fonction
+        var secs = new Date().getSeconds();
+        console.log(secs);
+        if (secs === 10)
+          clearInterval(id);
+    }, 1000);
+
+    </script>
+  </head>
+
+  <body>
+    <h1>Hello Plunker!</h1>
+  </body>
+
+</html>  
+
+
+

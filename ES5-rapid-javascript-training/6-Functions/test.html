@@ -1,0 +1,63 @@
+
+
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <script>
+      var Human = function (){
+        this.name = "toto";
+      }
+      var toto = new Human();
+      console.log (toto.__proto__.__proto__ === Object.prototype);
+      console.log (typeof Object.prototype);
+
+
+
+//       let toto2 = new Object();
+
+//       toto2.name = 'Cam';
+//       toto2.age = 16;
+
+
+//       let Toto = function(name,age){
+//         this.name = name;
+//         this.age = age;
+//       }
+
+// //     Toto.prototype.getName = function (){
+// //     return this.name;
+// // }
+
+
+//       let toto4 = new Toto('Tan', 27);
+
+
+//       // var Human = function (name, age) {
+//       //     this.name = name;
+//       //     this.age = age;
+//       // }
+//       // Human.prototype.getName = function () {
+//       //     return this.name;
+//       // } ;
+
+      
+//       // var tan = new Human('Tan', '27');
+//       // // tan.__proto__.sex = 'M';
+//       // console.log ( tan.name, tan.age, tan.sex);
+//       // console.log(tan.getName());
+//       // console.log (tan.__proto__.__proto__ === Object.prototype);
+//       // console.log (Human.prototype.__proto__ === Object.prototype);
+    
+    </script>
+  </head>
+
+  <body>
+    <h1>Hello Plunker!</h1>
+  </body>
+
+</html>  
+
+
+

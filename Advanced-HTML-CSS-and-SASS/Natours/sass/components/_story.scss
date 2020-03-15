@@ -1,0 +1,89 @@
+.story {
+	width: 75%;
+	margin: 0 auto;
+
+	// background-color: orangered;
+	background-color: rgba($color-white, .6);
+	box-shadow: 0 3rem 6rem rgba($color-black, .1);
+	border-radius: 3px;
+	padding: 6rem;
+	padding-left: 9rem;
+	font-size: $default-font-size;
+	transform: skewX(-12deg);
+
+	// & > * {
+	// 	transform: skewx(12deg);
+	// }
+
+	// above is all child elements, but doesnt work here because the __shape child already have a transform
+	// so we need to do it manually in each child element
+
+	@include respond(tab-port) {
+		width: 100%;
+		padding: 4rem;
+		padding-left: 7rem;
+	}
+
+	@include respond(phone) {
+		transform: skewX(0);
+	}
+
+	&__shape {
+		width: 15rem;
+		height: 15rem;
+		float: left;
+		position: relative;
+
+		-webkit-shape-outside: circle(50% at 50% 50%);
+		// defines where the content floats around the element
+		shape-outside: circle(50% at 50% 50%);
+
+		-webkit-clip-path: circle(50% at 50% 50%);
+		// clip-path to indicate which part of the element should be shown, here a circle
+		clip-path: circle(50% at 50% 50%);
+
+		transform: translateX(-3rem) skewX(12deg);
+
+		@include respond(phone) {
+			transform: translateX(-3rem) skewX(0);
+		}
+	}
+
+	&__img {
+		height: 100%;
+		transform: translateX(-4rem) scale(1.4);
+		backface-visibility: hidden;
+		transition: all .5s;
+	}
+
+	&__text {
+		transform: skewX(12deg);
+
+		@include respond(phone) {
+			transform: translateX(0) skewX(0);
+		}
+	}
+
+	&__caption {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, 20%);
+		color: $color-white;
+		text-transform: uppercase;
+		font-size: 1.7rem;
+		opacity: 0;
+		transition: all .5s;
+		backface-visibility: hidden; // fix small shaking glitch at the end of the animation
+	}
+
+	&:hover &__caption {
+		opacity: 1;
+		transform: translate(-50%, -50%);
+	}
+
+	&:hover &__img {
+		transform: translateX(-4rem) scale(1);
+		filter: blur(3px) brightness(80%); // lots and lots different options
+	}
+}
