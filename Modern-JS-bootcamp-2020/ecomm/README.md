@@ -7,6 +7,8 @@
 
 ## Here are the different routes : 
 
+<pre>
+
 - http://localhost:3000
 - http://localhost:3000/cart  (items need to be added to the cart first)
 
@@ -15,6 +17,8 @@
 
 - http://localhost:3000/admin/products
 - http://localhost:3000/admin/products/new
+
+</pre>
 
 
 
