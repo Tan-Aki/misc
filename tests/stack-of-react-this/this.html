@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="btn-arr">Log this Arr</button>
+    <button class="btn-reg">Log this Reg</button>
+
+    <script>
+
+        class App {
+            logThisArr = () => {
+                console.log('Arr : ', this);
+            };
+            logThisReg = function () {
+                console.log('Reg : ', this);
+            };
+        }
+
+        const app = new App();
+
+        app.logThisArr();
+        // Arr :  App
+        // logThisArr: () => {…}
+        // logThisReg: ƒ ()
+        // __proto__: Object
+        app.logThisReg();
+        // Arr :  App
+        // logThisArr: () => {…}
+        // logThisReg: ƒ ()
+        // __proto__: Object
+
+        const btnArr = document.querySelector('.btn-arr');
+        const btnReg = document.querySelector('.btn-reg');
+
+        btnArr.addEventListener('click', app.logThisArr); // Arr : App {logThisArr: ƒ, logThisReg: ƒ}
+
+        btnReg.addEventListener('click', app.logThisReg); // Reg : <button class="btn-reg">Log this Reg</button>
+
+    </script>
+</body>
+
+</html>
