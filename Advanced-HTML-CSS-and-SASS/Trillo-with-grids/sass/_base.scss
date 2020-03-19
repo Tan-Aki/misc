@@ -1,0 +1,145 @@
+:root {
+  --c-prim: #eb2f64;
+  --c-prim-light: #ff3366;
+  --c-prim-dark: #ba265d;
+
+  --c-grey-light-1: #faf9f9;
+  --c-grey-light-2: #f4f2f2;
+  --c-grey-light-3: #f0eeee;
+  --c-grey-light-4: #ccc;
+
+  --c-grey-dark-1: #333;
+  --c-grey-dark-2: #777;
+  --c-grey-dark-3: #999;
+
+  --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+  --shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.1);
+
+  --line: 1px solid var(--c-grey-light-2);
+}
+
+// responsive breakpoints
+$bp-largest: 75em; // 1200 px    1200/16
+$bp-large: 62.5em; // 1000 px    1000/16
+$bp-medium: 50em; // 800 px
+$bp-small: 37.5em; // 600 px
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  // The box-sizing property allows us to include the padding and border in an element's total width and height.
+  font-size: 62.5%; // 10px
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  //   color: var(--c-grey-dark-2);
+  color: #333;
+  background-image: linear-gradient(to right bottom, var(--c-prim-light), var(--c-prim-dark));
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+.container {
+  margin: 5rem;
+  background-color: #fff;
+
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: minmax((100px, auto));
+
+  & > * {
+    padding: 3rem;
+    background-color: olive;
+    border: solid 1px #333;
+  }
+}
+
+.header {
+  grid-column: 1 / -1;
+}
+
+.sidebar {
+  grid-row: 2 / 4;
+}
+
+.main {
+  grid-column: 2 / -1;
+}
+
+.footer {
+  grid-column: 2 / -1;
+}
+.gallery {
+}
+
+.overview {
+}
+
+.content {
+}
+
+.reviews {
+}
+
+.review {
+  &__text {
+  }
+
+  &__user {
+  }
+
+  &__photo {
+  }
+
+  &__user-box {
+  }
+  &__user-name {
+  }
+  &__user-date {
+  }
+  &__user-rating {
+  }
+}
+
+.cta {
+}
+
+// .container {
+//   display: grid;
+//   grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+//   // grid-template-rows: repeat(6, auto);
+
+//   grid-template-columns:
+//     [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr)
+//     [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end]
+//     minmax(6rem, 1fr) [full-end];
+//   // we use the 1fr trick on each side of the grid, so that the other tracks are "centered"
+
+//   @media only screen and (max-width: $bp-large) {
+//     grid-template-rows: 6rem 80vh min-content 40vw repeat(3, min-content);
+
+//     grid-template-columns:
+//       [full-start] minmax(6rem, 1fr) [center-start]
+//       repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end]
+//       minmax(6rem, 1fr) [full-end];
+//   }
+
+//   @media only screen and (max-width: $bp-medium) {
+//     grid-template-rows: 6rem calc(100vh - 6rem);
+
+//     // same as above
+//     // grid-template-rows: 6rem calc(100vh - 6rem) min-content min-content min-content
+//     // 	repeat(3, min-content);
+//   }
+// }

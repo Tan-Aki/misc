@@ -6,19 +6,17 @@
 
 // Then we can start looking at the behavior of "this" in regular and arrow functions.
 
-// In regular fonctions :
+// Inside regular fonctions :
 
-// The "this" value changes depending on the "execution context", in other words, the "this" is a reference to who or what called it (usually an object).
-// If "nothing" called it, then the "this" has a default value ( that is also dependent on whether we are in node, or a browser, or using a library(not sure for the library but I think?) )
+// The "this" value changes depending on the "execution context", in other words, the "this" is a reference to who or what called it (usually an object, I.E. a button object or a class instantiated object).
+// If "nothing" called it(especially the case with callbacks), then, the "this" looses its reference to the initial object that called it and is set to a default value ( that default value is dependent on whether we are in node, or a browser, or in strict mode or using a library(not sure for the library but I think?) )
 // The "this" value can be explicitly specified with "call()","apply()" and "bind()".
-// The "this" value can loose its reference to the object that called it(especially the case in callback functions) and then gets set to the default value
-
-// In arrow functions :
+// Inside arrow functions :
 
 // The arrow function doesn't have its own "execution context"
-// The "this" keyword permanently represents the object that defined the arrow function (="enclosing lexical scope").In other words, once it has been defined ( = authored) the value of "this" ALWAYS stays the same.
+// The arrow function binds the context statically on the declaration, in other words, the value of "this" is "captured" PERMANENTLY and it ALMOST ALWAYS refers to the value of "this" of the "parent/enclosing lexical scope" of the function (=the parent context).
 // The "this" value can never be rebinded. But the other parameters inside the arrow function can them be rebinded with the "bind()" keyword.
-
+// In the special case of defining methods with arrow functions in objects literal, the "this" refers to the "this" value of the "parent of the parent (x2) lexical scope" of the function : https://dmitripavlutin.com/when-not-to-use-arrow-functions-in-javascript/
 // That's why in react the use of arrow functions or the use of ".bind()" is necessary, because we cannot rely on regular fonctions ( in which the "this" keeps changing) to access the attributes of our instantiated object of App class.
 
 // In our specific case, as of why do I get "undefined" when using the regular fonction in the react code, TBT I'm not exactly sure (maybe because of react internal shenanigans) but I can guess it's because of two things :
@@ -27,13 +25,45 @@
 // In ES6 classes, the default implicit setting is set to "strict mode", thus we get "undefined".
 // Anyways, this is not exhaustive, and I havent understood everything yet, but I now understand a bit better why we need to bind/use arrow fonctions in React and how they work.
 
-// This really helped me get to the bottom of things : - https://blog.bitsrc.io/what-is-this-in-javascript-3b03480514a7
+// These really helped me get to the bottom of things :
 
+// https://blog.bitsrc.io/what-is-this-in-javascript-3b03480514a7
+// https://www.freecodecamp.org/news/the-magic-of-the-this-keyword-in-javascript-ce3ce571013e/
+// https://medium.com/free-code-camp/learn-es6-the-dope-way-part-ii-arrow-functions-and-the-this-keyword-381ac7a32881#.59q9th108
 // And also the link mentionned by @brian Thomoson : How to access the correct `this` inside a callback?
 
 // Thank you guys.
 
 // Regards,
+
+var bunny = {
+  name: "Usagi",
+  tasks: ["transform", "eat cake", "blow kisses"],
+  showTasks: function() {
+    console.log(this);
+    // this.tasks.forEach(function(task) {
+    //   alert(this.name + " wants to " + task);
+    // });
+  },
+  showTasks2: () => {
+    console.log(this);
+    // this.tasks.forEach(function(task) {
+    //   alert(this.name + " wants to " + task);
+    // });
+  }
+};
+
+bunny.showTasks();
+//  name: 'Usagi',
+// tasks: [ 'transform', 'eat cake', 'blow kisses' ],
+// showTasks: [Function: showTasks],
+// showTasks2: [Function: showTasks2]
+// }
+
+bunny.showTasks2();
+// {}
+
+// In the special case of defining methods with arrow functions in objects literal, the "this" refers to the "this" value of the "parent of the parent (x2) lexical scope" of the function.
 
 console.log("\n" + "////////////////////////////////////////////////////////////////////" + "\n");
 
@@ -42,6 +72,7 @@ console.log(this === global);
 
 console.log(this);
 // {}
+
 // Because NodeJS runs your code in a module, and this references the object it creates for your module's exports
 
 console.log("\n" + "////////////////////////////////////////////////////////////////////" + "\n");
@@ -54,6 +85,16 @@ console.log("\n" + "////////////////////////////////////////////////////////////
   console.log(this);
   // global
   // this is "undefined" when in strict mode
+})();
+
+const test2 = (() => {
+  console.log(this === global);
+  // false
+
+  console.log(this);
+  // {}
+  // Because NodeJS runs your code in a module, and this references the object it creates for your module's exports
+  // and because the this in arrow functions is always equal to the instantiated object of the parent lexical scope
 })();
 
 console.log("\n" + "////////////////////////////////////////////////////////////////////" + "\n");
@@ -225,6 +266,7 @@ counter2.increase();
 const counter3 = {
   count: 0,
   increase() {
+    console.log(this);
     setInterval(() => {
       console.log(++this.count);
     }, 1000);
@@ -232,6 +274,7 @@ const counter3 = {
 };
 
 counter3.increase();
+// { count: 0, increase: [Function: increase] }
 // 1 2 3 4 5 ....
 
 console.log("\n" + "////////////////////////////////////////////////////////////////////" + "\n");
