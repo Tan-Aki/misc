@@ -37,58 +37,108 @@ body {
     border: solid 1px #333;
     font-size: 1.6rem; }
 
-.container {
+.main {
   display: grid;
-  margin-top: 10rem;
-  grid-template-columns: 15rem repeat(11, minmax(min-content, 1fr));
-  grid-auto-rows: minmax(10rem, auto); }
+  margin-top: 7rem;
+  grid-template-columns: 15rem repeat(11, minmax(min-content, 1fr)); }
+  .main > * {
+    border: solid 1px #333;
+    font-size: 1.6rem; }
+  @media only screen and (max-width: 50em) {
+    .main {
+      grid-template-columns: repeat(12, minmax(min-content, 1fr));
+      margin-top: 5rem; } }
 
 .header {
   grid-column: 1 / -1;
-  padding: 3rem;
+  padding: 1.5rem;
   position: fixed;
   width: 100%;
-  height: 10rem;
+  height: 7rem;
   top: 0px;
-  background-image: linear-gradient(to right bottom, olive, #556b2f); }
+  background-image: linear-gradient(to right bottom, olive, #556b2f);
+  display: flex;
+  align-items: center; }
+  @media only screen and (max-width: 50em) {
+    .header {
+      height: 5rem;
+      padding: 0.5rem;
+      padding-left: 1rem; } }
+  .header h1 {
+    margin-left: 2rem; }
 
 .sidebar {
   position: fixed;
-  padding: 3rem;
-  margin-top: 10rem;
+  margin-top: 7rem;
   width: 15rem;
   height: 100%;
   display: inline-block;
-  top: 0px; }
+  top: 0px;
+  background-image: linear-gradient(to right bottom, olive, #556b2f); }
+  @media only screen and (max-width: 50em) {
+    .sidebar {
+      display: none;
+      margin-top: 5rem; } }
 
-.main {
-  grid-column: 2 / -1; }
-  .main > * {
-    border: solid 1px #333; }
+.nav-btn {
+  border: none;
+  border-radius: 0;
+  background-color: #333;
+  height: 2px;
+  width: 3rem; }
+  .nav-btn::before, .nav-btn::after {
+    background-color: #333;
+    height: 2px;
+    width: 3rem;
+    content: "";
+    display: block; }
+  .nav-btn::before {
+    transform: translateY(-1rem); }
+  .nav-btn::after {
+    transform: translateY(1rem); }
 
 .footer {
   margin-left: 15rem;
   padding: 3rem; }
+  @media only screen and (max-width: 50em) {
+    .footer {
+      margin-left: 0rem; } }
 
 .gallery {
+  grid-column: 2 / -1;
   display: flex; }
   .gallery__item {
     width: 33.3333%; }
   .gallery__photo {
     width: 100%;
     display: block; }
+  @media only screen and (max-width: 50em) {
+    .gallery {
+      grid-column: 1 / -1; } }
 
 .overview {
+  grid-column: 2 / -1;
   padding: 1.5rem; }
+  @media only screen and (max-width: 50em) {
+    .overview {
+      grid-column: 1 / -1; } }
 
 .content {
-  margin-top: 1.5rem;
-  margin-left: 1.5rem;
+  grid-column: 2 / -1;
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-gap: 3rem; }
   .content > * {
     border: solid 1px #333; }
+  @media only screen and (max-width: 62.5em) {
+    .content {
+      grid-template-columns: auto; } }
+  @media only screen and (max-width: 50em) {
+    .content {
+      grid-column: 1 / -1; } }
+
+.description {
+  padding: 1.5rem; }
 
 .reviews {
   display: grid;
@@ -97,10 +147,45 @@ body {
   align-items: center; }
   .reviews > * {
     border: solid 1px #333; }
+  @media only screen and (max-width: 62.5em) {
+    .reviews {
+      grid-template-rows: auto;
+      grid-auto-rows: minmax(8rem, min-content);
+      grid-template-columns: repeat(auto-fit, minmax(29rem, 1fr)); } }
 
 .btn-inline {
   justify-self: center;
   padding: 1rem; }
+  @media only screen and (max-width: 62.5em) {
+    .btn-inline {
+      grid-column: 1 / -1; } }
+
+.review {
+  padding: 1.5rem; }
+
+.side-nav {
+  font-size: 1.4rem;
+  list-style: none;
+  margin-top: 2rem; }
+  .side-nav__item:hover {
+    background-color: var(--c-prim-light); }
+  .side-nav__link:link, .side-nav__link:visited {
+    color: inherit;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center; }
+  .side-nav__icon {
+    height: 1.75rem;
+    width: 1.75rem;
+    margin-right: 1rem;
+    fill: currentColor; }
 
 .cta {
+  grid-column: 2 / -1;
   padding: 3rem; }
+  @media only screen and (max-width: 50em) {
+    .cta {
+      grid-column: 1 / -1; } }
