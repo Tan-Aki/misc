@@ -15,21 +15,44 @@
 
 <body>
 
+    <header class="header">
+        <h1>Header</h1>
+    </header>
+    <nav class="sidebar"> Sidebar</nav>
+
+
     <div class="container">
-        <header class="header"> Header </header>
-        <nav class="sidebar"> Sidebar</nav>
         <main class="main">
             <section class="gallery">
-                Gallery
+                <figure class="gallery__item">
+                    <img src="img/hotel-1.jpg" alt="Photo of hotel 1" class="gallery__photo">
+                </figure>
+                <figure class="gallery__item">
+                    <img src="img/hotel-2.jpg" alt="Photo of hotel 2" class="gallery__photo">
+                </figure>
+                <figure class="gallery__item">
+                    <img src="img/hotel-3.jpg" alt="Photo of hotel 3" class="gallery__photo">
+                </figure>
             </section>
             <section class="overview">
-                Overview
+                <h2>Hotel Blablalbla</h2>
             </section>
             <section class="content">
                 <div class="description">
-                    Description
+
+                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam alias accusamus sapiente sequi,
+                        quidem, vero suscipit odit voluptatibus quis atque dolorem vitae in ipsum quasi eligendi quae
+                        sit
+                        quibusdam repellat!
+                    </p>
+                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam alias accusamus sapiente sequi,
+                        quidem, vero suscipit odit voluptatibus quis atque dolorem vitae in ipsum quasi eligendi quae
+                        sit
+                        quibusdam repellat!
+                    </p>
                 </div>
                 <div class="reviews">
+
 
                     <figure class="review">
                         <blockquote class="review__text">
@@ -67,29 +90,24 @@
 
                 </div>
 
-                <div class="cta">
-                    <h2 class="cta__book-now">
-                        Good news! We have 4 free rooms for your selected dates !
-                    </h2>
-                    <button class="btn">
-                        <span class="btn__visible">Book now</span>
-                        <span class="btn__invisible">Only 4 rooms left</span>
-
-                    </button>
-
-                </div>
-
             </section>
 
+            <div class="cta">
+                <h2 class="cta__book-now">
+                    Good news! We have 4 free rooms for your selected dates !
+                </h2>
+                <button class="btn">
+                    <span class="btn__visible">Book now</span>
+                    <span class="btn__invisible">Only 4 rooms left</span>
+
+                </button>
+
+            </div>
 
 
         </main>
-        <footer class="footer"> random footer </footer>
-
-
-
-
     </div>
+    <footer class="footer"> random footer </footer>
 
 </body>
 
