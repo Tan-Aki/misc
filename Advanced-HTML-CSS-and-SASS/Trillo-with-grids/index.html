@@ -166,6 +166,18 @@
 
         })
 
+        function myFunction(mq) {
+            if (mq.matches) { // If media query matches
+                sidebar.style.display = "none";
+            } else {
+                sidebar.style.display = "inline-block";
+            }
+        }
+
+        myFunction(mq) // Call listener function at run time
+        mq.addListener(myFunction) // Attach listener function on state changes
+
+
     </script>
 
 </body>
