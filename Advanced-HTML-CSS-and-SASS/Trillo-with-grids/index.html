@@ -15,162 +15,228 @@
 
 <body>
 
+
+
+
+
     <header class="header">
 
-        <button class="nav-btn"></button>
+        <div class="nav-btn">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
         <h1>Header</h1>
     </header>
-    <nav class="sidebar">
-        <ul class="side-nav">
-            <li class="side-nav__item side-nav__item--active">
-                <a href="#" class="side-nav__link">
-                    <svg class="side-nav__icon">
-                        <use xlink:href="img/sprite.svg#icon-home"></use>
-                    </svg>
-                    <span>Hotel</span>
-                </a>
-            </li>
-            <li class="side-nav__item">
-                <a href="#" class="side-nav__link">
-                    <svg class="side-nav__icon">
-                        <use xlink:href="img/sprite.svg#icon-aircraft-take-off"></use>
-                    </svg>
-                    <span>Flight</span>
-                </a>
-            </li>
-            <li class="side-nav__item">
-                <a href="#" class="side-nav__link">
-                    <svg class="side-nav__icon">
-                        <use xlink:href="img/sprite.svg#icon-key"></use>
-                    </svg>
-                    <span>Car rental</span>
-                </a>
-            </li>
-            <li class="side-nav__item">
-                <a href="#" class="side-nav__link">
-                    <svg class="side-nav__icon">
-                        <use xlink:href="img/sprite.svg#icon-map"></use>
-                    </svg>
-                    <span>Tours</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
 
+    <div class="container-grid-frame">
 
-
-    <main class="main">
-        <section class="gallery">
-            <figure class="gallery__item">
-                <img src="img/hotel-1.jpg" alt="Photo of hotel 1" class="gallery__photo">
-            </figure>
-            <figure class="gallery__item">
-                <img src="img/hotel-2.jpg" alt="Photo of hotel 2" class="gallery__photo">
-            </figure>
-            <figure class="gallery__item">
-                <img src="img/hotel-3.jpg" alt="Photo of hotel 3" class="gallery__photo">
-            </figure>
-        </section>
-        <section class="overview">
-            <h2>Hotel Blablalbla</h2>
-        </section>
-        <section class="content">
-            <div class="description">
-
-                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam alias accusamus sapiente sequi,
-                    quidem, vero suscipit odit voluptatibus quis atque dolorem vitae in ipsum quasi eligendi quae
-                    sit
-                    quibusdam repellat!
-                </p>
-                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam alias accusamus sapiente sequi,
-                    quidem, vero suscipit odit voluptatibus quis atque dolorem vitae in ipsum quasi eligendi quae
-                    sit
-                    quibusdam repellat!
-                </p>
-            </div>
-            <div class="reviews">
-
-
-                <figure class="review">
-                    <blockquote class="review__text">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam obcaecati voluptatem,
-                        laudantium maiores modi cupiditate repudiandae sed ducimus.
-                    </blockquote>
-                    <figcaption class="review__user">
-                        <img src="img/user-1.jpg" alt="User 1" class="review__photo">
-                        <div class="review__user-box">
-                            <p class="review__user-name">Nick Smith</p>
-                            <p class="review__user-date">Feb 23rd, 2017</p>
-                        </div>
-                        <div class="review__rating">7.8</div>
-                    </figcaption>
-                </figure>
-
-
-                <figure class="review">
-                    <blockquote class="review__text">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam obcaecati voluptatem,
-                        laudantium maiores modi cupiditate repudiandae sed ducimus.
-                    </blockquote>
-                    <figcaption class="review__user">
-                        <img src="img/user-2.jpg" alt="User 2" class="review__photo">
-                        <div class="review__user-box">
-                            <p class="review__user-name">Mary Thomas</p>
-                            <p class="review__user-date">Sept 13th, 2017</p>
-                        </div>
-                        <div class="review__rating">9.3</div>
-                    </figcaption>
-                </figure>
-
-                <button class="btn-inline">Show all <span>&rarr;</span></button>
-
-
-            </div>
-
-        </section>
-
-        <div class="cta">
-            <h2 class="cta__book-now">
-                Good news! We have 4 free rooms for your selected dates !
-            </h2>
-            <button class="btn">
-                <span class="btn__visible">Book now</span>
-                <span class="btn__invisible">Only 4 rooms left</span>
-
-            </button>
-
+        <div class="wrapper-sidebar-left">
+            <nav class="sidebar-left">
+                <ul class="side-nav">
+                    <li class="side-nav__item side-nav__item--active">
+                        <a href="#" class="side-nav__link">
+                            <svg class="side-nav__icon">
+                                <use xlink:href="img/sprite.svg#icon-home"></use>
+                            </svg>
+                            <span>Hotel</span>
+                        </a>
+                    </li>
+                    <li class="side-nav__item">
+                        <a href="#" class="side-nav__link">
+                            <svg class="side-nav__icon">
+                                <use xlink:href="img/sprite.svg#icon-aircraft-take-off"></use>
+                            </svg>
+                            <span>Flight</span>
+                        </a>
+                    </li>
+                    <li class="side-nav__item">
+                        <a href="#" class="side-nav__link">
+                            <svg class="side-nav__icon">
+                                <use xlink:href="img/sprite.svg#icon-key"></use>
+                            </svg>
+                            <span>Car rental</span>
+                        </a>
+                    </li>
+                    <li class="side-nav__item">
+                        <a href="#" class="side-nav__link">
+                            <svg class="side-nav__icon">
+                                <use xlink:href="img/sprite.svg#icon-map"></use>
+                            </svg>
+                            <span>Tours</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
 
 
-    </main>
-    <footer class="footer"> random footer </footer>
+        <main class="main">
+            <section class="gallery">
+                <figure class="gallery__item">
+                    <img src="img/hotel-1.jpg" alt="Photo of hotel 1" class="gallery__photo">
+                </figure>
+                <figure class="gallery__item">
+                    <img src="img/hotel-2.jpg" alt="Photo of hotel 2" class="gallery__photo">
+                </figure>
+                <figure class="gallery__item">
+                    <img src="img/hotel-3.jpg" alt="Photo of hotel 3" class="gallery__photo">
+                </figure>
+            </section>
+            <section class="overview">
+                <h2>Hotel Blablalbla</h2>
+            </section>
+            <section class="content">
+                <div class="description">
 
+                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam alias accusamus sapiente
+                        sequi,
+                        quidem, vero suscipit odit voluptatibus quis atque dolorem vitae in ipsum quasi eligendi
+                        quae
+                        sit
+                        quibusdam repellat!
+                    </p>
+                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam alias accusamus sapiente
+                        sequi,
+                        quidem, vero suscipit odit voluptatibus quis atque dolorem vitae in ipsum quasi eligendi
+                        quae
+                        sit
+                        quibusdam repellat!
+                    </p>
+                </div>
+                <div class="reviews">
+
+
+                    <figure class="review">
+                        <blockquote class="review__text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam obcaecati voluptatem,
+                            laudantium maiores modi cupiditate repudiandae sed ducimus.
+                        </blockquote>
+                        <figcaption class="review__user">
+                            <img src="img/user-1.jpg" alt="User 1" class="review__photo">
+                            <div class="review__user-box">
+                                <p class="review__user-name">Nick Smith</p>
+                                <p class="review__user-date">Feb 23rd, 2017</p>
+                            </div>
+                            <div class="review__rating">7.8</div>
+                        </figcaption>
+                    </figure>
+
+
+                    <figure class="review">
+                        <blockquote class="review__text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam obcaecati voluptatem,
+                            laudantium maiores modi cupiditate repudiandae sed ducimus.
+                        </blockquote>
+                        <figcaption class="review__user">
+                            <img src="img/user-2.jpg" alt="User 2" class="review__photo">
+                            <div class="review__user-box">
+                                <p class="review__user-name">Mary Thomas</p>
+                                <p class="review__user-date">Sept 13th, 2017</p>
+                            </div>
+                            <div class="review__rating">9.3</div>
+                        </figcaption>
+                    </figure>
+
+                    <button class="btn-inline">Show all <span>&rarr;</span></button>
+
+
+                </div>
+
+            </section>
+
+            <div class="cta">
+                <h2 class="cta__book-now">
+                    Good news! We have 4 free rooms for your selected dates !
+                </h2>
+                <button class="btn">
+                    <span class="btn__visible">Book now</span>
+                    <span class="btn__invisible">Only 4 rooms left</span>
+
+                </button>
+
+            </div>
+
+
+            <footer class="footer"> random footer </footer>
+        </main>
+
+        <div class="wrapper-sidebar-right">
+            <nav class="sidebar-right">
+                <ul class="side-nav">
+                    <li class="side-nav__item side-nav__item--active">
+                        <a href="#" class="side-nav__link">
+                            <svg class="side-nav__icon">
+                                <use xlink:href="img/sprite.svg#icon-home"></use>
+                            </svg>
+                            <span>Hotel</span>
+                        </a>
+                    </li>
+                    <li class="side-nav__item">
+                        <a href="#" class="side-nav__link">
+                            <svg class="side-nav__icon">
+                                <use xlink:href="img/sprite.svg#icon-aircraft-take-off"></use>
+                            </svg>
+                            <span>Flight</span>
+                        </a>
+                    </li>
+                    <li class="side-nav__item">
+                        <a href="#" class="side-nav__link">
+                            <svg class="side-nav__icon">
+                                <use xlink:href="img/sprite.svg#icon-key"></use>
+                            </svg>
+                            <span>Car rental</span>
+                        </a>
+                    </li>
+                    <li class="side-nav__item">
+                        <a href="#" class="side-nav__link">
+                            <svg class="side-nav__icon">
+                                <use xlink:href="img/sprite.svg#icon-map"></use>
+                            </svg>
+                            <span>Tours</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+
+
+
+
+
+    </div>
 
     <script>
         const btn = document.querySelector('.nav-btn');
 
-        const sidebar = document.querySelector('.sidebar');
+        const sidebarLeft = document.querySelector('.sidebar-left');
+        const sidebarRight = document.querySelector('.sidebar-right');
 
         const mq = window.matchMedia("(max-width: 800px)");
 
         btn.addEventListener("click", (event) => {
-            sidebar.style.display = "inline-block";
+            sidebarLeft.style.display = "inline-block";
+            sidebarRight.style.display = "inline-block";
             event.stopPropagation();
 
         })
 
         document.addEventListener("click", () => {
             if (mq.matches) {
-                sidebar.style.display = "none";
+                sidebarLeft.style.display = "none";
+                sidebarRight.style.display = "none";
             }
 
         })
 
         function myFunction(mq) {
             if (mq.matches) { // If media query matches
-                sidebar.style.display = "none";
+                sidebarLeft.style.display = "none";
+                sidebarRight.style.display = "none";
             } else {
-                sidebar.style.display = "inline-block";
+                sidebarLeft.style.display = "inline-block";
+                sidebarRight.style.display = "inline-block";
             }
         }
 
