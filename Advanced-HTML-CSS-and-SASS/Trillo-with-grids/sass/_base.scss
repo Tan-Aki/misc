@@ -118,7 +118,7 @@ body {
   width: 13rem;
   margin-left: 1rem;
   margin-right: 1rem;
-  height: 90%;
+  height: auto;
   display: inline-block;
   top: 0px; // https://stackoverflow.com/questions/38679945/why-is-an-element-with-position-fixed-moving-with-a-non-positioned-sibling
   background-image: linear-gradient(to right bottom, olive, #556b2f);
@@ -138,7 +138,7 @@ body {
   margin-left: 1rem;
   margin-right: 1rem;
   width: 13rem;
-  height: 50%;
+  height: auto;
   display: inline-block;
   top: 0px; // https://stackoverflow.com/questions/38679945/why-is-an-element-with-position-fixed-moving-with-a-non-positioned-sibling
   // right: 0px;
@@ -285,7 +285,7 @@ body {
 .side-nav {
   font-size: 1.4rem;
   list-style: none;
-  margin-top: 2rem;
+  // margin-top: 1rem;
 
   &__item {
     // &:not(:last-child) {
@@ -329,9 +329,10 @@ body {
 }
 
 .footer {
-  grid-column: 2 / -1;
+  grid-column: 3 / 11;
 
   padding: 3rem;
+  border: solid 1px #333;
 
   @media only screen and (max-width: $bp-medium) {
     margin-left: 0rem;
