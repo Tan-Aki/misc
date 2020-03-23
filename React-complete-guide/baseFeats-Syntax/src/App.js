@@ -7,6 +7,9 @@ import Person from "./Person/Person";
 class App extends Component {
   //if state changes, it will lead react to re render the dom element
 
+  // in ES7, we don't need the constructor anymore, the constructor will be created for us with babel.
+  //et en même temps, comme tu utilises des arrow functions, t'as plus besoin de binder le this de tes handler dans un constructeur
+
   state = {
     persons: [
       {
@@ -28,6 +31,9 @@ class App extends Component {
   switchNameHandler = newName => {
     // console.log('Was clicked');
     // dont do this !!   this.state.persons[0].name = 'Max';
+
+    // arrow function, the this will allways refer to the parent enclosing lexical scope.
+    // so here the instance of App
 
     this.setState({
       persons: [
@@ -87,6 +93,8 @@ class App extends Component {
           name={this.state.persons[1].name}
           age={this.state.persons[1].age}
           click={this.switchNameHandler.bind(this, "Tan!")}
+          // here we use bind not to bind the this(switchNameHandler is an arrow function so its this can never be redefined) but to bind the argument "Tan!"
+          // we use bind because it allows us to pass a reference to the function, not firing right away the function by doing this.switchNameHandler("Tan!")
           changed={this.nameChangedHandler}
         >
           My hobbies : Racing
