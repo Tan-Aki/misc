@@ -12,64 +12,60 @@ class App extends Component {
 
   state = {
     persons: [
-      {
-        name: "Tan",
-        age: 30
-      },
-      {
-        name: "Sub",
-        age: 29
-      },
-      {
-        name: "Rota",
-        age: 26
-      }
+      { id: "asds1", name: "Tanneguy!!", age: 30 },
+      { id: "asds2", name: "Sub", age: 29 },
+      { id: "asds3", name: "Rota", age: 26 }
     ],
-    otherValue: "some other value"
+    otherValue: "some other value",
+    showPersons: false
   };
 
-  switchNameHandler = newName => {
-    // console.log('Was clicked');
-    // dont do this !!   this.state.persons[0].name = 'Max';
+  // switchNameHandler = newName => {
+  //   // console.log('Was clicked');
+  //   // dont do this !!   this.state.persons[0].name = 'Max';
 
-    // arrow function, the this will allways refer to the parent enclosing lexical scope.
-    // so here the instance of App
+  //   // arrow function, the this will allways refer to the parent enclosing lexical scope.
+  //   // so here the instance of App
 
-    this.setState({
-      persons: [
-        {
-          name: newName,
-          age: 30
-        },
-        {
-          name: "Sub",
-          age: 29
-        },
-        {
-          name: "Rota",
-          age: 28
-        }
-      ]
-    });
+  //   this.setState({
+  //     persons: [
+  //       { name: newName, age: 30 },
+  //       { name: "Sub", age: 29 },
+  //       { name: "Rota", age: 28 }
+  //     ]
+  //   });
+  // };
+
+  deletePersonHandler = personIndex => {
+    const persons = [...this.state.persons];
+    // in order to update state in an immutable fashion
+    // instead of const persons = this.state.persons;
+
+    // we could also do it like that : const persons = this.state.persons.splice();
+
+    persons.splice(personIndex, 1);
+    this.setState({ persons });
+    // this.setState({ persons: persons });
   };
 
-  nameChangedHandler = event => {
-    this.setState({
-      persons: [
-        {
-          name: "Tan",
-          age: 30
-        },
-        {
-          name: event.target.value,
-          age: 29
-        },
-        {
-          name: "Rota",
-          age: 26
-        }
-      ]
+  nameChangedHandler = (event, id) => {
+    const personIndex = this.state.persons.findIndex(p => {
+      return p.id === id;
     });
+    const person = { ...this.state.persons[personIndex] };
+    // const person = Object.assign({}, this.state.persons[personIndex]);
+
+    person.name = event.target.value;
+
+    const persons = [...this.state.persons];
+    persons[personIndex] = person;
+
+    this.setState({ persons });
+  };
+
+  togglePersonsHandler = () => {
+    const doesShow = this.state.showPersons;
+    this.setState({ showPersons: !doesShow });
   };
 
   render() {
@@ -81,25 +77,51 @@ class App extends Component {
       cursor: "pointer"
     };
 
+    let persons = null;
+
+    if (this.state.showPersons) {
+      persons = (
+        <div>
+          {this.state.persons.map((person, index) => {
+            return (
+              <Person
+                click={() => this.deletePersonHandler(index)}
+                name={person.name}
+                age={person.age}
+                key={person.id}
+                changed={event => {
+                  this.nameChangedHandler(event, person.id);
+                }}
+              />
+            );
+          })}
+
+          {/* <Person name={this.state.persons[0].name} age={this.state.persons[0].age} />
+          <Person
+            name={this.state.persons[1].name}
+            age={this.state.persons[1].age}
+            click={this.switchNameHandler.bind(this, "Tan!")}
+            // here we use bind not to bind the this(switchNameHandler is an arrow function so its this can never be redefined) but to bind the argument "Tan!"
+            // we use bind because it allows us to pass a reference to the function, not firing it right away doing this.switchNameHandler("Tan!")
+            // we can also use the below syntax, but it's less performant
+            // click={ () => {this.switchNameHandler("Tan!")}}
+            changed={this.nameChangedHandler}
+          >
+            My hobbies : Racing
+          </Person>
+          <Person name={this.state.persons[2].name} age={this.state.persons[2].age} /> */}
+        </div>
+      );
+    }
+
     return (
       <div className="App">
         <h1>Hi, I'm a react App</h1>
         <p>THis is working </p>
-        <button style={style} onClick={() => this.switchNameHandler("Tanneguy !!")}>
-          Switch Name
+        <button style={style} onClick={this.togglePersonsHandler}>
+          Toggle Persons
         </button>
-        <Person name={this.state.persons[0].name} age={this.state.persons[0].age} />
-        <Person
-          name={this.state.persons[1].name}
-          age={this.state.persons[1].age}
-          click={this.switchNameHandler.bind(this, "Tan!")}
-          // here we use bind not to bind the this(switchNameHandler is an arrow function so its this can never be redefined) but to bind the argument "Tan!"
-          // we use bind because it allows us to pass a reference to the function, not firing right away the function by doing this.switchNameHandler("Tan!")
-          changed={this.nameChangedHandler}
-        >
-          My hobbies : Racing
-        </Person>
-        <Person name={this.state.persons[2].name} age={this.state.persons[2].age} />
+        {persons}
       </div>
     );
 
