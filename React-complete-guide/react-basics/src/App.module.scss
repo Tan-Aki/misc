@@ -2,24 +2,34 @@
   text-align: center;
 }
 
-.red {
+.Red {
   color: red;
 }
 
-.bold {
+.Bold {
   font-weight: bold;
 }
 
-.button {
+.Btn {
   background-color: green;
   color: white;
   font: inherit;
-  border: 1x solid blue;
+  border: 1px solid blue;
   padding: 8px;
   cursor: pointer;
 }
 
-.button:hover {
+.Btn:hover {
   background-color: lightgreen;
   color: black;
 }
+
+.Btn.Red {
+  background-color: red;
+}
+
+.Btn.Red:hover {
+  background-color: salmon;
+}
+
+
