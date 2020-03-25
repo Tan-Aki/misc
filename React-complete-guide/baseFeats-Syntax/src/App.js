@@ -1,8 +1,24 @@
 // class based component
 
 import React, { Component } from "react";
+// import styled from "styled-components";
 import "./App.css";
 import Person from "./Person/Person";
+// import Radium, { StyleRoot } from "radium";
+
+// const StyledButton = styled.button`
+//   background-color: ${props => (props.alt ? "red" : "green")};
+//   color: white;
+//   font: inherit;
+//   border: 1x solid blue;
+//   padding: 8px;
+//   cursor: pointer;
+
+//   &:hover {
+//     background-color: ${props => (props.alt ? "salmon" : "lightgreen")};
+//     color: black;
+//   }
+// `;
 
 class App extends Component {
   //if state changes, it will lead react to re render the dom element
@@ -69,13 +85,19 @@ class App extends Component {
   };
 
   render() {
-    const style = {
-      backgroundColor: "white",
-      font: "inherit",
-      border: "1x solid blue",
-      padding: "8px",
-      cursor: "pointer"
-    };
+    // const style = {
+    //   backgroundColor: "green",
+    //   color: "white",
+    //   font: "inherit",
+    //   border: "1x solid blue",
+    //   padding: "8px",
+    //   cursor: "pointer"
+    //   // // Radium
+    //   // ":hover": {
+    //   //   backgroundColor: "lightgreen",
+    //   //   color: "black"
+    //   // }
+    // };
 
     let persons = null;
 
@@ -95,7 +117,6 @@ class App extends Component {
               />
             );
           })}
-
           {/* <Person name={this.state.persons[0].name} age={this.state.persons[0].age} />
           <Person
             name={this.state.persons[1].name}
@@ -112,17 +133,39 @@ class App extends Component {
           <Person name={this.state.persons[2].name} age={this.state.persons[2].age} /> */}
         </div>
       );
+
+      // style.backgroundColor = "red";
+      // // // Radium
+      // // style[":hover"] = {
+      // //   backgroundColor: "salmon",
+      // //   color: "black"
+      // // };
+    }
+
+    const classes = [];
+
+    if (this.state.persons.length <= 2) {
+      classes.push("red");
+    }
+
+    if (this.state.persons.length <= 1) {
+      classes.push("bold");
     }
 
     return (
+      // <StyleRoot>
       <div className="App">
         <h1>Hi, I'm a react App</h1>
-        <p>THis is working </p>
-        <button style={style} onClick={this.togglePersonsHandler}>
+        <p className={classes.join(" ")}>THis is working </p>
+        {/* <StyledButton alt={this.state.showPersons} onClick={this.togglePersonsHandler}>
+          Toggle Persons
+        </StyledButton> */}
+        <button /* style={style} */ className="button" onClick={this.togglePersonsHandler}>
           Toggle Persons
         </button>
         {persons}
       </div>
+      // </StyleRoot>
     );
 
     // this is what gets executed behind the scenes
@@ -135,6 +178,8 @@ class App extends Component {
 }
 
 export default App;
+// export default Radium(App);
+//Radium for pseudo selectors and media queries inside styled components
 
 // import React, { useState } from "react";
 // import "./App.css";
