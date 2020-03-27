@@ -1,18 +1,46 @@
 import React, { Component } from "react";
 import classes from "./App.module.scss";
-import Person from "./Person/Person";
-import Button from "./Button/button";
+import Button from "../components/Button/Button";
+import Persons from "../components/Persons/Persons";
+import Cockpit from "../components/Cockpit/Cockpit";
 
 class App extends Component {
-  state = {
-    persons: [
-      { id: "asds1", name: "Tanneguy!!", age: 30 },
-      { id: "asds2", name: "Sub", age: 29 },
-      { id: "asds3", name: "Rota", age: 26 }
-    ],
-    otherValue: "some other value",
-    showPersons: false
-  };
+  constructor(props) {
+    super(props);
+    console.log("[App.js] constructor");
+    this.state = {
+      persons: [
+        { id: "asds1", name: "Tanneguy!!", age: 30 },
+        { id: "asds2", name: "Sub", age: 29 },
+        { id: "asds3", name: "Rota", age: 26 }
+      ],
+      otherValue: "some other value",
+      showPersons: false,
+      showCockpit: true
+    };
+    this.props = props;
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    console.log("[App.js] getDerivedStateFromProps", props);
+    return state;
+  }
+
+  // UNSAFE_componentWillMount() {
+  //   console.log("[App.js] componentWillMount");
+  // }
+
+  componentDidMount() {
+    console.log("[App.js] componentDidMount");
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log("[App.js] shouldComponentUpdate");
+    return true;
+  }
+  componentDidUpdate() {
+    console.log("[App.js] componentDidUpdate");
+  }
 
   deletePersonHandler = personIndex => {
     const persons = [...this.state.persons];
@@ -42,56 +70,217 @@ class App extends Component {
   };
 
   render() {
+    console.log("[App.js] render");
+
     let persons = null;
-    let btnClass = [classes.Btn];
 
     if (this.state.showPersons) {
       persons = (
-        <div>
-          {this.state.persons.map((person, index) => {
-            return (
-              <Person
-                click={() => this.deletePersonHandler(index)}
-                name={person.name}
-                age={person.age}
-                key={person.id}
-                changed={event => {
-                  this.nameChangedHandler(event, person.id);
-                }}
-              />
-            );
-          })}
-        </div>
+        <Persons
+          persons={this.state.persons}
+          clicked={this.deletePersonHandler}
+          changed={this.nameChangedHandler}
+        />
       );
-
-      btnClass.push(classes.Red);
-    }
-
-    const assignedClasses = [];
-
-    if (this.state.persons.length <= 2) {
-      assignedClasses.push(classes.Red);
-    }
-
-    if (this.state.persons.length <= 1) {
-      assignedClasses.push(classes.Bold);
     }
 
     return (
       <div className={classes.App}>
-        <h1>Hi, I'm a react App</h1>
-        <p className={assignedClasses.join(" ")}>THis is working </p>
-        <button className={btnClass.join(" ")} onClick={this.togglePersonsHandler}>
-          Toggle Persons
+        <button
+          onClick={() => {
+            this.setState({ showCockpit: false });
+          }}
+        >
+          Remove Cockpit
         </button>
-        <Button />
+        {this.state.showCockpit ? (
+          <Cockpit
+            title={this.props.appTitle}
+            showPersons={this.state.showPersons}
+            persons={this.state.persons}
+            clicked={this.togglePersonsHandler}
+          />
+        ) : null}
         {persons}
+        <Button />
       </div>
     );
   }
 }
 
 export default App;
+
+// // with ES7 syntax without constructor
+
+// import React, { Component } from "react";
+// import classes from "./App.module.scss";
+// import Button from "../components/Button/Button";
+// import Persons from "../components/Persons/Persons";
+// import Cockpit from "../components/Cockpit/Cockpit";
+
+// class App extends Component {
+//   state = {
+//     persons: [
+//       { id: "asds1", name: "Tanneguy!!", age: 30 },
+//       { id: "asds2", name: "Sub", age: 29 },
+//       { id: "asds3", name: "Rota", age: 26 }
+//     ],
+//     otherValue: "some other value",
+//     showPersons: false
+//   };
+
+//   deletePersonHandler = personIndex => {
+//     const persons = [...this.state.persons];
+
+//     persons.splice(personIndex, 1);
+
+//     this.setState({ persons });
+//   };
+
+//   nameChangedHandler = (event, id) => {
+//     const personIndex = this.state.persons.findIndex(p => {
+//       return p.id === id;
+//     });
+//     const person = { ...this.state.persons[personIndex] };
+
+//     person.name = event.target.value;
+
+//     const persons = [...this.state.persons];
+//     persons[personIndex] = person;
+
+//     this.setState({ persons });
+//   };
+
+//   togglePersonsHandler = () => {
+//     const doesShow = this.state.showPersons;
+//     this.setState({ showPersons: !doesShow });
+//   };
+
+//   render() {
+//     let persons = null;
+
+//     if (this.state.showPersons) {
+//       persons = (
+//         <Persons
+//           persons={this.state.persons}
+//           clicked={this.deletePersonHandler}
+//           changed={this.nameChangedHandler}
+//         />
+//       );
+//     }
+
+//     return (
+//       <div className={classes.App}>
+//         <Cockpit
+//           title={this.props.appTitle}
+//           showPersons={this.state.showPersons}
+//           persons={this.state.persons}
+//           clicked={this.togglePersonsHandler}
+//         />
+//         {persons}
+//         <Button />
+//       </div>
+//     );
+//   }
+// }
+
+// export default App;
+
+// // before splitting into multiple components
+// import React, { Component } from "react";
+// import classes from "./App.module.scss";
+// import Person from "./Person/Person";
+// import Button from "./Button/button";
+
+// class App extends Component {
+//   state = {
+//     persons: [
+//       { id: "asds1", name: "Tanneguy!!", age: 30 },
+//       { id: "asds2", name: "Sub", age: 29 },
+//       { id: "asds3", name: "Rota", age: 26 }
+//     ],
+//     otherValue: "some other value",
+//     showPersons: false
+//   };
+
+//   deletePersonHandler = personIndex => {
+//     const persons = [...this.state.persons];
+
+//     persons.splice(personIndex, 1);
+
+//     this.setState({ persons });
+//   };
+
+//   nameChangedHandler = (event, id) => {
+//     const personIndex = this.state.persons.findIndex(p => {
+//       return p.id === id;
+//     });
+//     const person = { ...this.state.persons[personIndex] };
+
+//     person.name = event.target.value;
+
+//     const persons = [...this.state.persons];
+//     persons[personIndex] = person;
+
+//     this.setState({ persons });
+//   };
+
+//   togglePersonsHandler = () => {
+//     const doesShow = this.state.showPersons;
+//     this.setState({ showPersons: !doesShow });
+//   };
+
+//   render() {
+//     let persons = null;
+//     let btnClass = [classes.Btn];
+
+//     if (this.state.showPersons) {
+//       persons = (
+//         <div>
+//           {this.state.persons.map((person, index) => {
+//             return (
+//               <Person
+//                 click={() => this.deletePersonHandler(index)}
+//                 name={person.name}
+//                 age={person.age}
+//                 key={person.id}
+//                 changed={event => {
+//                   this.nameChangedHandler(event, person.id);
+//                 }}
+//               />
+//             );
+//           })}
+//         </div>
+//       );
+
+//       btnClass.push(classes.Red);
+//     }
+
+//     const assignedClasses = [];
+
+//     if (this.state.persons.length <= 2) {
+//       assignedClasses.push(classes.Red);
+//     }
+
+//     if (this.state.persons.length <= 1) {
+//       assignedClasses.push(classes.Bold);
+//     }
+
+//     return (
+//       <div className={classes.App}>
+//         <h1>Hi, I'm a react App</h1>
+//         <p className={assignedClasses.join(" ")}>THis is working </p>
+//         <button className={btnClass.join(" ")} onClick={this.togglePersonsHandler}>
+//           Toggle Persons
+//         </button>
+//         <Button />
+//         {persons}
+//       </div>
+//     );
+//   }
+// }
+
+// export default App;
 
 // // ErrorBoundary
 
