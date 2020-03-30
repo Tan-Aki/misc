@@ -1,0 +1,27 @@
+$bp-largest: 75em; // 1200 px    1200/16
+$bp-large: 62.5em; // 1000 px    1000/16
+$bp-medium: 50em; // 800 px
+$bp-small: 37.5em; // 600 px
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  // The box-sizing property allows us to include the padding and border in an element's total width and height.
+  font-size: 62.5%; // 10px
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
