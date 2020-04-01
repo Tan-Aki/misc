@@ -14,7 +14,7 @@ const burger = props => {
   if (sum <= 0) {
     transformedIngredients = <p> Please add some ingredients </p>;
   }
-  console.log(sum);
+  console.log("sum", sum);
 
   return (
     <div className={classes.Burger}>

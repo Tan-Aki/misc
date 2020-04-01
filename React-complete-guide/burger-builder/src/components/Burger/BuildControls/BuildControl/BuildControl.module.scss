@@ -16,14 +16,15 @@
 
     &:disabled {
       background-color: #ac9980;
-      border: 25px solid #7e7365;
+      border: 1px solid #7e7365;
       color: #ccc;
       cursor: default;
-    }
-    &:hover:disabled {
-      background-color: #ac9980;
-      color: #ccc;
-      cursor: not-allowed;
+
+      &:hover {
+        background-color: #ac9980;
+        color: #ccc;
+        cursor: not-allowed;
+      }
     }
   }
 }
