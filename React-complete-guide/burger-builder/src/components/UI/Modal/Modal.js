@@ -1,21 +1,32 @@
-import React, { Fragment } from "react";
+import React, { Fragment, Component } from "react";
 import PropTypes from "prop-types";
 import classes from "./Modal.module.scss";
 import Backdrop from "../Backdrop/Backdrop";
 
-const modal = props => {
-  const assignedClasses = [classes.Modal];
+class Modal extends Component {
+  shouldComponentUpdate(nextProps, nextState) {
+    // if (nextProps.show !== this.props.show) return true;
+    // return false;
+    return nextProps.show !== this.props.show;
+  }
 
-  if (!props.show) assignedClasses.push(classes.isHidden);
+  componentWillUpdate(nextProps, nextState) {
+    console.log("Modal will update");
+  }
 
-  return (
-    <Fragment>
-      <Backdrop show={props.show} clicked={props.modalClosed} />
-      <div className={assignedClasses.join(" ")}>{props.children}</div>
-    </Fragment>
-  );
-};
+  render() {
+    const assignedClasses = [classes.Modal];
+    if (!this.props.show) assignedClasses.push(classes.isHidden);
 
-modal.propTypes = {};
+    return (
+      <Fragment>
+        <Backdrop show={this.props.show} clicked={this.props.modalClosed} />
+        <div className={assignedClasses.join(" ")}>{this.props.children}</div>
+      </Fragment>
+    );
+  }
+}
 
-export default modal;
+Modal.propTypes = {};
+
+export default Modal;
