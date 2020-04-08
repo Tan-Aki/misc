@@ -58,42 +58,34 @@ class BurgerBuilder extends Component {
     this.setState({ purchasing: true });
   };
 
-  purchaseCancelHandler = () => {
-    this.setState({ purchasing: false });
-  };
-
   updatePurchaseState = (ingredients) => {
     const purchasable = Object.values(ingredients).some((amount) => amount > 0);
     this.setState({ purchasable });
   };
 
-  purchaseContinueHandler = async () => {
-    this.setState({ loading: true });
+  purchaseCancelHandler = () => {
+    this.setState({ purchasing: false });
+  };
 
-    const order = {
-      ingredients: this.state.ingredients,
-      price: this.state.totalPrice, // shouldnt be done in production environement. should be calculated server side to avoid data being tempered
-      customer: {
-        name: "Tan",
-        address: {
-          street: "Rue Amiral Ducasse",
-          zipCode: "123555",
-          country: "Canada",
-        },
-        email: "test@test.com",
-      },
-      deliveryMethod: "fastest",
-    };
-    // alert("You continue !");
+  purchaseContinueHandler = () => {
+    const queryParams = [];
 
-    try {
-      const response = await axios.post("/orders.json", order); // .json for firebase
-      console.log("response :", response);
-      this.setState({ loading: false, purchasing: false });
-    } catch (err) {
-      console.log(err);
-      this.setState({ loading: false, purchasing: false });
+    for (let i in this.state.ingredients) {
+      if (this.state.ingredients.hasOwnProperty(i)) {
+        queryParams.push(
+          encodeURIComponent(i) + "=" + encodeURIComponent(this.state.ingredients[i])
+        );
+      }
     }
+
+    queryParams.push("price=" + this.state.totalPrice);
+
+    const queryString = queryParams.join("&");
+
+    this.props.history.push({
+      pathname: "/checkout",
+      search: "?" + queryString,
+    });
   };
 
   addIngredientHandler = (type) => {
