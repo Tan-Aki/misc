@@ -13,6 +13,7 @@ class Orders extends Component {
     axios
       .get("/orders.json")
       .then((res) => {
+        console.log("res.data", res.data);
         const fetchedOrders = [];
         for (let key in res.data) {
           if (res.data.hasOwnProperty(key)) {
@@ -22,8 +23,8 @@ class Orders extends Component {
             });
           }
         }
-        console.log(fetchedOrders);
         this.setState({ loading: false, orders: fetchedOrders });
+        console.log("this.state.orders", this.state.orders);
       })
       .catch((err) => this.setState({ loading: false }));
   }

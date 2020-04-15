@@ -6,6 +6,8 @@ import classes from "./ContactData.module.scss";
 import axios from "../../../axios-orders";
 import Spinner from "../../../components/UI/Spinner/Spinner";
 import Input from "../../../components/UI/Input/Input";
+import withErrorHandler from "../../../hoc/withErrorHandler/withErrorHandler";
+import * as actions from "../../../store/actions/order";
 
 class ContactData extends Component {
   state = {
@@ -95,11 +97,38 @@ class ContactData extends Component {
     loading: false,
   };
 
-  orderHandler = async (event) => {
+  // orderHandler = async (event) => {
+  //   event.preventDefault();
+  //   console.log(this.props.ingredients);
+
+  //   this.setState({ loading: true });
+
+  //   const formData = {};
+
+  //   for (let formElementIdentifier in this.state.orderForm) {
+  //     if (this.state.orderForm.hasOwnProperty(formElementIdentifier)) {
+  //       formData[formElementIdentifier] = this.state.orderForm[formElementIdentifier].value;
+  //     }
+  //   }
+
+  //   const order = {
+  //     ingredients: this.props.ings,
+  //     price: this.props.price, // shouldnt be done in production environement. should be calculated server side to avoid data being tempered
+  //     orderData: formData,
+  //   };
+  //   try {
+  //     const response = await axios.post("/orders.json", order); // .json for firebase
+  //     console.log("response :", response);
+  //     this.setState({ loading: false });
+  //     this.props.history.push("/");
+  //   } catch (err) {
+  //     console.log(err);
+  //     this.setState({ loading: false });
+  //   }
+  // };
+  orderHandler = (event) => {
     event.preventDefault();
     console.log(this.props.ingredients);
-
-    this.setState({ loading: true });
 
     const formData = {};
 
@@ -114,15 +143,8 @@ class ContactData extends Component {
       price: this.props.price, // shouldnt be done in production environement. should be calculated server side to avoid data being tempered
       orderData: formData,
     };
-    try {
-      const response = await axios.post("/orders.json", order); // .json for firebase
-      console.log("response :", response);
-      this.setState({ loading: false });
-      this.props.history.push("/");
-    } catch (err) {
-      console.log(err);
-      this.setState({ loading: false });
-    }
+
+    this.props.onOrderBurger(order);
   };
 
   checkValidity = (value, rules) => {
@@ -215,4 +237,8 @@ const mapStateToProps = (state) => ({
   price: state.totalPrice,
 });
 
-export default connect(mapStateToProps)(ContactData);
+const mapDispatchToProps = (dispatch) => ({
+  onOrderBurger: (orderData) => dispatch(actions.purchaseBurgerStart(orderData)),
+});
+
+export default connect(mapStateToProps)(withErrorHandler(ContactData, axios));
