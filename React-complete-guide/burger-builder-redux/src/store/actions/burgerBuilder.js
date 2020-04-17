@@ -27,6 +27,12 @@ export const fetchIngredientsFailed = () => {
   };
 };
 
+export const resetTotalPrice = () => {
+  return {
+    type: actionTypes.RESET_TOTAL_PRICE,
+  };
+};
+
 export const initIngredients = () => {
   return (dispatch) => {
     axios

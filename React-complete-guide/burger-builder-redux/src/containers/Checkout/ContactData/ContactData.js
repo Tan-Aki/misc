@@ -87,14 +87,13 @@ class ContactData extends Component {
             { value: "cheapest", displayValue: "Cheapest" },
           ],
         },
-        value: "",
+        value: "fastest",
         validation: {},
         touched: false,
         valid: true,
       },
     },
     formIsValid: false,
-    loading: false,
   };
 
   // orderHandler = async (event) => {
@@ -128,7 +127,7 @@ class ContactData extends Component {
   // };
   orderHandler = (event) => {
     event.preventDefault();
-    console.log(this.props.ingredients);
+    console.log(this.props.ings);
 
     const formData = {};
 
@@ -219,7 +218,7 @@ class ContactData extends Component {
       </form>
     );
 
-    if (this.state.loading) {
+    if (this.props.loading) {
       form = <Spinner />;
     }
 
@@ -233,12 +232,13 @@ class ContactData extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  ings: state.ingredients,
-  price: state.totalPrice,
+  ings: state.burgerBuilderReducer.ingredients,
+  price: state.burgerBuilderReducer.totalPrice,
+  loading: state.orderReducer.loading,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onOrderBurger: (orderData) => dispatch(actions.purchaseBurgerStart(orderData)),
+  onOrderBurger: (orderData) => dispatch(actions.purchaseBurger(orderData)),
 });
 
-export default connect(mapStateToProps)(withErrorHandler(ContactData, axios));
+export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(ContactData, axios));

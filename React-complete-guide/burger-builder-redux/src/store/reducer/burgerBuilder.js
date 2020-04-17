@@ -1,4 +1,5 @@
 import * as actionTypes from "../actions/actionTypes";
+import { updateObject } from "../utility";
 
 const initialState = {
   ingredients: null,
@@ -18,32 +19,39 @@ const updatePurchaseState = (ingredients) => {
   return Object.values(ingredients).some((amount) => amount > 0);
 };
 
-export default (state = initialState, action) => {
+////////////// YOU CAN REFACTOR LIKE THIS ////////////////////////////////
+// (TO MAKE THE SWITCH STATEMENT LEANER)
+// I WILL ONLY DO IT FOR THE ADDINGREDIENT FUNCTION ////////////////////////////
+const addIngredient = (state, action) => {
+  //   //   const ingredients = { ...state.ingredients };
+  //   //   ingredients[type] = state.ingredients[type] + 1;
+
+  //   //   const totalPrice = state.totalPrice + INGREDIENT_PRICES[type];
+
+  //   return {
+  //     ...state,
+  //     ingredients: {
+  //       ...state.ingredients,
+  //       [action.ingredientName]: state.ingredients[action.ingredientName] + 1,
+  //     },
+  //     totalPrice: state.totalPrice + INGREDIENT_PRICES[action.ingredientName],
+  //     purchasable : updatePurchaseState()
+  //   };
+
+  let updatedIngs = { ...state.ingredients };
+  updatedIngs[action.ingredientName] = state.ingredients[action.ingredientName] + 1;
+  return {
+    ...state,
+    ingredients: updatedIngs,
+    totalPrice: state.totalPrice + INGREDIENT_PRICES[action.ingredientName],
+    purchasable: updatePurchaseState(updatedIngs),
+  };
+};
+
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.ADD_INGREDIENT:
-      //   //   const ingredients = { ...state.ingredients };
-      //   //   ingredients[type] = state.ingredients[type] + 1;
-
-      //   //   const totalPrice = state.totalPrice + INGREDIENT_PRICES[type];
-
-      //   return {
-      //     ...state,
-      //     ingredients: {
-      //       ...state.ingredients,
-      //       [action.ingredientName]: state.ingredients[action.ingredientName] + 1,
-      //     },
-      //     totalPrice: state.totalPrice + INGREDIENT_PRICES[action.ingredientName],
-      //     purchasable : updatePurchaseState()
-      //   };
-
-      let updatedIngs = { ...state.ingredients };
-      updatedIngs[action.ingredientName] = state.ingredients[action.ingredientName] + 1;
-      return {
-        ...state,
-        ingredients: updatedIngs,
-        totalPrice: state.totalPrice + INGREDIENT_PRICES[action.ingredientName],
-        purchasable: updatePurchaseState(updatedIngs),
-      };
+      return addIngredient(state, action);
 
     case actionTypes.REMOVE_INGREDIENT:
       //   return {
@@ -75,8 +83,15 @@ export default (state = initialState, action) => {
         ...state,
         error: true,
       };
+    case actionTypes.RESET_TOTAL_PRICE:
+      return {
+        ...state,
+        totalPrice: 4,
+      };
 
     default:
       return state;
   }
 };
+
+export default reducer;
