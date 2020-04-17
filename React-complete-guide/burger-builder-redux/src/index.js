@@ -10,12 +10,14 @@ import "./index.module.scss";
 import * as serviceWorker from "./serviceWorker";
 import burgerBuilderReducer from "./store/reducer/burgerBuilder";
 import orderReducer from "./store/reducer/order";
+import authReducer from "./store/reducer/auth";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
-  burgerBuilderReducer: burgerBuilderReducer,
-  orderReducer: orderReducer,
+  burgerBuilderReducer,
+  orderReducer,
+  authReducer,
 });
 
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
