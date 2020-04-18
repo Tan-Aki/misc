@@ -27,11 +27,11 @@ export const purchaseInit = () => {
   };
 };
 
-export const purchaseBurger = (orderData) => {
+export const purchaseBurger = (orderData, token) => {
   return (dispatch) => {
     dispatch(purchaseBurgerStart());
     axios
-      .post("/orders.json", orderData)
+      .post("/orders.json?auth=" + token, orderData)
       .then((response) => {
         console.log("res data", response);
         dispatch(purchaseBurgerSuccess(response.data.name, orderData));
@@ -64,12 +64,15 @@ export const fetchOrdersStart = () => {
 
 // DATA formatting change in action creators
 // it's not considered "logic" which should be in the reducer
-export const fetchOrders = () => {
+// also, instead of passing the token as a param, we could also use the getstate() method
+// like getstate().authReducer.token
+// but it's not to use the getstate too much.
+export const fetchOrders = (token) => {
   return (dispatch) => {
-    console.log("fetechedOrders");
+    console.log("fetchedOrders");
     dispatch(fetchOrdersStart());
     axios
-      .get("/orders.json")
+      .get("/orders.json?auth=" + token)
       .then((res) => {
         console.log("res.data", res.data);
         const fetchedOrders = [];

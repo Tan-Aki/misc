@@ -6,16 +6,17 @@ const controls = [
   { label: "Salad", type: "salad" },
   { label: "Bacon", type: "bacon" },
   { label: "Cheese", type: "cheese" },
-  { label: "Meat", type: "meat" }
+  { label: "Meat", type: "meat" },
 ];
 
-const buildControls = props => {
+const buildControls = (props) => {
+  console.log("props.isAuth", props.isAuth);
   return (
     <div className={classes.BuildControls}>
       <p>
         Current Price: <strong> {props.price.toFixed(2)} $ </strong>
       </p>
-      {controls.map(ctrl => {
+      {controls.map((ctrl) => {
         return (
           <BuildControl
             key={ctrl.label}
@@ -31,7 +32,7 @@ const buildControls = props => {
         );
       })}
       <button disabled={!props.purchasable} className={classes.OrderButton} onClick={props.ordered}>
-        ORDER NOW
+        {props.isAuth ? "ORDER NOW" : "SIGNUP  TO ORDER"}
       </button>
     </div>
   );
