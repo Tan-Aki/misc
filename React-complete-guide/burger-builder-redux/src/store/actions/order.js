@@ -62,17 +62,18 @@ export const fetchOrdersStart = () => {
   };
 };
 
-// DATA formatting change in action creators
-// it's not considered "logic" which should be in the reducer
+// DATA formatting change should be in action creators
+// it's not a "logic" that should be in the reducer
 // also, instead of passing the token as a param, we could also use the getstate() method
 // like getstate().authReducer.token
 // but it's not to use the getstate too much.
-export const fetchOrders = (token) => {
+export const fetchOrders = (token, userId) => {
   return (dispatch) => {
     console.log("fetchedOrders");
     dispatch(fetchOrdersStart());
+    const queryParams = "?auth=" + token + '&orderBy="userId"&equalTo="' + userId + '"';
     axios
-      .get("/orders.json?auth=" + token)
+      .get("/orders.json" + queryParams)
       .then((res) => {
         console.log("res.data", res.data);
         const fetchedOrders = [];
