@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 const navigationItem = (props) => {
   return (
     <li className={classes.NavigationItem}>
-      <NavLink onClick={props.clicked} activeClassName={classes.active} exact to={props.link}>
+      <NavLink activeClassName={classes.active} exact to={props.link}>
         {/* for the activeClassname probleme with css modules. See lecture 229 : Implementing Navigation Links */}
         {props.children}
       </NavLink>
