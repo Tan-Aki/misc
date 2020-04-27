@@ -1,5 +1,4 @@
 import React, { Fragment, Component } from "react";
-import PropTypes from "prop-types";
 import classes from "./Modal.module.scss";
 import Backdrop from "../Backdrop/Backdrop";
 
