@@ -277,6 +277,8 @@ export default Ingredients;
 
 //   // useEffect(() => {}, []);
 
+//   // for componentWillMount, simply put the code you want to execute in the core of the function, before the JSX code
+
 //   // you can have a cleanup function inside your useEffect
 //   // a function that will execute right before the next time the main function will get executed.
 //   // doesnt get executed the first time the main useEffect is executed
