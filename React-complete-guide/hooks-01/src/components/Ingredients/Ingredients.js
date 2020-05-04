@@ -271,16 +271,18 @@ export default Ingredients;
 //   // it acts like "componentdidupdate" except for the fact that CDU doesnt get executed at first render
 //   // useEffect(() => {});
 
-//   // with dependencies. Only when such a dependency changes (and thus after first render too because they didnt exist before that)
+//   // with dependencies. Only when such a dependency changes compared to the previous state/props (and thus after first render too because they didnt exist before that)
 //   // , only then the function is executed
 //   // with empty array, acts like "componentDidMount", meaning it's executed ONLY ONCE AFTER FIRST RENDER
 
 //   // useEffect(() => {}, []);
 
-//   // for componentWillMount, simply put the code you want to execute in the core of the function, before the JSX code
+//   // for componentWillMount ( deprecated ), simply put the code you want to execute in the core of the function, before the JSX code
+//   // We don't need hooks handling pre-render lifecycle events, just put the code inside the function or in the constructor
+//   // https://medium.com/simars/react-hooks-manage-life-cycle-events-tricks-and-tips-7ed13f52ba12
 
 //   // you can have a cleanup function inside your useEffect
-//   // a function that will execute right before the next time the main function will get executed.
+//   // a function that will execute when the component unmounts AND right before the next time the main function will get executed.
 //   // doesnt get executed the first time the main useEffect is executed
 //   // we kinda "clean up" the previous main useEffect before executing the next one
 //   // useEffect(() => {
@@ -290,7 +292,7 @@ export default Ingredients;
 //   //   }
 //   // }, [input])
 
-//   // if you have [] as a dependency, the cleanup function runs when the component gets unmounted
+//   // if you have [] as a dependency, the cleanup function only runs when the component gets unmounted
 
 //   // can have as many useEffect as we want
 

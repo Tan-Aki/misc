@@ -8,6 +8,7 @@ export function* initIngredientsSaga(action) {
       "https://burger-builder-e7569.firebaseio.com/ingredients.json"
     );
     yield put(actions.setIngredients(response.data));
+    yield console.log("response.data from bbuilder saga", response.data);
   } catch (err) {
     yield put(actions.fetchIngredientsFailed());
   }

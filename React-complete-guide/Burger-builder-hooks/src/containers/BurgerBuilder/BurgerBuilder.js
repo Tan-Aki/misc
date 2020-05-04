@@ -45,6 +45,15 @@ export class BurgerBuilder extends Component {
   componentDidMount() {
     this.props.onInitIngredients();
     this.props.onResetTotalPrice();
+    console.log("CDMount Burger Builder");
+  }
+
+  componentDidUpdate(nextProps, nextState) {
+    console.log("CD update Burger Builder");
+  }
+
+  componentWillUnmount() {
+    console.log("CW Unmount Burger Builder");
   }
 
   purchaseHandler = () => {
@@ -152,4 +161,5 @@ const mapDispatchToProps = (dispatch) => ({
   onSetAuthRedirectPath: (path) => dispatch(actions.setAuthRedirectPath(path)),
 });
 
-export default withErrorHandler(connect(mapStateToProps, mapDispatchToProps)(BurgerBuilder), axios);
+// export default withErrorHandler(connect(mapStateToProps, mapDispatchToProps)(BurgerBuilder), axios);
+export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(BurgerBuilder, axios));
