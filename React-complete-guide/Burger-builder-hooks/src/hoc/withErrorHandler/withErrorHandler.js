@@ -2,10 +2,11 @@ import React, { Component, Fragment, useState, useEffect, useLayoutEffect, useRe
 import PropTypes from "prop-types";
 
 import Modal from "../../components/UI/Modal/Modal";
+import useHttpErrorHandler from "../../hooks/http-error-handler";
 
 const withErrorHandler = (WrappedComponent, axios) => {
   return (props) => {
-    const [error, setError] = useState(null);
+    const [error, errorConfirmedHandler] = useHttpErrorHandler(axios);
 
     // const reqInterceptor = useRef();
     // const resInterceptor = useRef();
@@ -39,24 +40,7 @@ const withErrorHandler = (WrappedComponent, axios) => {
     // }, []);
 
     // useLayoutEffect(() => {
-    const reqInterceptor = axios.interceptors.request.use((req) => {
-      // setState({ error: null });
-      console.log("req + seterror", req);
-      setError(null);
-      return req;
-    });
 
-    const resInterceptor = axios.interceptors.response.use(
-      (res) => {
-        console.log("res", res);
-        return res;
-      },
-      (err) => {
-        setError(err);
-        console.log("err", err);
-      }
-    );
-    console.log("configuring req/res interceptors");
     //   return () => {
     //     axios.interceptors.request.eject(reqInterceptor);
     //     axios.interceptors.response.eject(resInterceptor);
@@ -67,18 +51,6 @@ const withErrorHandler = (WrappedComponent, axios) => {
     // useEffect(() => {
     //   return () => {};
     // });
-
-    useEffect(() => {
-      return () => {
-        axios.interceptors.request.eject(reqInterceptor);
-        axios.interceptors.response.eject(resInterceptor);
-        console.log("removing req/res interceptors");
-      };
-    });
-
-    const errorConfirmedHandler = () => {
-      setError(null);
-    };
 
     return (
       <Fragment>

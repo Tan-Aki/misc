@@ -23,10 +23,11 @@ const App = (props) => {
   //   props.onTryAutoSignup();
   // }, []);
 
+  const { onTryAutoSignup } = props;
   useEffect(() => {
-    props.onTryAutoSignup();
+    onTryAutoSignup();
     console.log("trying auto signup");
-  }, []);
+  }, [onTryAutoSignup]);
 
   let routes = (
     <Switch>
