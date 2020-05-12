@@ -28,36 +28,48 @@
 // if (a === 3) console.log(a + b);
 // if (a === 3) return console.log(a + b);
 
-/////////////////////////////////////////
-const tutu = {
-	name: 'tututu'
+// /////////////////////////////////////////
+// const tutu = {
+// 	name: 'tututu'
+// };
+
+// const foo = {
+// 	prop: 'tititi'
+// };
+
+// const myFn2 = ({ prop, name }) => {
+// 	console.log(name);
+// 	console.log(prop);
+// };
+
+// myFn2(foo);
+// // undefined
+// // tititi
+
+// //////////////////////////////////////
+
+// const myFn3 = (arg1, arg2) => {
+// 	console.log(arg1);
+// 	if (arg2) console.log(arg2);
+// };
+
+// myFn3('a'); // a
+
+// const myFn4 = (arg1, arg2) => {
+// 	console.log(arg1);
+// 	if (arg2) console.log(arg2);
+// };
+
+// myFn4('a', undefined); // a
+function toto() {
+  console.log(arguments);
+  //   return console.log(arguments);
+}
+
+const toto2 = () => {
+  console.log(arguments);
+  //   return console.log(arguments);
 };
 
-const foo = {
-	prop: 'tititi'
-};
-
-const myFn2 = ({ prop, name }) => {
-	console.log(name);
-	console.log(prop);
-};
-
-myFn2(foo);
-// undefined
-// tititi
-
-//////////////////////////////////////
-
-const myFn3 = (arg1, arg2) => {
-	console.log(arg1);
-	if (arg2) console.log(arg2);
-};
-
-myFn3('a'); // a
-
-const myFn4 = (arg1, arg2) => {
-	console.log(arg1);
-	if (arg2) console.log(arg2);
-};
-
-myFn4('a', undefined); // a
+toto(1, 2);
+toto2(1, 2);
