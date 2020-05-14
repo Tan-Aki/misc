@@ -30,6 +30,7 @@ const BurgerBuilder = (props) => {
   const isAuthenticated = useSelector((state) => state.authReducer.token !== null);
 
   const dispatch = useDispatch();
+
   const onIngredientAdded = (ingName) => dispatch(actions.addIngredient(ingName));
   const onIngredientRemoved = (ingName) => dispatch(actions.removeIngredient(ingName));
   const onInitIngredients = useCallback(() => dispatch(actions.initIngredients()), [dispatch]);

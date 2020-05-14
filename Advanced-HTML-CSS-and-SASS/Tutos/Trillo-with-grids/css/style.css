@@ -29,14 +29,14 @@ body {
   font-weight: 400;
   line-height: 1.6;
   color: #333;
-  background-image: linear-gradient(to right bottom, olive, #556b2f);
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh; }
 
 .container-grid-frame {
   display: grid;
-  grid-template-columns: 1fr 15rem repeat(8, minmax(min-content, 15rem)) 15rem 1fr; }
+  grid-template-columns: 1fr 15rem repeat(8, minmax(min-content, 15rem)) 15rem 1fr;
+  background-image: linear-gradient(to right bottom, olive, #556b2f); }
 
 .wrapper-sidebar-left {
   grid-column: 2 / 3; }
@@ -206,7 +206,8 @@ body {
 .footer {
   grid-column: 3 / 11;
   padding: 3rem;
-  border: solid 1px #333; }
+  border: solid 1px #333;
+  font-size: 1.6rem; }
   @media only screen and (max-width: 50em) {
     .footer {
       margin-left: 0rem;
