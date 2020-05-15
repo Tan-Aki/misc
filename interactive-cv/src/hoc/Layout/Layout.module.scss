@@ -1,0 +1,16 @@
+.Layout {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) repeat(8, minmax(min-content, 15rem)) repeat(2, 1fr);
+  background-color: #ccd9ff;
+  height: 100rem;
+
+  .Frame {
+    grid-column: 3 / 11;
+    display: grid;
+    // grid-template-columns: repeat(2, 1fr) repeat(8, minmax(min-content, 15rem)) repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr) repeat(8, minmax(min-content, 11.5rem)) repeat(2, 1fr);
+    background-color: #fff;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+}
