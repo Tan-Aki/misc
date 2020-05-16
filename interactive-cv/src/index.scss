@@ -1,0 +1,77 @@
+// body {
+//   margin: 0;
+//   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+//     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+//     sans-serif;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+// }
+
+// code {
+//   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+//     monospace;
+// }
+
+:root {
+  --prim: #eb2f64;
+  --prim-2: #ff3366;
+  --prim-3: #ba265d;
+
+  --c-background: #eeeeee;
+
+  --c-1: #666666;
+  --c-2: #999999;
+
+  --blue: #c4d4e0;
+  --blue-light: #c7d4dd;
+  --blue-dark: #8dacc3;
+
+  --grey-light: #f4f2f2;
+  --grey-dark: #999;
+
+  --grey-dark-1: #333;
+  --grey-dark-2: #777;
+
+  --c-grey-light-1: #faf9f9;
+
+  --c-grey-light-3: #f0eeee;
+  --c-grey-light-4: #ccc;
+
+  --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+  --shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.1);
+
+  --line: 1px solid var(--c-grey-light-2);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  // The box-sizing property allows us to include the padding and border in an element's total width and height.
+  font-size: 62.5%; // 10px
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  //   color: var(--c-grey-dark-2);
+  color: #333;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  font-size: 1.6rem;
+}
+
+.page {
+  grid-column: 3 / 11;
+  height: 50rem;
+  background-color: #fff;
+}

@@ -1,5 +1,21 @@
 .Header {
-  height: 3rem;
-  background-color: blue;
+  // height: 15rem;
+  // background-color: blue;
   grid-column: 3 / 11;
+  width: 100%;
+  text-align: center;
+  border-bottom: 0.3rem solid var(--c-background);
+  padding: 2.5rem;
+  h1 {
+    color: var(--c-1);
+    font-size: 3rem;
+  }
+
+  h2 {
+    margin-top: 1rem;
+    color: var(--c-2);
+    font-size: 1.6rem;
+    font-weight: 300;
+    font-size: 2rem;
+  }
 }

@@ -6,10 +6,12 @@ import { NavLink } from "react-router-dom";
 const navigationItem = (props) => {
   return (
     <li className={classes.NavigationItem}>
+      {/* <div className={classes.box}> */}
       <NavLink activeClassName={classes.active} exact to={props.link}>
-        {/* for the activeClassname probleme with css modules. See lecture 229 : Implementing Navigation Links */}
         {props.children}
+        {/* for the activeClassname probleme with css modules. See lecture 229 : Implementing Navigation Links */}
       </NavLink>
+      {/* </div> */}
     </li>
   );
 };

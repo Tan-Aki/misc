@@ -1,4 +1,6 @@
 .Toolbar {
-  background-color: #8f5c2c;
+  // background-color: #8f5c2c;
   grid-column: 3 / 11;
+  width: 100%;
+  border-bottom: 0.3rem solid var(--c-background);
 }

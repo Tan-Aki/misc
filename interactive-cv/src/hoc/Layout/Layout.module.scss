@@ -1,7 +1,7 @@
 .Layout {
   display: grid;
   grid-template-columns: repeat(2, 1fr) repeat(8, minmax(min-content, 15rem)) repeat(2, 1fr);
-  background-color: #ccd9ff;
+  background-color: var(--c-background);
   height: 100rem;
 
   .Frame {
@@ -9,8 +9,13 @@
     display: grid;
     // grid-template-columns: repeat(2, 1fr) repeat(8, minmax(min-content, 15rem)) repeat(2, 1fr);
     grid-template-columns: repeat(2, 1fr) repeat(8, minmax(min-content, 11.5rem)) repeat(2, 1fr);
+    align-content: start;
+    grid-gap: 1rem;
+    justify-items: center;
+
     background-color: #fff;
     margin-top: 5rem;
     margin-bottom: 5rem;
+    border-radius: 1rem;
   }
 }

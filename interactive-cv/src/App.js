@@ -9,6 +9,7 @@ import Skills from "./components/Pages/Skills/Skills";
 import AdditionalInfo from "./components/Pages/AdditionalInfo/AdditionalInfo";
 import Experiences from "./components/Pages/Experiences/Experiences";
 import Info from "./components/Pages/Info/Info";
+import Contact from "./components/Pages/Contact/Contact";
 import Logout from "./components/Pages/Logout/Logout";
 
 import Header from "./components/Header/Header";
@@ -27,7 +28,7 @@ function App() {
           <Route path="/skills" component={Skills} />
           <Route path="/additionalInfo" component={AdditionalInfo} />
           <Route path="/experiences" component={Experiences} />
-          <Route path="/logout" component={Logout} />
+          <Route path="/contact" component={Contact} />
           <Route path="/" component={Info} />
         </Switch>
       </Layout>
