@@ -1,0 +1,10 @@
+.LanguageSwitcher {
+  //   display: inline-block;
+  grid-column: 11/13;
+  padding: 1rem;
+  ul {
+    // display: inline;
+    list-style: none;
+    display: flex;
+  }
+}

@@ -1,28 +1,13 @@
 .NavigationItem {
-  margin: 0 0.5rem;
-  // list-style: none;
-
   a {
     color: var(--c-2);
     font-weight: 600;
-    // height: 100%;
-    // padding: 16px 10px;
     text-decoration: none;
     position: relative;
     transition: all 0.5s;
     display: block;
     padding: 1rem;
     z-index: 1;
-    // width: 7rem;
-    // height: 5rem;
-
-    // span {
-    //   z-index: 3;
-    //   // display: block;
-    //   position: absolute;
-    //   // width: 100%;
-    //   // height: 100%;
-    // }
 
     &::before {
       content: "";
@@ -31,6 +16,8 @@
       left: 0;
       width: 100%;
       height: 100%;
+      z-index: -1;
+      transition: all 0.5s;
     }
 
     &::after {
@@ -40,55 +27,27 @@
       left: 0;
       width: 100%;
       height: 100%;
+      z-index: -1;
+      transition: all 0.5s;
     }
 
     &:hover::before {
-      z-index: -1;
-      transition: all 0.5s;
       border: 3px solid var(--c-background);
-      //var(--c-background)
       transform: rotate(-45deg);
     }
     &:hover::after {
-      z-index: -1;
-      transition: all 0.5s;
       border: 3px solid var(--c-background);
-
       transform: rotate(45deg);
-    }
-
-    &:active:before {
-      transform: rotate(0);
-    }
-    &:active::after {
-      transform: rotate(0);
     }
 
     &.active {
       color: #40a4c8;
 
       &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        transition: all 0.5s;
         border: 3px solid var(--c-background);
-        //var(--c-background)
       }
 
       &::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        transition: all 0.5s;
         border: 3px solid var(--c-background);
       }
 
@@ -98,18 +57,6 @@
       &::after {
         transform: rotate(0);
       }
-
-      // border: 2px solid;
-
-      // border-bottom: 4px solid transparent;
     }
   }
 }
-
-// span {
-//   z-index: 2;
-//   display: block;
-//   position: absolute;
-//   width: 100%;
-//   height: 100%;
-// }

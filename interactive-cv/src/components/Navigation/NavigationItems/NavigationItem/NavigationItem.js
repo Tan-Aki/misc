@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import classes from "./NavigationItem.module.scss";
 import { NavLink } from "react-router-dom";
 
-const navigationItem = (props) => {
+const NavigationItem = (props) => {
   return (
     <li className={classes.NavigationItem}>
       {/* <div className={classes.box}> */}
@@ -16,6 +16,6 @@ const navigationItem = (props) => {
   );
 };
 
-navigationItem.propTypes = {};
+NavigationItem.propTypes = {};
 
-export default navigationItem;
+export default NavigationItem;

@@ -5,16 +5,21 @@ import SideDrawer from "../../components/Navigation/SideDrawer/SideDrawer";
 
 class Layout extends Component {
   state = {
-    showSideDrawer: false
+    showSideDrawer: false,
   };
 
   sideDrawerClosedHandler = () => {
     this.setState({ showSideDrawer: false });
   };
   sideDrawerToggleHandler = () => {
-    this.setState(prevState => {
-      return { showSideDrawer: !prevState.showSideDrawer };
-    });
+    let newState = !this.state.showSideDrawer;
+    this.setState({ showSideDrawer: newState });
+
+    // same but different, when inside the setstate, you can use the callback version with the prevstate
+
+    // this.setState((prevState) => {
+    //   return { showSideDrawer: !prevState.showSideDrawer };
+    // });
   };
 
   render() {
