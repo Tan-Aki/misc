@@ -1,0 +1,47 @@
+.ToolbarToggle {
+  cursor: pointer;
+
+  //   @media (min-width: 500px) {
+  //     display: none;
+  //   }
+  width: min-content;
+
+  display: flex;
+  align-items: center;
+
+  border: 0.2rem solid var(--c-background);
+  border-radius: 1rem;
+
+  &:hover {
+    color: var(--c-active);
+  }
+
+  @media only screen and (min-width: 900px) {
+    display: none;
+  }
+
+  .Icon {
+    margin-left: 1rem;
+    width: 4rem;
+    height: 5rem;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem 0;
+
+    div {
+      width: 90%;
+      height: 0.3rem;
+      background-color: var(--c-2);
+    }
+  }
+
+  .Menu {
+    color: var(--c-2);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0 1rem;
+    font-size: 2rem;
+  }
+}

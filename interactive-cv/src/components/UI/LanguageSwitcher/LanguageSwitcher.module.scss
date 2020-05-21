@@ -1,10 +1,33 @@
 .LanguageSwitcher {
   //   display: inline-block;
-  grid-column: 11/13;
-  padding: 1rem;
+  // grid-column: 11/13;
+  // padding: 1rem;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+
   ul {
     // display: inline;
     list-style: none;
     display: flex;
   }
+
+  button {
+    color: var(--c-2);
+    font-weight: 600;
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin: 1rem 1rem 0 0;
+    outline: none;
+    &.active,
+    &:hover {
+      color: var(--c-active);
+    }
+  }
+
+  // float: left;
+
+  // @media only screen and (max-width: 1300px) {
+  // }
 }

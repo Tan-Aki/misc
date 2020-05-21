@@ -7,33 +7,37 @@ import { useSelector } from "react-redux";
 const NavigationItems = (props) => {
   const language = useSelector((state) => state.languageReducer.language);
 
-  let navigationItems = (
+  // let navigationItems = (
+  //   <ul className={classes.NavigationItems}>
+  //     <NavigationItem link="/">General Info</NavigationItem>
+  //     <NavigationItem link="/skills">Skills</NavigationItem>
+  //     <NavigationItem link="/projects">Projects</NavigationItem>
+  //     <NavigationItem link="/education">Education</NavigationItem>
+  //     <NavigationItem link="/experiences">Experience</NavigationItem>
+  //     <NavigationItem link="/additionalInfo">Additional Info </NavigationItem>
+  //     <NavigationItem link="/contact">Contact</NavigationItem>
+  //   </ul>
+  // );
+
+  const infoLabel = language === "FR" ? "Informations générales" : "General Info";
+  const skillsLabel = language === "FR" ? "Compétences" : "Skills";
+  const projectsLabel = language === "FR" ? "Projets" : "Projects";
+  const educationLabel = language === "FR" ? "Formations" : "Education";
+  const experiencesLabel = language === "FR" ? "Expériences" : "Experiences";
+  const additionalInfoLabel = language === "FR" ? "Informations additionnelles" : "Additional Info";
+  const contactLabel = "Contact";
+
+  return (
     <ul className={classes.NavigationItems}>
-      <NavigationItem link="/">General Info</NavigationItem>
-      <NavigationItem link="/skills">Skills</NavigationItem>
-      <NavigationItem link="/projects">Projects</NavigationItem>
-      <NavigationItem link="/education">Education</NavigationItem>
-      <NavigationItem link="/experience">Experience</NavigationItem>
-      <NavigationItem link="/additionalInfo">Additional Info </NavigationItem>
-      <NavigationItem link="/contact">Contact</NavigationItem>
+      <NavigationItem link="/">{infoLabel}</NavigationItem>
+      <NavigationItem link="/skills">{skillsLabel}</NavigationItem>
+      <NavigationItem link="/projects">{projectsLabel}</NavigationItem>
+      <NavigationItem link="/education">{educationLabel}</NavigationItem>
+      <NavigationItem link="/experiences">{experiencesLabel}</NavigationItem>
+      <NavigationItem link="/additionalInfo">{additionalInfoLabel}</NavigationItem>
+      <NavigationItem link="/contact">{contactLabel}</NavigationItem>
     </ul>
   );
-
-  if (language === "FR") {
-    navigationItems = (
-      <ul className={classes.NavigationItems}>
-        <NavigationItem link="/">Informations générales</NavigationItem>
-        <NavigationItem link="/competences">Compétences</NavigationItem>
-        <NavigationItem link="/projets">Projets</NavigationItem>
-        <NavigationItem link="/formations">Formations</NavigationItem>
-        <NavigationItem link="/experiences">Expériences</NavigationItem>
-        <NavigationItem link="/infoAdditionnelles">Informations additionnelles </NavigationItem>
-        <NavigationItem link="/contact">Contact</NavigationItem>
-      </ul>
-    );
-  }
-
-  return navigationItems;
 };
 
 NavigationItems.propTypes = {};
