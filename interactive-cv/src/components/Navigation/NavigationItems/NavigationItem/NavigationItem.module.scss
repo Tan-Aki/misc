@@ -18,6 +18,10 @@
       color: var(--c-active);
     }
 
+    &.active {
+      color: var(--c-active);
+    }
+
     @media only screen and (min-width: 914px) {
       position: relative;
       transition: all 0.5s;
@@ -58,7 +62,7 @@
       }
 
       &.active {
-        color: var(--c-active);
+        // color: var(--c-active);
 
         &::before {
           border: 3px solid var(--c-background);
