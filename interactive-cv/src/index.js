@@ -7,13 +7,18 @@ import { combineReducers, createStore } from "redux";
 import "./index.scss";
 import App from "./App";
 import languageReducer from "./store/reducer/language";
+import toolbarReducer from "./store/reducer/toolbar";
 import { Provider } from "react-redux";
 
 const rootReducer = combineReducers({
   languageReducer,
+  toolbarReducer,
 });
 
-const store = createStore(rootReducer);
+const store = createStore(
+  rootReducer /* preloadedState, */,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 const app = (
   <Provider store={store}>

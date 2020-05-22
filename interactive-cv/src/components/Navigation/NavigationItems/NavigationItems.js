@@ -3,9 +3,18 @@ import PropTypes from "prop-types";
 import classes from "./NavigationItems.module.scss";
 import NavigationItem from "./NavigationItem/NavigationItem";
 import { useSelector } from "react-redux";
+import classNames from "classnames/bind";
 
 const NavigationItems = (props) => {
   const language = useSelector((state) => state.languageReducer.language);
+  const showToolbar = useSelector((state) => state.toolbarReducer.showToolbar);
+
+  const cx = classNames.bind(classes);
+
+  const navigationItemsClass = cx({
+    NavigationItems: true,
+    active: showToolbar,
+  });
 
   // let navigationItems = (
   //   <ul className={classes.NavigationItems}>
@@ -28,7 +37,7 @@ const NavigationItems = (props) => {
   const contactLabel = "Contact";
 
   return (
-    <ul className={classes.NavigationItems}>
+    <ul className={navigationItemsClass}>
       <NavigationItem link="/">{infoLabel}</NavigationItem>
       <NavigationItem link="/skills">{skillsLabel}</NavigationItem>
       <NavigationItem link="/projects">{projectsLabel}</NavigationItem>

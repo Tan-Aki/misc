@@ -1,32 +1,25 @@
-// .NavigationItems {
-//   margin: 0;
-//   padding: 0;
-//   list-style: none;
-//   display: flex;
-//   flex-flow: column;
-
-//   align-items: center;
-//   height: 100%;
-
-//   @media only screen and (min-width: 500px) {
-//     flex-flow: row;
-//   }
-// }
-
 .NavigationItems {
   list-style: none;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 
   // flex-shrink: 0;
-  flex-wrap: wrap;
 
   text-transform: uppercase;
   padding: 2.5rem;
 
-  @media only screen and (max-width: 900px) {
-    // display: none;
+  @media only screen and (max-width: 913px) {
+    display: none;
+    // padding: 0 0 10rem 0;
+    padding: 1rem 0;
+    width: 100%;
     flex-direction: column;
+    align-self: flex-start;
+
+    &.active {
+      display: initial;
+    }
   }
 }

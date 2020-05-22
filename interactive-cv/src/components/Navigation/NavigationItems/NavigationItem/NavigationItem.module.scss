@@ -1,16 +1,24 @@
 .NavigationItem {
+  @media only screen and (max-width: 913px) {
+    width: 100%;
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--c-background);
+    }
+  }
+
   a {
     color: var(--c-2);
     font-weight: 600;
     text-decoration: none;
     display: block;
     padding: 1rem;
+    // width: 100%;
 
     &:hover {
       color: var(--c-active);
     }
 
-    @media only screen and (min-width: 900px) {
+    @media only screen and (min-width: 914px) {
       position: relative;
       transition: all 0.5s;
       z-index: 1;
@@ -39,11 +47,14 @@
 
       &:hover::before {
         border: 3px solid var(--c-background);
-        transform: rotate(-45deg);
+        // border: 3px solid var(--c-active);
+        transform: rotate(-7deg);
       }
       &:hover::after {
         border: 3px solid var(--c-background);
-        transform: rotate(45deg);
+        // border: 3px solid var(--c-active);
+
+        transform: rotate(7deg);
       }
 
       &.active {
@@ -51,10 +62,12 @@
 
         &::before {
           border: 3px solid var(--c-background);
+          // border: 3px solid var(--c-active);
         }
 
         &::after {
           border: 3px solid var(--c-background);
+          // border: 3px solid var(--c-active);
         }
 
         &::before {

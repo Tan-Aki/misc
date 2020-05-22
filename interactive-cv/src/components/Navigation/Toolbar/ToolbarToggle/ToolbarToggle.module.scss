@@ -1,23 +1,31 @@
 .ToolbarToggle {
-  cursor: pointer;
+  display: none;
 
-  //   @media (min-width: 500px) {
-  //     display: none;
-  //   }
-  width: min-content;
-
-  display: flex;
-  align-items: center;
-
-  border: 0.2rem solid var(--c-background);
-  border-radius: 1rem;
-
-  &:hover {
-    color: var(--c-active);
+  @media only screen and (max-width: 913px) {
+    display: flex;
   }
 
-  @media only screen and (min-width: 900px) {
-    display: none;
+  cursor: pointer;
+
+  width: min-content;
+
+  align-items: center;
+
+  color: var(--c-2);
+  border: 0.2rem solid var(--c-background);
+  border-radius: 1rem;
+  //   background-color: var(--c-2);
+
+  &:hover,
+  &.active {
+    color: var(--c-active);
+    border: 0.2rem solid var(--c-active);
+    // background-color: var(--c-active);
+    .Icon {
+      div {
+        background-color: var(--c-active);
+      }
+    }
   }
 
   .Icon {
@@ -38,7 +46,8 @@
   }
 
   .Menu {
-    color: var(--c-2);
+    // color: var(--c-2);
+    color: inherit;
     font-weight: 600;
     text-transform: uppercase;
     margin: 0 1rem;
