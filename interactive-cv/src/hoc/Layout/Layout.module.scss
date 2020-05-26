@@ -3,7 +3,7 @@
   grid-template-columns: repeat(2, 1fr) repeat(8, minmax(min-content, 15rem)) repeat(2, 1fr);
   // grid-template-columns: repeat(12, 1fr);
   background-color: var(--c-background);
-  height: 100rem;
+  // min-height: 100rem;
 
   .Frame {
     grid-column: 3 / 11;

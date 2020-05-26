@@ -8,6 +8,7 @@ import Toolbar from "./components/Navigation/Toolbar/Toolbar";
 import LanguageSwitcher from "./components/UI/LanguageSwitcher/LanguageSwitcher";
 
 import HeaderEN from "./components/Header/EN/Header";
+import FooterEN from "./components/Footer/EN/Footer";
 import ProjectsEN from "./components/Pages/Projects/EN/Projects";
 import EducationEN from "./components/Pages/Education/EN/Education";
 import SkillsEN from "./components/Pages/Skills/EN/Skills";
@@ -17,6 +18,7 @@ import AboutEN from "./components/Pages/About/EN/About";
 // import ContactEN from "./components/Pages/Contact/EN/Contact";
 
 import HeaderFR from "./components/Header/FR/Header";
+import FooterFR from "./components/Footer/FR/Footer";
 import ProjectsFR from "./components/Pages/Projects/FR/Projects";
 import EducationFR from "./components/Pages/Education/FR/Education";
 import SkillsFR from "./components/Pages/Skills/FR/Skills";
@@ -29,6 +31,7 @@ function App() {
   const language = useSelector((state) => state.languageReducer.language);
 
   const header = language === "FR" ? <HeaderFR /> : <HeaderEN />;
+  const footer = language === "FR" ? <FooterFR /> : <FooterEN />;
 
   const projectsPage = language === "FR" ? ProjectsFR : ProjectsEN;
   const educationPage = language === "FR" ? EducationFR : EducationEN;
@@ -42,11 +45,11 @@ function App() {
     <Switch>
       <Route path="/projects" component={projectsPage} />
       <Route path="/education" component={educationPage} />
-      {/* <Route path="/skills" component={skillsPage} /> */}
+      <Route path="/skills" component={skillsPage} />
       {/* <Route path="/additionalInfo" component={additionalInfoPage} /> */}
       <Route path="/experiences" component={experiencesPage} />
-      <Route path="/about" component={aboutPage} />
-      <Route path="/" component={skillsPage} />
+      {/* <Route path="/about" component={aboutPage} /> */}
+      <Route path="/" component={aboutPage} />
     </Switch>
   );
 
@@ -72,6 +75,7 @@ function App() {
         <LanguageSwitcher />
         <Toolbar />
         {routes}
+        {footer}
       </Layout>
     </div>
   );

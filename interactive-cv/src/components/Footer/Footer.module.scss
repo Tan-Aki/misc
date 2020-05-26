@@ -1,0 +1,26 @@
+.Footer {
+  // height: 15rem;
+  // background-color: blue;
+  grid-column: 3 / 11;
+  width: 100%;
+  text-align: center;
+  border-top: 0.3rem solid var(--c-background);
+  padding: 2.5rem;
+
+  .Row {
+    display: flex;
+    justify-content: center;
+  }
+
+  @media only screen and (max-width: 1300px) {
+    grid-column: 2 / 12;
+  }
+
+  h2 {
+    margin-top: 1rem;
+    color: var(--c-2);
+    font-weight: 300;
+    font-size: 1.6rem;
+    // grid-column: 1 / -1;
+  }
+}

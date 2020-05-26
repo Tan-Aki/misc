@@ -38,13 +38,13 @@ const NavigationItems = (props) => {
 
   return (
     <ul className={navigationItemsClass}>
-      <NavigationItem link="/">{skillsLabel}</NavigationItem>
+      <NavigationItem link="/">{aboutLabel}</NavigationItem>
+      <NavigationItem link="/skills">{skillsLabel}</NavigationItem>
       {/* <NavigationItem link="/skills">{skillsLabel}</NavigationItem> */}
       <NavigationItem link="/projects">{projectsLabel}</NavigationItem>
       <NavigationItem link="/education">{educationLabel}</NavigationItem>
       <NavigationItem link="/experiences">{experiencesLabel}</NavigationItem>
       {/* <NavigationItem link="/additionalInfo">{additionalInfoLabel}</NavigationItem> */}
-      <NavigationItem link="/about">{aboutLabel}</NavigationItem>
     </ul>
   );
 };
