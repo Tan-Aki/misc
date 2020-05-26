@@ -28,23 +28,23 @@ const NavigationItems = (props) => {
   //   </ul>
   // );
 
-  const infoLabel = language === "FR" ? "Informations générales" : "General Info";
+  const aboutLabel = language === "FR" ? "À propos" : "About";
   const skillsLabel = language === "FR" ? "Compétences" : "Skills";
   const projectsLabel = language === "FR" ? "Projets" : "Projects";
   const educationLabel = language === "FR" ? "Formations" : "Education";
   const experiencesLabel = language === "FR" ? "Expériences" : "Experiences";
-  const additionalInfoLabel = language === "FR" ? "Informations additionnelles" : "Additional Info";
-  const contactLabel = "Contact";
+  // const additionalInfoLabel = language === "FR" ? "Informations additionnelles" : "Additional Info";
+  // const contactLabel = "Contact";
 
   return (
     <ul className={navigationItemsClass}>
-      <NavigationItem link="/">{infoLabel}</NavigationItem>
-      <NavigationItem link="/skills">{skillsLabel}</NavigationItem>
+      <NavigationItem link="/">{skillsLabel}</NavigationItem>
+      {/* <NavigationItem link="/skills">{skillsLabel}</NavigationItem> */}
       <NavigationItem link="/projects">{projectsLabel}</NavigationItem>
       <NavigationItem link="/education">{educationLabel}</NavigationItem>
       <NavigationItem link="/experiences">{experiencesLabel}</NavigationItem>
-      <NavigationItem link="/additionalInfo">{additionalInfoLabel}</NavigationItem>
-      <NavigationItem link="/contact">{contactLabel}</NavigationItem>
+      {/* <NavigationItem link="/additionalInfo">{additionalInfoLabel}</NavigationItem> */}
+      <NavigationItem link="/about">{aboutLabel}</NavigationItem>
     </ul>
   );
 };
