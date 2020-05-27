@@ -1,0 +1,26 @@
+////// first progress bar
+
+progress {
+  border: 0;
+  min-width: 12rem;
+  min-height: 1.6rem;
+  margin-left: auto;
+  flex-shrink: 0;
+
+  &::-webkit-progress-bar {
+    /* style rules */
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+    background-color: var(--c-background);
+  }
+  &::-webkit-progress-value {
+    /* style rules */
+    background-color: var(--c-active);
+    border-radius: 0.5rem;
+  }
+  &::-moz-progress-bar {
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+    background-color: var(--c-background);
+  }
+}
