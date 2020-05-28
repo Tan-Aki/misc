@@ -1,6 +1,13 @@
 .Skills {
   overflow: visible;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
 
+  // .Div {
+  //   border: 3px solid var(--c-background);
+  //   border-radius: 10px;
+  // }
   ul {
     // min-height: 1000px;
     padding: 1rem;
@@ -9,7 +16,7 @@
     list-style-type: none;
     // display: flex;
     // flex-wrap: wrap;
-    column-count: 2;
+    // column-count: 2;
 
     li {
       // width: calc(100% / 3);

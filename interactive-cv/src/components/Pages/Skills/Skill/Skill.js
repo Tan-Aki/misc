@@ -9,7 +9,8 @@ const Skill = (props) => {
     <div className={classes.Skill}>
       <ChevronLogo />
       <span>{props.label}</span>
-      <ProgressBar max={props.max} value={props.value} />
+      {/* <ProgressBar max={props.max} value={props.value} /> */}
+      <ProgressBar percent={props.value} />
     </div>
   );
 };
