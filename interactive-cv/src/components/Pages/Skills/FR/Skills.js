@@ -84,7 +84,7 @@ const Skills = (props) => {
         </ul>
       </div>
       <div className={classes.Languages}>
-        <h3>Langues:</h3>
+        <h3>Langues :</h3>
         <ul>
           <li>
             <Skill label="Anglais: excellent" />
