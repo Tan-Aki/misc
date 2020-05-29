@@ -3,7 +3,7 @@ import * as React from "react";
 import classes from "./ProgressBar.module.scss";
 
 const ProgressBar = (props) => {
-  const progressDivWidth = 12;
+  const progressDivWidth = 15;
   const [progressWidth, setProgressWidth] = React.useState(0);
   // let progressWidth = null;
 
