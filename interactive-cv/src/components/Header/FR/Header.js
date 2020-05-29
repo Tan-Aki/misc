@@ -7,8 +7,12 @@ const Header = (props) => {
     <header className={classes.Header}>
       <h1>Tanneguy Jullin</h1>
       <h2>
-        Ancien technicien informatique/gestionnaire de changements TI reconverti en développeur web
-        front-end et spécialisé en React.JS.
+        <span> – </span>Développeur Web Front-end <span> – </span>
+      </h2>
+
+      <h2>
+        Ancien technicien informatique/gestionnaire de changements TI reconverti et spécialisé en
+        React.JS.
         <br /> Passionné de technologie et assoiffé de connaissances !
       </h2>
     </header>
