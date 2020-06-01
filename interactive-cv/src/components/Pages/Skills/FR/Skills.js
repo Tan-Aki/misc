@@ -97,10 +97,10 @@ const Skills = (props) => {
         <h3>Langues :</h3>
         <ul>
           <li>
-            <ChevronItem label="Anglais: excellent" />
+            <ChevronItem label="Anglais : excellent" />
           </li>
           <li>
-            <ChevronItem label="Français: langue maternelle" />
+            <ChevronItem label="Français : langue maternelle" />
           </li>
         </ul>
       </div>
