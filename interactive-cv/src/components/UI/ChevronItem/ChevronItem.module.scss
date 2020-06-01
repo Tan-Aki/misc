@@ -1,0 +1,34 @@
+.ChevronItem {
+  // height: 100%;
+  display: flex;
+  // display: grid;
+  // grid-template-columns: min-content minmax(min-content, 400px) 1fr;
+  // justify-content: ;
+  align-items: flex-start;
+
+  span {
+    padding: 2px;
+    margin-right: 5px;
+
+    // @media only screen and (max-width: 913px) {
+    //   margin-righ
+    // }
+  }
+}
+// .Skill {
+//   // height: 100%;
+//   display: flex;
+//   // display: grid;
+//   // grid-template-columns: min-content minmax(min-content, 400px) 1fr;
+//   // justify-content: ;
+//   align-items: start;
+
+//   span {
+//     padding: 2px;
+//     margin-right: 5px;
+
+//     // @media only screen and (max-width: 913px) {
+//     //   margin-righ
+//     // }
+//   }
+// }

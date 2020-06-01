@@ -1,11 +1,17 @@
 import * as React from "react";
+import useWindowSize from "../../../hooks/useWindowSize";
 
 import classes from "./ProgressBar.module.scss";
 
 const ProgressBar = (props) => {
-  const progressDivWidth = 15;
+  const [width] = useWindowSize();
+
+  // const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+  let progressDivWidth;
+  width < 913 ? (progressDivWidth = (width * 33) / 100) : (progressDivWidth = 170);
+
   const [progressWidth, setProgressWidth] = React.useState(0);
-  // let progressWidth = null;
+  // let progressDivWidth = 150;
 
   React.useEffect(() => {
     setProgressWidth((props.percent / 100) * progressDivWidth);
@@ -13,11 +19,11 @@ const ProgressBar = (props) => {
     // return () => {
     //   console.log("unmounting");
     // };
-  }, [props.percent]);
+  }, [props.percent, progressDivWidth]);
 
   return (
-    <div className={classes.ProgressDiv} style={{ width: `${progressDivWidth}rem` }}>
-      <div style={{ width: `${progressWidth}rem` }} className={classes.Progress} />
+    <div className={classes.ProgressDiv} style={{ width: `${progressDivWidth}px` }}>
+      <div style={{ width: `${progressWidth}px` }} className={classes.Progress} />
     </div>
   );
 };

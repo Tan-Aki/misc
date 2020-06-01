@@ -4,7 +4,7 @@
   grid-column: 3 / 11;
   width: 100%;
   text-align: center;
-  border-bottom: 0.3rem solid var(--c-background);
+  // border-bottom: 0.3rem solid var(--c-background);
   padding: 2.5rem;
 
   span {
@@ -16,9 +16,9 @@
   @media only screen and (max-width: 1300px) {
     grid-column: 2 / 12;
   }
-  // @media only screen and (max-width: 600px) {
-  //   grid-column: 1 / 13;
-  // }
+  @media only screen and (max-width: 600px) {
+    grid-column: 1 / 13;
+  }
 
   // display: grid;
   // // grid-template-columns: repeat(2, 1fr) repeat(8, minmax(min-content, 15rem)) repeat(2, 1fr);

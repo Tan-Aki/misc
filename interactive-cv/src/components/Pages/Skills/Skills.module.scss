@@ -4,7 +4,7 @@
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 1rem;
 
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 913px) {
     grid-template-columns: 1fr;
   }
 
@@ -12,6 +12,17 @@
   //   border: 3px solid var(--c-background);
   //   border-radius: 10px;
   // }
+
+  .SkillsSection {
+    ul {
+      li {
+        display: grid;
+        grid-template-columns: minmax(min-content, 400px) 1fr;
+        column-gap: 1.5rem;
+        align-items: start;
+      }
+    }
+  }
 
   .Knowledge {
     grid-column: 1 / -1;
