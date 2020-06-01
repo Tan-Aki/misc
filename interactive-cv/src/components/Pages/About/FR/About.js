@@ -51,7 +51,7 @@ const About = (props) => {
       </div>
       <div className={classes.Row}>
         <HobbiesLogo />
-        <span>Sport, voyages, yoga, meditation, e-sports, plein air</span>
+        <span>Sport, voyages, yoga, meditation, eSports, séries, plein air.</span>
       </div>
     </div>
   );

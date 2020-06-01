@@ -19,11 +19,11 @@ const Skills = (props) => {
         {/* <h3>Compétences techniques:</h3> */}
         <ul>
           <li>
-            <ChevronItem label="React.JS (avec Lifecycle hooks ou React hooks)" />
+            <ChevronItem label="React.JS (avec Lifecycle hooks/React hooks)" />
             <ProgressBar percent="70" />
           </li>
           <li>
-            <ChevronItem label="Javascript ES5/ES6" />
+            <ChevronItem label="JavaScript ES5/ES6" />
             <ProgressBar percent="70" />
           </li>
           <li>
@@ -35,7 +35,7 @@ const Skills = (props) => {
             <ProgressBar percent="70" />
           </li>
           <li>
-            <ChevronItem label="Redux, Redux Thunk, Redux Saga, React Router" />
+            <ChevronItem label="Redux, Redux-Thunk, Redux-Saga, React Router" />
             <ProgressBar percent="65" />
           </li>
         </ul>
