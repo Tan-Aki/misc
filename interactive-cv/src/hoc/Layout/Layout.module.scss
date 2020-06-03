@@ -4,6 +4,7 @@
   // grid-template-columns: repeat(12, 1fr);
   background-color: var(--c-background);
   // min-height: 100rem;
+  min-height: 100vh;
 
   .Frame {
     grid-column: 3 / 11;
@@ -14,6 +15,7 @@
     align-content: start;
     grid-gap: 1rem;
     // justify-items: center;
+    height : min-content;
 
     background-color: #fff;
     margin-top: 5rem;
