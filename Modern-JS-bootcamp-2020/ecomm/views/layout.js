@@ -54,6 +54,9 @@ module.exports = ({ content }) => {
             <div class="navbar-item">
               <a href="/cart"><i class="fa fa-shopping-cart"></i> Cart</a>
             </div>
+            <div class="navbar-item">
+            <a href="/signin"><i class="fa fa-sign-in-alt"></i> Admin Panel</a>
+          </div>
           </div>
         </div>
       </div>

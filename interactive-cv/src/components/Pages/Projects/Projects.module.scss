@@ -1,0 +1,37 @@
+.Projects {
+  ul {
+    padding: 1rem;
+
+    list-style-type: none;
+
+    li {
+      display: block;
+      height: 100%;
+    }
+  }
+
+  div {
+    ul {
+      .LiWithLink {
+        display: flex;
+        align-items: flex-start;
+
+        a {
+          //   overflow-wrap: break-word;
+          //   word-wrap: break-word;
+          //   word-break: break-all;
+          /* Instead use this non-standard one: */
+          word-break: break-word;
+
+          //   min-width: 0;
+          &:hover,
+          &:link,
+          &:active,
+          &:visited {
+            color: var(--c-active);
+          }
+        }
+      }
+    }
+  }
+}

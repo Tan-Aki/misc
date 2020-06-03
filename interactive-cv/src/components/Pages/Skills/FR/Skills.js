@@ -16,7 +16,6 @@ const Skills = (props) => {
   return (
     <div className={skillsClass}>
       <div className={classes.SkillsSection}>
-        {/* <h3>Compétences techniques:</h3> */}
         <ul>
           <li>
             <ChevronItem label="React.JS (avec Lifecycle hooks/React hooks)" />
@@ -41,7 +40,6 @@ const Skills = (props) => {
         </ul>
       </div>
       <div className={classes.SkillsSection}>
-        {/* <h3>Notions techniques:</h3> */}
         <ul>
           <li>
             <ChevronItem label="GitHub" />
@@ -59,13 +57,10 @@ const Skills = (props) => {
             <ChevronItem label="Testing avec Chai/Mocha/Jest" />
             <ProgressBar percent="40" />
           </li>
-          {/* <li>
-            <ChevronItem label="Next.JS" value="25" />
-          </li> */}
         </ul>
       </div>
       <div className={classes.Knowledge}>
-        <h3>Autres connaissances et notions en informatique :</h3>
+        <h3>Autres connaissances et notions en informatique:</h3>
         <ul>
           <li>
             <ChevronItem label="Notions académiques de plusieurs langages de programmation (Java, PHP, ASP.net et C#.net, lisp, C, C++, Objective-C, assembleur)" />
@@ -94,13 +89,13 @@ const Skills = (props) => {
         </ul>
       </div>
       <div className={classes.Languages}>
-        <h3>Langues :</h3>
+        <h3>Langues:</h3>
         <ul>
           <li>
-            <ChevronItem label="Anglais : excellent" />
+            <ChevronItem label="Anglais: excellent" />
           </li>
           <li>
-            <ChevronItem label="Français : langue maternelle" />
+            <ChevronItem label="Français: langue maternelle" />
           </li>
         </ul>
       </div>
