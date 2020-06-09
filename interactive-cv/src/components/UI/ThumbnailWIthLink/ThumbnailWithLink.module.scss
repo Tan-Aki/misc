@@ -1,0 +1,57 @@
+.ThumbnailWithLink {
+  display: block;
+  width: 22rem;
+  height: 22rem;
+  padding: 0.5rem;
+  position: relative;
+  border: solid 2px var(--c-active);
+  border-radius: 10px;
+  // transform: translate(-50%, -50%);
+  
+  overflow: hidden;
+  transition: 0.5s;
+
+  
+  &::before {
+    
+    content : '';
+    position: absolute;
+    top : 0;
+    left : -18rem;
+    width: 11rem;
+    height: 100%;
+    // background: rgba(var(--c-active-rgb), 0.3);
+    background: rgba(white, 0.3);
+    transform: skewx(-30deg);
+    transition: 0.5s;
+    
+  }
+
+  &:hover {
+    box-shadow: 0 3rem 6rem rgba(black, 0.2);
+    transform: scale(1.05, 1.05);
+
+  }
+  
+  &:hover::before {
+      left : 28rem;
+  }
+
+
+
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    // &:hover {
+      // padding : .5rem;
+    // }
+  }
+}
+
+
+
+// @keyframes shineAndGrow {
+
+
+// }

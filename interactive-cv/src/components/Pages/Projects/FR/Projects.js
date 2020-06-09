@@ -3,8 +3,9 @@ import PropTypes from "prop-types";
 import classes from "../Projects.module.scss";
 import ChevronItem from "../../../UI/ChevronItem/ChevronItem";
 import classNames from "classnames/bind";
-import ProgressBar from "../../../UI/ProgressBar/ProgressBar";
-import bbuilderThumbnail from "../../../../assets/bbuilderThumbnail.png";
+import ThumbnailWIthLink from "../../../UI/ThumbnailWIthLink/ThumbnailWithLink";
+// import ProgressBar from "../../../UI/ProgressBar/ProgressBar";
+// import bbuilderThumbnail from "../../../../assets/bbuilderThumbnail.png";
 
 const Projects = (props) => {
   const cx = classNames.bind(classes);
@@ -80,7 +81,10 @@ const Projects = (props) => {
             </a>
           </li>
         </ul>
-        <img src={bbuilderThumbnail} alt="Logo" />
+        <ThumbnailWIthLink
+          imgName="bbuilderThumbnail.png"
+          link="https://burger-builder-e7569.firebaseapp.com/"
+        />
       </div>
 
       <div>
