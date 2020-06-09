@@ -1,8 +1,0 @@
-Don't forget to uncomment in the html section when you developping.
-
-    <!-- <link rel="stylesheet" href="css/icon-font.css"> -->
-
-
-Then you can comment it again before runnning npm run build:css
-
-
