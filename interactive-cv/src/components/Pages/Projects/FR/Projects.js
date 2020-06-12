@@ -19,10 +19,12 @@ const Projects = (props) => {
     <div className={projectsClass}>
       <div className={classes.DivWith1Thumb}>
         <h3>Burger Builder - React.JS/JSX/SASS modules/firebase (2019-2020)</h3>
-        <ThumbnailWIthLink
-          imgName="bbuilderThumbnail.png"
-          link="https://burger-builder-by-tan.web.app/"
-        />
+        <div>
+          <ThumbnailWIthLink
+            imgName="bbuilderThumbnail.png"
+            link="https://burger-builder-by-tan.web.app/"
+          />
+        </div>
 
         <ul>
           <li>
@@ -73,17 +75,28 @@ const Projects = (props) => {
             </a>
           </li>
         </ul>
-        <ThumbnailWIthLink imgName="natoursThumbnail.png" link="https://natours-by-tan.web.app/" />
-        <ThumbnailWIthLink imgName="nexterThumbnail.png" link="https://nexter-by-tan.web.app/" />
-        <ThumbnailWIthLink imgName="trilloThumbnail.png" link="https://trillo-by-tan.web.app/" />
+        <div>
+          <ThumbnailWIthLink
+            imgName="natoursThumbnail.png"
+            link="https://natours-by-tan.web.app/"
+          />
+        </div>
+        <div>
+          <ThumbnailWIthLink imgName="nexterThumbnail.png" link="https://nexter-by-tan.web.app/" />
+        </div>
+        <div>
+          <ThumbnailWIthLink imgName="trilloThumbnail.png" link="https://trillo-by-tan.web.app/" />
+        </div>
       </div>
 
       <div className={classes.DivWith1Thumb}>
         <h3>Ecomm - JavaScript/HTML/CSS (2019-2020)</h3>
-        <ThumbnailWIthLink
-          imgName="ecommThumbnail.png"
-          link="http://www.tanneguy-jullin.xyz:3000/"
-        />
+        <div>
+          <ThumbnailWIthLink
+            imgName="ecommThumbnail.png"
+            link="http://www.tanneguy-jullin.xyz:3000/"
+          />
+        </div>
         <ul>
           <li>
             <ChevronItem label="Site de e-commerce permettant d’acheter de commander des produits, avec gestion de panier, avec panneau d’administration permettant d’ajouter, modifier ou supprimer un produit, et avec gestion des inscriptions et de l’authentification." />
@@ -106,7 +119,9 @@ const Projects = (props) => {
 
       <div className={classes.DivWith1Thumb}>
         <h3>Movies - JavaScript/HTML/CSS (2019-2020)</h3>
-        <ThumbnailWIthLink imgName="moviesThumbnail.png" link="https://movies-by-tan.web.app/" />
+        <div>
+          <ThumbnailWIthLink imgName="moviesThumbnail.png" link="https://movies-by-tan.web.app/" />
+        </div>
         <ul>
           <li>
             <ChevronItem label="Application permettant d’obtenir les métadonnées d’un film (IMBD ratings, Metascore, Boxoffice, ...) à partir d’une API IMDB gratuite et de les comparer aux métadonnées d’un autre film afin d’effectuer un choix." />

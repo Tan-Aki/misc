@@ -3,15 +3,11 @@
     margin-bottom: 2rem;
   }
 
-
   & > div {
-
     & > h3 {
-      margin-bottom : 1rem;
-
-
+      margin-bottom: 1.5rem;
     }
-    
+
     & > ul {
       // padding: 1rem;
       list-style-type: none;
@@ -30,7 +26,7 @@
         & > a {
           //   overflow-wrap: break-word;
           //   word-wrap: break-word;
-          //   word-break: break-all;
+          // word-break: break-all;
           /* Instead use this non-standard one: */
           word-break: break-word;
 
@@ -48,17 +44,50 @@
 
   & > .DivWith1Thumb {
     display: grid;
+    // grid-auto-flow: dense;
     grid-template-columns: 1fr 3fr;
     align-items: center;
     // grid-gap: 1rem;
     //  justify-items: center;
 
+    @media only screen and (max-width: 913px) {
+      display: block;
+      
+    }
+
+    // @media only screen and (max-width: 913px) {
+    //   grid-template-columns: 3fr 1fr;
+    // }
+    & > ul {
+
+      & > li {
+
+        @media only screen and (max-width: 913px) {
+          // clear:right;
+        }
+      }
+    }
+
     & > h3 {
       grid-column: 1 / -1;
     }
 
-    & > a {
+    & > div {
       justify-self: center;
+      // @media only screen and (max-width: 913px) {
+      //   grid-column : 2/3;
+      // }
+      height: 22rem;
+      width: 22rem;
+      @media only screen and (max-width: 913px) {
+        float: left;
+        height: 18rem;
+        width: 18rem;
+      }
+      @media only screen and (max-width: 500px) {
+        height: 15rem;
+        width: 15rem;
+      }
     }
   }
 
@@ -72,12 +101,36 @@
       grid-column: 1 / -1;
     }
 
-    & > a {
-      justify-self: start;
+    & > div {
+      justify-self: center;
+
+      height: 22rem;
+      width: 22rem;
+      @media only screen and (max-width: 913px) {
+        height: 18rem;
+        width: 18rem;
+      }
+      @media only screen and (max-width: 600px) {
+        height: 15rem;
+        width: 15rem;
+      }
+      @media only screen and (max-width: 500px) {
+        height: 12rem;
+        width: 12rem;
+      }
+      @media only screen and (max-width: 400px) {
+        height: 10rem;
+        width: 10rem;
+      }
+      @media only screen and (max-width: 300px) {
+        height: 8rem;
+        width: 8rem;
+      }
     }
-    
+
     & > ul {
-      grid-column:  1 / -1;
+      grid-column: 1 / -1;
+      margin-bottom: 1rem;
       // justify-self: center;
     }
   }
