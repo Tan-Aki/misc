@@ -32,7 +32,7 @@ const NavigationItems = (props) => {
   const skillsLabel = language === "FR" ? "Compétences" : "Skills";
   const projectsLabel = language === "FR" ? "Projets" : "Projects";
   const educationLabel = language === "FR" ? "Formations" : "Education";
-  const experiencesLabel = language === "FR" ? "Expériences" : "Experiences";
+  const experiencesLabel = language === "FR" ? "Expériences" : "Experience";
   // const additionalInfoLabel = language === "FR" ? "Informations additionnelles" : "Additional Info";
   // const contactLabel = "Contact";
 

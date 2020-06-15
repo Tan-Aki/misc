@@ -77,7 +77,7 @@ const Skills = (props) => {
             <ChevronItem label="Systèmes d’échanges de courriels, de virtualisation, de stockage, de sauvegarde, de bases de données, de monitoring" />
           </li>
           <li>
-            <ChevronItem label="Réseautique, pares-feux et protocoles ( TCP/IP, DNS, DHCP, FTP, HTTP, SSL, … )" />
+            <ChevronItem label="Réseautique, pares-feux et protocoles (TCP/IP, DNS, DHCP, FTP, HTTP, SSL, …)" />
           </li>
           <li>
             <ChevronItem label="Scripting en VBS et Powershell" />
