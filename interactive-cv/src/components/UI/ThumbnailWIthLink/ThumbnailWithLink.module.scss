@@ -21,8 +21,8 @@
     content: "";
     position: absolute;
     top: 0;
-    left: -18rem;
-    width: 11rem;
+    left: -80%;
+    width: 50%;
     height: 100%;
     background: rgba(white, 0.3);
     transform: skewx(-30deg);
@@ -42,7 +42,7 @@
 
     &::before {
       // animation-play-state: paused;
-      left: 28rem;
+      left: 160%;
       // animation: 0;
     }
 
@@ -52,7 +52,7 @@
 
       &::before {
         // animation-play-state: paused;
-        left: -18rem;
+        left: -80%;
         // animation: 0;
       }
     }

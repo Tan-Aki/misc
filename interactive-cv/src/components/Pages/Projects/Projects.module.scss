@@ -1,5 +1,4 @@
 .Projects {
-
   & > div {
     &:not(:last-child) {
       margin-bottom: 4rem;
@@ -12,9 +11,8 @@
       }
     }
 
-     & > ul {
-      // padding: 1rem;
-      margin-top:1.5rem;
+    & > ul {
+      margin-top: 1.5rem;
       list-style-type: none;
 
       & > li {
@@ -32,10 +30,9 @@
           //   overflow-wrap: break-word;
           //   word-wrap: break-word;
           // word-break: break-all;
-          /* Instead use this non-standard one: */
+          // Instead use this non-standard one:
           word-break: break-word;
 
-          //   min-width: 0;
           &:hover,
           &:link,
           &:active,
@@ -52,27 +49,14 @@
     // grid-auto-flow: dense;
     grid-template-columns: 1fr 3fr;
     align-items: center;
-    // grid-gap: 1rem;
-    //  justify-items: center;
 
     @media only screen and (max-width: 913px) {
       display: block;
     }
-    // @media only screen and (max-width: 500px) {
-    //   display: grid;
-    // }
 
-    // @media only screen and (max-width: 913px) {
-    //   grid-template-columns: 3fr 1fr;
-    // }
     & > ul {
       @media only screen and (max-width: 500px) {
         clear: both;
-      }
-      & > li {
-        @media only screen and (max-width: 913px) {
-          // clear:right;
-        }
       }
     }
 
@@ -82,11 +66,9 @@
 
     & > div {
       justify-self: center;
-      // @media only screen and (max-width: 913px) {
-      //   grid-column : 2/3;
-      // }
       height: 25rem;
       width: 25rem;
+
       @media only screen and (max-width: 913px) {
         float: left;
         height: calc(100vw / 2.8);
@@ -98,19 +80,12 @@
         float: none;
         margin: auto;
       }
-
-      // @media only screen and (max-width: 500px) {
-      //   height: 15rem;
-      //   width: 15rem;
-      // }
     }
   }
 
   & > .DivWith3Thumbs {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    // grid-gap: 1rem;
-    // justify-items: center;
 
     & > h3 {
       grid-column: 1 / -1;
@@ -118,7 +93,6 @@
 
     & > div {
       justify-self: center;
-
       height: 24rem;
       width: 24rem;
 
@@ -126,32 +100,11 @@
         height: calc(100vw / 3.8);
         width: calc(100vw / 3.8);
       }
-      // @media only screen and (max-width: 640px) {
-      //   height: 19rem;
-      //   width: 19rem;
-      // }
-      // @media only screen and (max-width: 600px) {
-      //   height: 18rem;
-      //   width: 18rem;
-      // }
-      // @media only screen and (max-width: 500px) {
-      //   height: 12rem;
-      //   width: 12rem;
-      // }
-      // @media only screen and (max-width: 400px) {
-      //   height: 10rem;
-      //   width: 10rem;
-      // }
-      // @media only screen and (max-width: 300px) {
-      //   height: 8rem;
-      //   width: 8rem;
-      // }
     }
 
     & > ul {
       grid-column: 1 / -1;
       margin-bottom: 1rem;
-      // justify-self: center;
     }
   }
 }
