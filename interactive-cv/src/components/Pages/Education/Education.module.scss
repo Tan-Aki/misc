@@ -1,0 +1,21 @@
+.Education {
+
+    ul {
+        padding: 1rem;
+    
+        list-style-type: none;
+    
+        // li {
+        //   display: block;
+        // }
+      }
+
+
+      div {
+        &:not(:last-child) {
+            margin-bottom: 2rem;
+        }
+
+
+      }
+}
