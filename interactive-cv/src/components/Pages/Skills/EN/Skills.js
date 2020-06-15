@@ -16,7 +16,7 @@ const Skills = (props) => {
   return (
     <div className={skillsClass}>
       <div className={classes.SkillsSection}>
-        <h3>Compétences en programmation:</h3>
+        <h3>Programming skills:</h3>
         <ul>
           <li>
             <ChevronItem label="React.JS (with Lifecycle hooks/React hooks)" />
