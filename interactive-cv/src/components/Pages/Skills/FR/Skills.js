@@ -16,6 +16,7 @@ const Skills = (props) => {
   return (
     <div className={skillsClass}>
       <div className={classes.SkillsSection}>
+        <h3>Programming skills:</h3>
         <ul>
           <li>
             <ChevronItem label="React.JS (avec Lifecycle hooks/React hooks)" />
@@ -38,8 +39,6 @@ const Skills = (props) => {
             <ProgressBar percent="65" />
           </li>
         </ul>
-      </div>
-      <div className={classes.SkillsSection}>
         <ul>
           <li>
             <ChevronItem label="GitHub" />

@@ -57,6 +57,18 @@ const Projects = (props) => {
 
       <div className={classes.DivWith3Thumbs}>
         <h3>Natours, Trillo, Nexter - HTML/SASS (2019-2020)</h3>
+        <div>
+          <ThumbnailWIthLink
+            imgName="natoursThumbnail.png"
+            link="https://natours-by-tan.web.app/"
+          />
+        </div>
+        <div>
+          <ThumbnailWIthLink imgName="nexterThumbnail.png" link="https://nexter-by-tan.web.app/" />
+        </div>
+        <div>
+          <ThumbnailWIthLink imgName="trilloThumbnail.png" link="https://trillo-by-tan.web.app/" />
+        </div>
         <ul>
           <li>
             <ChevronItem label="Trois magnifiques sites web responsives." />
@@ -75,18 +87,6 @@ const Projects = (props) => {
             </a>
           </li>
         </ul>
-        <div>
-          <ThumbnailWIthLink
-            imgName="natoursThumbnail.png"
-            link="https://natours-by-tan.web.app/"
-          />
-        </div>
-        <div>
-          <ThumbnailWIthLink imgName="nexterThumbnail.png" link="https://nexter-by-tan.web.app/" />
-        </div>
-        <div>
-          <ThumbnailWIthLink imgName="trilloThumbnail.png" link="https://trillo-by-tan.web.app/" />
-        </div>
       </div>
 
       <div className={classes.DivWith1Thumb}>

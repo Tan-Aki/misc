@@ -10,7 +10,7 @@
     font-size: 1.6rem;
   }
 
-  .Row {
+  & > div {
     &:not(:last-child) {
       margin-bottom: 2rem;
     }

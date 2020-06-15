@@ -19,27 +19,27 @@ const About = (props) => {
 
   return (
     <div className={aboutClass}>
-      <div className={classes.Row}>
+      <div>
         <HomeLogo />
         <span>2278 Fullum Street, Montreal, QC, H2K 3P2 </span>
       </div>
-      <div className={classes.Row}>
+      <div>
         <MobileLogo />
         <span>438.409.0506</span>
       </div>
-      <div className={classes.Row}>
+      <div>
         <MailLogo />
         <a href="mailto:Tanneguy.jullin@gmail.com" target="_blank" rel="noopener noreferrer">
           Tanneguy.Jullin@gmail.com
         </a>
       </div>
-      <div className={classes.Row}>
+      <div>
         <GithubLogo />
         <a href="https://github.com/Tan-Aki" target="_blank" rel="noopener noreferrer">
           https://github.com/Tan-Aki
         </a>
       </div>
-      <div className={classes.Row}>
+      <div>
         <LinkedinLogo />
         <a
           href="https://www.linkedin.com/in/tanneguy-jullin-b28bab43/"
@@ -49,7 +49,7 @@ const About = (props) => {
           https://www.linkedin.com/in/tanneguy-jullin-b28bab43/
         </a>
       </div>
-      <div className={classes.Row}>
+      <div>
         <HobbiesLogo />
         <span>Sports, travels, yoga, meditation, e-sports, TV Shows, outdoors enthusiast.</span>
       </div>
