@@ -21,7 +21,7 @@ const About = (props) => {
     <div className={aboutClass}>
       <div>
         <HomeLogo />
-        <span>2278 Fullum Street, Montreal, QC, H2K 3P2 </span>
+        <span>Montreal, Canada</span>
       </div>
       <div>
         <MobileLogo />
