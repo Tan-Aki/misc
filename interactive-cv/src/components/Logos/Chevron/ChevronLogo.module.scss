@@ -2,4 +2,30 @@
   min-height: 3rem;
   min-width: 3rem;
   // box-sizing: border-box;
+
+  animation-name: moveInLeft;
+		animation-duration: 0.5s;
+		animation-timing-function: ease-out; /* the animation will be faster in the beginning, there are many more options*/
+
+}
+
+
+
+@keyframes moveInLeft {
+	0% {
+		opacity: 0;
+		transform: translateX(-3rem);
+	}
+	50% {
+		transform: translateX(0.5rem);
+		/* transform: rotate(-120deg); */
+	}
+	80% {
+		transform: translateX(-0.5rem);
+		/* transform: rotate(-120deg); */
+	}
+	100% {
+		opacity: 1;
+		transform: translate(0);
+	}
 }
