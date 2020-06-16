@@ -1,0 +1,84 @@
+.Education {
+  & > ul {
+    list-style: none;
+
+    & > li {
+      position: relative;
+      padding: 1rem 0;
+      display: flex;
+
+      &:before {
+        content: "\25CF";
+        color: var(--c-active);
+        margin-right: 1.5rem;
+        font-size: 2rem;
+      }
+
+      &:after {
+        position: absolute;
+        left: 0;
+        top: 0;
+        content: "";
+        border-left: 2px solid var(--c-active);
+        margin-left: 0.5rem;
+        height: 100%;
+      }
+
+      &:first-of-type:after {
+        top: 2.5rem;
+        // top: 50%;
+      }
+      &:last-of-type:after {
+        top:-50%;
+        @media only screen and (max-width: 1053px) {
+          height: 95%;
+        }
+        @media only screen and (max-width: 913px) {
+          height: 100%;
+        }
+        @media only screen and (max-width: 883px) {
+          height: 95%;
+        }
+        @media only screen and (max-width: 706px) {
+          height: 92%;
+        }
+        @media only screen and (max-width: 460px) {
+          height: 81%;
+        }
+        @media only screen and (max-width: 341px) {
+          height: 72%;
+        }
+      }
+
+      & > div {
+        margin-right: 1rem;
+        & > span {
+          &:first-of-type {
+            font-weight: bold;
+            font-size: 1.8rem;
+            // margin-left: 2rem;
+          }
+          &:last-of-type {
+            margin-left: 0.5rem;
+            font-style: italic;
+          }
+        }
+      }
+    }
+  }
+
+  & > div {
+    margin-left: 1.5rem;
+    margin-right: 1rem;
+
+    margin-top: 3rem;
+    border: 3px solid var(--c-background);
+    padding: 1rem;
+    max-width: max-content;
+
+    & > span {
+      font-weight: bold;
+      font-size: 1.8rem;
+    }
+  }
+}

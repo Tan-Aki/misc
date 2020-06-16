@@ -1,23 +1,3 @@
-// .Experiences {
-//   & > ul {
-//     list-style-type: none;
-
-//     & > li {
-
-//         margin-top:2rem;
-//       & > span {
-//         font-style: italic;
-//         margin-left: 2rem;
-//       }
-//     }
-//   }
-
-//   & > div {
-//     display: flex;
-//     align-items: center;
-//   }
-// }
-
 .Experiences {
   & > ul {
     list-style: none;
@@ -26,6 +6,7 @@
     & > li {
       position: relative;
       padding: 1rem 0;
+      padding-right: 1rem;
       display: flex;
       //   flex-wrap:wrap;
 
@@ -55,36 +36,32 @@
       }
 
       &:last-of-type:after {
-        top: -5rem;
-        // top: -50%;
-        @media only screen and (max-width: 548px) {
-        top: -7rem;
-            
+        top: -50%;
+        height: 90%;
+        @media only screen and (max-width: 651px) {
+          height: 82%;
         }
-        @media only screen and (max-width: 301px) {
-        top: -9.5rem;
-            
+        @media only screen and (max-width: 474px) {
+          height: 75%;
+        }
+        @media only screen and (max-width: 372px) {
+          height: 70%;
+        }
+        @media only screen and (max-width: 290px) {
+          height: 65%;
         }
       }
-
-      // margin-top:2rem;
 
       & > div {
         display: flex;
         flex-direction: column;
         & > span {
-          //   display: block;
-
-          // text-indent:10rem;
-          // font-size: 18rem;
-          // text-align: initial;
-
-          &:first-child {
+          &:first-of-type {
             font-weight: bold;
             font-size: 1.8rem;
             // margin-left: 2rem;
           }
-          &:last-child {
+          &:last-of-type {
             font-style: italic;
           }
         }
