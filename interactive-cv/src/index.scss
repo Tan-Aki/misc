@@ -110,8 +110,8 @@ h2 {
   @media only screen and (max-width: 913px) {
     grid-column: 2 / 12;
   }
-  @media only screen and (max-width: 600px) {
-    grid-column: 1 / 13;
-    margin-left: 1rem;
-  }
+  // @media only screen and (max-width: 600px) {
+  //   grid-column: 1 / 12;
+  //   margin-left: 1rem;
+  // }
 }

@@ -32,13 +32,16 @@
         top:-50%;
 
         @media only screen and (max-width: 688px) {
+          height: 95%;
+        }
+        @media only screen and (max-width: 550px) {
           height: 90%;
         }
         @media only screen and (max-width: 397px) {
           height: 82%;
         }
-        @media only screen and (max-width: 279px) {
-          height: 70%;
+        @media only screen and (max-width: 297px) {
+          height: 75%;
         }
       }
 
