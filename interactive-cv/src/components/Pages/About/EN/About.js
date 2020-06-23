@@ -51,7 +51,7 @@ const About = (props) => {
       </div>
       <div>
         <HobbiesLogo />
-        <span>Sports, travels, yoga, meditation, e-sports, TV Shows, outdoors enthusiast.</span>
+        <span>Sports, travels, yoga, e-sports, TV Shows, outdoors enthusiast.</span>
       </div>
     </div>
   );

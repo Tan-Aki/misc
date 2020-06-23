@@ -12,7 +12,7 @@ const Header = (props) => {
       <h2>
         Ancien technicien informatique/gestionnaire de changements TI reconverti et spécialisé en
         React.JS.
-        <br /> Passionné de technologie et assoiffé de connaissances !
+        <br />Passionné de technologie et avide de connaissance !
       </h2>
     </header>
   );

@@ -31,7 +31,7 @@ const Skills = (props) => {
             <ProgressBar percent="65" />
           </li>
           <li>
-            <ChevronItem label="CSS3/SASS" />
+            <ChevronItem label="CSS 3/SCSS" />
             <ProgressBar percent="70" />
           </li>
           <li>
@@ -61,6 +61,9 @@ const Skills = (props) => {
       <div className={classes.Knowledge}>
         <h3>Autres connaissances et notions en informatique:</h3>
         <ul>
+          <li>
+            <ChevronItem label="Impliqué, rigoureux, autonome, excellent relationnel, solide compréhension générale du monde de l’informatique" />
+          </li>
           <li>
             <ChevronItem label="Notions académiques de plusieurs langages de programmation (Java, PHP, ASP.net et C#.net, lisp, C, C++, Objective-C, assembleur)" />
           </li>
