@@ -8,7 +8,7 @@ const Footer = (props) => {
     <footer className={classes.Footer}>
       <div className={classes.Row}>
         <h2>
-          Curriculum Vitae interactif et "responsive", réalisé par Tanneguy Jullin en 2020, en
+          Curriculum Vitae interactif et responsive, réalisé par Tanneguy Jullin en 2020, en
           React.JS.
         </h2>
         <ReactLogo />
