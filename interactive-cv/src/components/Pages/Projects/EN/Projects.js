@@ -4,6 +4,7 @@ import classes from "../Projects.module.scss";
 import ChevronItem from "../../../UI/ChevronItem/ChevronItem";
 import classNames from "classnames/bind";
 import ThumbnailWIthLink from "../../../UI/ThumbnailWIthLink/ThumbnailWithLink";
+import ElevatorButton from "../../../UI/ElevatorButton/ElevatorButton.js";
 
 import ProgressBar from "../../../UI/ProgressBar/ProgressBar";
 
@@ -189,6 +190,7 @@ const Projects = (props) => {
           </li>
         </ul>
       </div>
+      <ElevatorButton />
     </div>
   );
 };

@@ -4,6 +4,8 @@ import classes from "../Projects.module.scss";
 import ChevronItem from "../../../UI/ChevronItem/ChevronItem";
 import classNames from "classnames/bind";
 import ThumbnailWIthLink from "../../../UI/ThumbnailWIthLink/ThumbnailWithLink";
+// import Elevator from "elevator.js";
+import ElevatorButton from "../../../UI/ElevatorButton/ElevatorButton.js";
 // import ProgressBar from "../../../UI/ProgressBar/ProgressBar";
 // import bbuilderThumbnail from "../../../../assets/bbuilderThumbnail.png";
 
@@ -14,6 +16,19 @@ const Projects = (props) => {
     page: true,
     Projects: true,
   });
+
+  // const elevator = new Elevator({
+  //   element: document.querySelector(".elevator-button"),
+  //   mainAudio: "/elevator.mp3", // Music from http://www.bensound.com/
+  //   endAudio: "/ding.mp3",
+  //   startCallback: function() {
+  //     // let audio = new Audio("./elevator.mp3")
+  //     // audio.play()
+  //   },
+  //   endCallback: function() {
+  //     // is called, when the elevator reached target level
+  //   }
+  // });
 
   return (
     <div className={projectsClass}>
@@ -188,6 +203,11 @@ const Projects = (props) => {
           </li>
         </ul>
       </div>
+
+      <ElevatorButton />
+      {/* <button className="elevator-button" onClick={() => elevator.elevate()}>
+        click
+      </button> */}
     </div>
   );
 };
@@ -195,5 +215,3 @@ const Projects = (props) => {
 Projects.propTypes = {};
 
 export default Projects;
-
-
