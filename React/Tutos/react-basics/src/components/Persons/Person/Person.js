@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import classes from "./Person.module.scss";
 import withClass from "../../../hoc/withClass";
-import Aux from "../../../hoc/Aux";
+import Auxx from "../../../hoc/Auxx";
 import AuthContext from "../../../context/auth-context";
 
 class Person extends Component {
@@ -61,7 +61,7 @@ export default withClass(Person, classes.Person);
 
 // import classes from "./Person.module.scss";
 // import withClass from "../../../hoc/withClass";
-// import Aux from "../../../hoc/Aux";
+// import Auxx from "../../../hoc/Auxx";
 // import AuthContext from "../../../context/auth-context";
 
 // class Person extends Component {
@@ -118,7 +118,7 @@ export default withClass(Person, classes.Person);
 
 // import classes from "./Person.module.scss";
 // import withClass from "../../../hoc/withClass";
-// import Aux from "../../../hoc/Aux";
+// import Auxx from "../../../hoc/Auxx";
 
 // class Person extends Component {
 //   constructor(props) {
@@ -165,24 +165,24 @@ export default withClass(Person, classes.Person);
 
 // export default withClass(Person, classes.Person);
 
-// // component with Aux for root elements without classes
+// // component with Auxx for root elements without classes
 
 // import React, { Component } from "react";
 // import classes from "./Person.module.scss";
-// import Aux from "../../../hoc/Aux";
+// import Auxx from "../../../hoc/Auxx";
 
 // class Person extends Component {
 //   render() {
 //     console.log("[Person.js] render...");
 
 //     return (
-//       <Aux>
+//       <Auxx>
 //         <p key="i1" onClick={this.props.click}>
 //           I'm {this.props.name} and I am {this.props.age} years old!
 //         </p>
 //         <p key="i2"> {this.props.children}</p>
 //         <input key="i3" type="text" onChange={this.props.changed} value={this.props.name} />
-//       </Aux>
+//       </Auxx>
 //     );
 //   }
 // }
