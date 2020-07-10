@@ -29,7 +29,7 @@ class List extends Component {
         const listItems = this.state.items.map( (item, index) => (
             <li 
                 key={index}
-                className="ListItem" 
+                className={classes.ListItem} 
                 onClick={() => this.removeItemHandler(index)}>{item}</li>
         ) );
 
