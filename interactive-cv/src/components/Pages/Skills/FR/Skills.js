@@ -86,7 +86,7 @@ const Skills = (props) => {
             <ChevronItem label="Scripting en VBS et Powershell" />
           </li>
           <li>
-            <ChevronItem label="Serveurs Web, services d’hébergement" />
+            <ChevronItem label="Services d’hébergement" />
           </li>
         </ul>
       </div>
