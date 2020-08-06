@@ -41,7 +41,7 @@ export const useForm = (initialInputs, initialFormValidity) => {
     formIsValid: initialFormValidity,
   });
 
-  console.log('inside useForm')
+  // console.log('inside useForm')
 
   const inputHandler = useCallback((id, value, isValid) => {
     dispatch({
