@@ -17,7 +17,7 @@ const MainNavigation = (props) => {
     setDrawerIsOpen(false);
   };
 
-  console.log('rendering');
+  // console.log('rendering');
   return (
     <>
       {/* équivalent à <React.Fragment> */}

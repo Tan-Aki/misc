@@ -1,37 +1,14 @@
-import React, { useCallback, useReducer } from "react";
+import React from "react";
 
-import "./NewPlace.css";
+import "./PlaceForm.css";
 import Button from "../../shared/components/FormElements/Button";
 import Input from "../../shared/components/FormElements/Input";
 import { VALIDATOR_REQUIRE, VALIDATOR_MINLENGTH } from "../../shared/util/validators";
-
-const formReducer = (state, action) => {
-  switch (action.type) {
-    case "INPUT_CHANGE":
-      let formIsValid = true;
-      for (const inputId in state.inputs) {
-        if (inputId === action.inputId) {
-          formIsValid = formIsValid && action.isValid;
-        } else {
-          formIsValid = formIsValid && state.inputs[inputId].isValid;
-        }
-      }
-      return {
-        ...state,
-        inputs: {
-          ...state.inputs,
-          [action.inputId]: { value: action.value, isValid: action.isValid },
-        },
-        isValid: formIsValid,
-      };
-    default:
-      return state;
-  }
-};
+import { useForm } from "../../shared/hooks/form-hooks";
 
 const NewPlace = (props) => {
-  const [formState, dispatch] = useReducer(formReducer, {
-    inputs: {
+  const [formState, inputHandler] = useForm(
+    {
       title: {
         value: "",
         isValid: false,
@@ -40,19 +17,25 @@ const NewPlace = (props) => {
         value: "",
         isValid: false,
       },
+      address: {
+        value: "",
+        isValid: false,
+      },
     },
-    isValid: false,
-  });
+    false
+  );
 
-  const inputHandler = useCallback((id, value, isValid) => {
-    dispatch({ type: "INPUT_CHANGE", value: value, isValid: isValid, inputId: id });
-  }, []);
   //useCallback to prevent infinite loop ( in relation with the useEffect in Input.js file and the fact that if we change the state of this NewPlace.js component in this function,
   // it will cause a re-render of this component, and therefore  a re-render of this function, and therefore the useEffect in Input.js will trigger again, causing an infi loop)
   // with useCallback this function will not be recreated everytime the component is re-renderered anymore, therefor we break the inifinite loop
 
+  const placeSubmitHandler = (event) => {
+    event.preventDefault();
+    console.log(formState.inputs);
+  };
+
   return (
-    <form className="place-form">
+    <form className="place-form" onSubmit={placeSubmitHandler}>
       <Input
         id="title"
         element="input"
@@ -70,7 +53,15 @@ const NewPlace = (props) => {
         errorText="Please enter a valid description (at least 5 characters)."
         onInput={inputHandler}
       />
-      <Button type="submit" disabled={!formState.isValid}>
+      <Input
+        id="address"
+        element="input"
+        label="Address"
+        validators={[VALIDATOR_REQUIRE()]}
+        errorText="Please enter a valid address."
+        onInput={inputHandler}
+      />
+      <Button type="submit" disabled={!formState.formIsValid}>
         ADD PLACE
       </Button>
     </form>
