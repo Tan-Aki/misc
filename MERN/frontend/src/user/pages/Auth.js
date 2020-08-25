@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import "./Auth.css";
 import Card from "../../shared/components/UIElements/Card";
@@ -10,11 +10,14 @@ import {
   VALIDATOR_REQUIRE,
 } from "../../shared/util/validators";
 import { useForm } from "../../shared/hooks/form-hooks";
+import { AuthContext } from "../../shared/context/auth-context";
 
 const Auth = (props) => {
+  const auth = useContext(AuthContext);
+
   const [isLoginMode, setIsLoginMode] = useState(true);
 
-  const [formstate, inputHandler, setFormData] = useForm(
+  const [formState, inputHandler, setFormData] = useForm(
     {
       email: {
         value: "",
@@ -30,12 +33,31 @@ const Auth = (props) => {
 
   const authSubmitHandler = (event) => {
     event.preventDefault();
-    console.log(formstate.inputs);
+    auth.login();
+    console.log(formState.inputs);
   };
 
   const switchModeHandler = (event) => {
-    if (!isLoginMode) {
-      setFormData();
+    if (isLoginMode) {
+      setFormData(
+        {
+          ...formState.inputs,
+          name: {
+            value: "",
+            isValid: false,
+          },
+        },
+        false
+      );
+    } else {
+      setFormData(
+        {
+          ...formState.inputs,
+          name: undefined,
+        },
+        formState.inputs.email.isValid && formState.inputs.password.isValid
+        // formState.formIsValid
+      );
     }
 
     setIsLoginMode((prevMode) => !prevMode);
@@ -75,7 +97,7 @@ const Auth = (props) => {
           errorText="Please enter a valid password, at least 5 characters."
           onInput={inputHandler}
         />
-        <Button type="submit" disabled={!formstate.formIsValid}>
+        <Button type="submit" disabled={!formState.formIsValid}>
           {isLoginMode ? "LOGIN" : "SIGNUP"}
         </Button>
       </form>
