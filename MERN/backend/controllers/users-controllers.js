@@ -1,19 +1,20 @@
-const { v4: uuidv4 } = require("uuid");
+const { v4: uuidv4 } = require('uuid');
+const { validationResult } = require('express-validator');
 
-const HttpError = require("../models/http-error");
+const HttpError = require('../models/http-error');
 
 const DUMMY_USERS = [
   {
-    id: "u1",
-    name: "Tan Jul",
-    email: "tan@test.com",
-    password: "test",
+    id: 'u1',
+    name: 'Tan Jul',
+    email: 'tan@test.com',
+    password: 'test',
   },
   {
-    id: "u2",
-    name: "toto toto",
-    email: "toto@test.com",
-    password: "test",
+    id: 'u2',
+    name: 'toto toto',
+    email: 'toto@test.com',
+    password: 't2est',
   },
 ];
 
@@ -22,12 +23,21 @@ const getUsers = (req, res, next) => {
 };
 
 const signup = (req, res, next) => {
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    console.log(errors);
+    return next(
+      new HttpError('Invalid inputs passed, please check your data.', 422)
+    );
+  }
+
   const { name, email, password } = req.body;
 
   const hasUser = DUMMY_USERS.find((u) => u.email === email);
 
   if (hasUser) {
-    return next(new HttpError("User already exists ", 422));
+    return next(new HttpError('User already exists ', 422));
   }
 
   const userToCreate = {
@@ -54,10 +64,15 @@ const login = (req, res, next) => {
   const userToIdentify = DUMMY_USERS.find((u) => u.email === email);
 
   if (!userToIdentify || userToIdentify.password !== password) {
-    return next(new HttpError("Could not identify user, credentials seem to be wrong", 401));
+    return next(
+      new HttpError(
+        'Could not identify user, credentials seem to be wrong',
+        401
+      )
+    );
   }
 
-  res.json({ message: "Logged in !" });
+  res.json({ message: 'Logged in !' });
 };
 
 exports.getUsers = getUsers;
