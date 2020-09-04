@@ -32,7 +32,7 @@ const signup = async (req, res, next) => {
   try {
     existingUser = await User.findOne({ email });
   } catch (err) {
-    return next(new HttpError('Signin up failed, please try again later', 422));
+    return next(new HttpError('Signing up failed, please try again later', 422));
   }
 
   if (existingUser) {
