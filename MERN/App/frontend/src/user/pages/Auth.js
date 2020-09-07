@@ -14,13 +14,13 @@ import { useForm } from '../../shared/hooks/form-hooks';
 import { AuthContext } from '../../shared/context/auth-context';
 import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
 import ErrorModal from '../../shared/components/UIElements/ErrorModal';
+import { useHttpClient } from '../../shared/hooks/http-hook';
 
 const Auth = (props) => {
   const auth = useContext(AuthContext);
 
   const [isLoginMode, setIsLoginMode] = useState(true);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState();
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
   const [formState, inputHandler, setFormData] = useForm(
     {
@@ -36,37 +36,43 @@ const Auth = (props) => {
     false
   );
 
-  const authSubmitHandler = (event) => {
+  const authSubmitHandler = async (event) => {
     event.preventDefault();
 
     if (isLoginMode) {
+      try {
+        const responseData = await sendRequest(
+          'http://localhost:5000/api/users/login',
+          'POST',
+          JSON.stringify({
+            email: formState.inputs.email.value,
+            password: formState.inputs.password.value,
+          }),
+          {
+            'Content-Type': 'application/json',
+          }
+        );
+        auth.login(responseData.user.id);
+        console.log(responseData);
+      } catch (err) {}
     } else {
-      setIsLoading(true);
-      const postData = JSON.stringify({
-        name: formState.inputs.name.value,
-        email: formState.inputs.email.value,
-        password: formState.inputs.password.value,
-      });
-      axiosUsers
-        .post('signup', postData)
-        .then((response) => {
-          console.log(response.data);
-          setIsLoading(false);
-          auth.login();
-        })
-        .catch((err) => {
-          console.log(err.response.data);
-          setIsLoading(false);
-          setError(
-            err.response.data.message ||
-              'Something went wrong, please try again.'
-          );
-        });
-    }
-  };
+      try {
+        const responseData = await sendRequest(
+          'http://localhost:5000/api/users/signup',
+          'POST',
+          JSON.stringify({
+            name: formState.inputs.name.value,
+            email: formState.inputs.email.value,
+            password: formState.inputs.password.value,
+          }),
+          {
+            'Content-Type': 'application/json',
+          }
+        );
 
-  const errorHandler = () => {
-    setError(null);
+        auth.login(responseData.user.id);
+      } catch (err) {}
+    }
   };
 
   const switchModeHandler = (event) => {
@@ -97,7 +103,7 @@ const Auth = (props) => {
 
   return (
     <>
-      <ErrorModal error={error} onClear={errorHandler} />
+      <ErrorModal error={error} onClear={clearError} />
       <Card className="authentication">
         {isLoading && <LoadingSpinner asOverlay />}
         <h2>Login Required</h2>
@@ -128,8 +134,8 @@ const Auth = (props) => {
             id="password"
             type="password"
             label="Password"
-            validators={[VALIDATOR_MINLENGTH(5)]}
-            errorText="Please enter a valid password, at least 5 characters."
+            validators={[VALIDATOR_MINLENGTH(6)]}
+            errorText="Please enter a valid password, at least 6 characters."
             onInput={inputHandler}
           />
           <Button type="submit" disabled={!formState.formIsValid}>
@@ -146,25 +152,28 @@ const Auth = (props) => {
 
 export default Auth;
 
-// import React, { useState, useContext } from 'react';
+//// Axios version and without custom hook
 
+// import React, { useState, useContext } from 'react';
+// import axiosUsers from '../../axios-users';
+
+// import './Auth.css';
 // import Card from '../../shared/components/UIElements/Card';
 // import Input from '../../shared/components/FormElements/Input';
 // import Button from '../../shared/components/FormElements/Button';
-// import ErrorModal from '../../shared/components/UIElements/ErrorModal';
-// import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
 // import {
 //   VALIDATOR_EMAIL,
 //   VALIDATOR_MINLENGTH,
-//   VALIDATOR_REQUIRE
+//   VALIDATOR_REQUIRE,
 // } from '../../shared/util/validators';
 // import { useForm } from '../../shared/hooks/form-hooks';
-
 // import { AuthContext } from '../../shared/context/auth-context';
-// import './Auth.css';
+// import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
+// import ErrorModal from '../../shared/components/UIElements/ErrorModal';
 
-// const Auth = () => {
+// const Auth = (props) => {
 //   const auth = useContext(AuthContext);
+
 //   const [isLoginMode, setIsLoginMode] = useState(true);
 //   const [isLoading, setIsLoading] = useState(false);
 //   const [error, setError] = useState();
@@ -173,79 +182,97 @@ export default Auth;
 //     {
 //       email: {
 //         value: '',
-//         isValid: false
+//         isValid: false,
 //       },
 //       password: {
 //         value: '',
-//         isValid: false
-//       }
+//         isValid: false,
+//       },
 //     },
 //     false
 //   );
 
-//   const switchModeHandler = () => {
-//     if (!isLoginMode) {
-//       setFormData(
-//         {
-//           ...formState.inputs,
-//           name: undefined
-//         },
-//         formState.inputs.email.isValid && formState.inputs.password.isValid
-//       );
-//     } else {
-//       setFormData(
-//         {
-//           ...formState.inputs,
-//           name: {
-//             value: '',
-//             isValid: false
-//           }
-//         },
-//         false
-//       );
-//     }
-//     setIsLoginMode(prevMode => !prevMode);
-//   };
+//   const authSubmitHandler = (event) => {
+//     event.preventDefault();
 
-// const authSubmitHandler = async event => {
-//   event.preventDefault();
+//     setIsLoading(true);
 
-//   if (isLoginMode) {
-//   } else {
-//     try {
-//       setIsLoading(true);
-//       const response = await fetch('http://localhost:5000/api/users/signup', {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify({
-//           name: formState.inputs.name.value,
-//           email: formState.inputs.email.value,
-//           password: formState.inputs.password.value
-//         })
+//     if (isLoginMode) {
+//       const postData = JSON.stringify({
+//         email: formState.inputs.email.value,
+//         password: formState.inputs.password.value,
 //       });
-
-//       const responseData = await response.json();
-//       if (!response.ok) {
-//         throw new Error(responseData.message);
-//       }
-//       console.log(responseData);
-//       setIsLoading(false);
-//       auth.login();
-//     } catch (err) {
-//       setIsLoading(false);
-//       setError(err.message || 'Something went wrong, please try again.');
+//       axiosUsers
+//         .post('login', postData)
+//         .then((response) => {
+//           console.log(response.data);
+//           setIsLoading(false);
+//           auth.login();
+//         })
+//         .catch((err) => {
+//           console.log(err.response.data);
+//           setIsLoading(false);
+//           setError(
+//             err.response.data.message ||
+//               'Something went wrong, please try again.'
+//           );
+//         });
+//     } else {
+//       const postData = JSON.stringify({
+//         name: formState.inputs.name.value,
+//         email: formState.inputs.email.value,
+//         password: formState.inputs.password.value,
+//       });
+//       axiosUsers
+//         .post('signup', postData)
+//         .then((response) => {
+//           console.log(response.data);
+//           setIsLoading(false);
+//           auth.login();
+//         })
+//         .catch((err) => {
+//           console.log(err.response.data);
+//           setIsLoading(false);
+//           setError(
+//             err.response.data.message ||
+//               'Something went wrong, please try again.'
+//           );
+//         });
 //     }
-//   }
-// };
+//   };
 
 //   const errorHandler = () => {
 //     setError(null);
 //   };
 
+//   const switchModeHandler = (event) => {
+//     if (isLoginMode) {
+//       setFormData(
+//         {
+//           ...formState.inputs,
+//           name: {
+//             value: '',
+//             isValid: false,
+//           },
+//         },
+//         false
+//       );
+//     } else {
+//       setFormData(
+//         {
+//           ...formState.inputs,
+//           name: undefined,
+//         },
+//         formState.inputs.email.isValid && formState.inputs.password.isValid
+//         // formState.formIsValid
+//       );
+//     }
+
+//     setIsLoginMode((prevMode) => !prevMode);
+//   };
+
 //   return (
-//     <React.Fragment>
+//     <>
 //       <ErrorModal error={error} onClear={errorHandler} />
 //       <Card className="authentication">
 //         {isLoading && <LoadingSpinner asOverlay />}
@@ -257,9 +284,9 @@ export default Auth;
 //               element="input"
 //               id="name"
 //               type="text"
-//               label="Your Name"
+//               label="You Name"
 //               validators={[VALIDATOR_REQUIRE()]}
-//               errorText="Please enter a name."
+//               errorText="Please enter a name"
 //               onInput={inputHandler}
 //             />
 //           )}
@@ -267,7 +294,7 @@ export default Auth;
 //             element="input"
 //             id="email"
 //             type="email"
-//             label="E-Mail"
+//             label="E-mail"
 //             validators={[VALIDATOR_EMAIL()]}
 //             errorText="Please enter a valid email address."
 //             onInput={inputHandler}
@@ -281,7 +308,7 @@ export default Auth;
 //             errorText="Please enter a valid password, at least 5 characters."
 //             onInput={inputHandler}
 //           />
-//           <Button type="submit" disabled={!formState.isValid}>
+//           <Button type="submit" disabled={!formState.formIsValid}>
 //             {isLoginMode ? 'LOGIN' : 'SIGNUP'}
 //           </Button>
 //         </form>
@@ -289,7 +316,7 @@ export default Auth;
 //           SWITCH TO {isLoginMode ? 'SIGNUP' : 'LOGIN'}
 //         </Button>
 //       </Card>
-//     </React.Fragment>
+//     </>
 //   );
 // };
 

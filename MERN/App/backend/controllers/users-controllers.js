@@ -32,7 +32,9 @@ const signup = async (req, res, next) => {
   try {
     existingUser = await User.findOne({ email });
   } catch (err) {
-    return next(new HttpError('Signing up failed, please try again later', 422));
+    return next(
+      new HttpError('Signing up failed, please try again later', 422)
+    );
   }
 
   if (existingUser) {
@@ -44,7 +46,8 @@ const signup = async (req, res, next) => {
   const userToCreate = new User({
     name,
     email,
-    image: 'https://pixabay.com/photos/ball-environment-grass-nature-3290624/',
+    image:
+      'https://cdn.pixabay.com/photo/2018/04/04/18/45/ball-3290624_1280.jpg',
     password,
     places: [],
   });
@@ -56,7 +59,6 @@ const signup = async (req, res, next) => {
   }
 
   res.status(201).json({ user: userToCreate.toObject({ getters: true }) });
-
 };
 
 const login = async (req, res, next) => {
@@ -89,7 +91,10 @@ const login = async (req, res, next) => {
     );
   }
 
-  res.json({ message: 'Logged in !' });
+  res.json({
+    message: 'Logged in !',
+    user: existingUser.toObject({ getters: true }),
+  });
 };
 
 exports.getUsers = getUsers;
