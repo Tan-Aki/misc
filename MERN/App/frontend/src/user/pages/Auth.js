@@ -53,7 +53,7 @@ const Auth = (props) => {
           }
         );
         auth.login(responseData.user.id);
-        console.log(responseData);
+        // console.log(responseData);
       } catch (err) {}
     } else {
       try {

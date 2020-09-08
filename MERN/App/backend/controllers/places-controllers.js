@@ -45,7 +45,7 @@ const getPlacesByUserId = async (req, res, next) => {
   }
 
   // if (!places || places.length === 0) {
-  if (!userWithPlaces || userWithPlaces.places.length === 0) {
+  if (!userWithPlaces) {
     return next(
       new HttpError('Could not find places for the provided user ID', 404)
     );
@@ -64,7 +64,7 @@ const createPlace = async (req, res, next) => {
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
-    console.log(errors);
+    // console.log(errors);
     return next(
       new HttpError('Invalid inputs passed, please check your data.', 422)
     );
@@ -101,7 +101,7 @@ const createPlace = async (req, res, next) => {
     return next(new HttpError('Could not find user for provided id', 404));
   }
 
-  console.log(user);
+  // console.log(user);
 
   try {
     const sess = await mongoose.startSession();
@@ -121,7 +121,7 @@ const updatePlace = async (req, res, next) => {
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
-    console.log(errors);
+    // console.log(errors);
     return next(
       new HttpError('Invalid inputs passed, please check your data.', 422)
     );

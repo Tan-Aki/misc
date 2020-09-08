@@ -130,7 +130,7 @@ const UpdatePlace = (props) => {
     );
   }
 
-  console.log(formState.inputs.title.value);
+  // console.log(formState.inputs.title.value);
 
   return (
     <>
