@@ -75,7 +75,7 @@ const signup = async (req, res, next) => {
         token = jwt.sign(
             { userId: userToCreate.id, email: userToCreate.email },
             'supersecret_dont_share',
-            { expiresIn: '1h' }
+            { expiresIn: '10000' }
         );
     } catch (err) {
         return next(new HttpError('Signing up failed, please try again', 500));
@@ -115,7 +115,7 @@ const login = async (req, res, next) => {
 
     if (!existingUser) {
         return next(
-            new HttpError('Invalid credentials, could not log you in.', 401)
+            new HttpError('Invalid credentials, could not log you in.', 403)
         );
     }
 
@@ -134,7 +134,7 @@ const login = async (req, res, next) => {
 
     if (!isValidPassword) {
         return next(
-            new HttpError('Invalid credentials, could not log you in.', 401)
+            new HttpError('Invalid credentials, could not log you in.', 403)
         );
     }
 
@@ -145,7 +145,7 @@ const login = async (req, res, next) => {
         token = jwt.sign(
             { userId: existingUser.id, email: existingUser.email },
             'supersecret_dont_share',
-            { expiresIn: '1h' }
+            { expiresIn: '10000' }
         );
     } catch (err) {
         return next(new HttpError('Logging in failed, please try again', 500));

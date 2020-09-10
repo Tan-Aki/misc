@@ -17,7 +17,7 @@ module.exports = (req, res, next) => {
         req.userData = { userId: decodedToken.userId };
         next();
     } catch (err) {
-        return next(new HttpError('Authentication failed!', 401));
+        return next(new HttpError('Authentication failed!', 403));
         // error if req.headers.authorization was empty and so the split failed, or any other other
     }
 };
