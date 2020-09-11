@@ -16,14 +16,14 @@ app.use(bodyParser.json()); // parse any incoming request body, and extract any 
 app.use('/uploads/images', express.static(path.join('uploads', 'images')));
 
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept, Authorization'
-  );
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader(
+        'Access-Control-Allow-Headers',
+        'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+    );
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE');
 
-  next();
+    next();
 });
 
 app.use('/api/places/', placesRoutes); // /api/places is the initial filter for placesRoutes, then you append the different paths present in the placesRoutes
@@ -31,33 +31,33 @@ app.use('/api/places/', placesRoutes); // /api/places is the initial filter for 
 app.use('/api/users/', usersRoutes);
 
 app.use((req, res, next) => {
-  return next(new HttpError('Could not find this route', 404));
+    return next(new HttpError('Could not find this route', 404));
 });
 
 app.use((error, req, res, next) => {
-  // this middleware is the general error handler.
+    // this middleware is the general error handler.
 
-  if (req.file) {
-    fs.unlink(req.file.path, (err) => {
-      console.log(err);
-    });
-  }
-  if (res.headersSent) {
-    return next(error);
-  }
-  // Basically, this check is necessary for scenarios where a response header has already been sent but you encounter an error while streaming the response to a client for example. Then, you forward the error encountered to the default express error handler that will handle it for you !
+    if (req.file) {
+        fs.unlink(req.file.path, (err) => {
+            console.log(err);
+        });
+    }
+    if (res.headersSent) {
+        return next(error);
+    }
+    // Basically, this check is necessary for scenarios where a response header has already been sent but you encounter an error while streaming the response to a client for example. Then, you forward the error encountered to the default express error handler that will handle it for you !
 
-  res.status(error.code || 500);
-  res.json({ message: error.message || 'An unknown error occurred!' });
+    res.status(error.code || 500);
+    res.json({ message: error.message || 'An unknown error occurred!' });
 });
 
 mongoose
-  .connect(
-    'mongodb+srv://mern_srv_acc:toto123@cluster0.4cluv.azure.mongodb.net/mern?retryWrites=true&w=majority'
-  )
-  .then(() => {
-    app.listen(5000);
-  })
-  .catch((err) => {
-    clg(err);
-  });
+    .connect(
+        `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.4cluv.azure.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
+    )
+    .then(() => {
+        app.listen(5000);
+    })
+    .catch((err) => {
+        clg(err);
+    });
