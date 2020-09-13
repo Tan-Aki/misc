@@ -1,10 +1,11 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'http://localhost:5000/api/users/',
+  baseURL: process.env.REACT_APP_BACKEND_URL + '/users/',
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
 export default instance;
+

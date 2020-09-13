@@ -57,7 +57,7 @@ const NewPlace = () => {
             formData.append('image', formState.inputs.image.value);
 
             await sendRequest(
-                'http://localhost:5000/api/places',
+                process.env.REACT_APP_BACKEND_URL + '/places',
                 'POST',
                 formData,
                 { Authorization: `Bearer ${auth.token}` }
@@ -152,7 +152,7 @@ export default NewPlace;
 
 //   const placeSubmitHandler = (event) => {
 //     event.preventDefault();
-//     // sendRequest('http://localhost:5000/api/places',)
+//     // sendRequest(process.env.REACT_APP_BACKEND_URL +'places',)
 //   };
 
 //   return (

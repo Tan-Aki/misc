@@ -1,0 +1,4 @@
+REACT_APP_GOOGLE_API_KEY=AIzaSyCxzGwB7uqTmNhoOP3q828rnhelN5124hc
+REACT_APP_BACKEND_URL=http://localhost:5000/api
+REACT_APP_ASSET_URL=http://localhost:5000
+
