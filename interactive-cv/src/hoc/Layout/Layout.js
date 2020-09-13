@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import classes from "./Layout.module.scss";
+import "./Layout.scss";
 
 const Layout = (props) => {
   return (
-    <div className={classes.Layout}>
-      <div className={classes.Frame}>{props.children}</div>
+    <div className="Layout">
+      <div className="Frame">{props.children}</div>
     </div>
   );
 };
