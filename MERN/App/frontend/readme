@@ -1,1 +1,2 @@
 .envDummy must be named .env
+.envDummy.production must be named .env.production

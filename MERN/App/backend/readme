@@ -1,1 +1,9 @@
 nodemonDummy.json should be named nodemon.json
+
+Locally, in the package.json ==>    "start": "nodemon app.js"
+env variable inside nodemon.json
+
+For heroku, in the package.json ==>    "start": "node app.js"
+nodemon.js is useless
+You need to add env variables on the heroku website in the settings/config var of the project
+
