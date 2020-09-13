@@ -1,0 +1,9 @@
+{
+    "env": {
+        "DB_USER": "account",
+        "DB_PASSWORD": "toto123",
+        "DB_NAME": "test",
+        "GOOGLE_API_KEY" : "AIzaSyCxzGwB7uqTmNhoOP3q828124hcsdfffS",
+        "JWT_KEY": "supersecret_dont_share"
+    }
+}
