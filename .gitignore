@@ -1,1 +1,6 @@
 archives
+MERN/App/backend/node_modules
+MERN/App/backend/nodemon.json
+
+MERN/App/frontend/node_modules
+MERN/App/frontend/.env
