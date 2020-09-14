@@ -57,7 +57,7 @@ const signup = async (req, res, next) => {
     const userToCreate = new User({
         name,
         email,
-        image: req.file.path,
+        image: req.file.location,
         password: hashedPassword,
         places: [],
     });

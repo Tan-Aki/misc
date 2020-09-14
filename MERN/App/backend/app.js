@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const placesRoutes = require('./routes/places-routes');
 const HttpError = require('./models/http-error');
 const usersRoutes = require('./routes/users-routes');
+const fileDelete = require('./util/file-delete');
 
 const app = express();
 
@@ -38,9 +39,11 @@ app.use((error, req, res, next) => {
     // this middleware is the general error handler.
 
     if (req.file) {
-        fs.unlink(req.file.path, (err) => {
-            console.log(err);
-        });
+        fileDelete(req.file.path);
+
+        // fs.unlink(req.file.path, (err) => {
+        //     console.log(err);
+        // });
     }
     if (res.headersSent) {
         return next(error);
