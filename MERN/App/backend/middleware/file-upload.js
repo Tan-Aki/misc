@@ -46,6 +46,7 @@ const MIME_TYPE_MAP = {
 };
 
 const fileUpload = multer({
+    limits: 500000,
     storage: multerS3({
         s3: s3,
         bucket: process.env.AWS_BUCKET_NAME,

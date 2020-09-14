@@ -101,7 +101,7 @@ const NewPlace = () => {
                     center
                     id="image"
                     onInput={inputHandler}
-                    errorText="Please provide an image."
+                    errorText="(If you happen to be visiting this website from within another application and the upload feature doesn't work, please open this website directly from a browser instead)."
                 />
 
                 <Button type="submit" disabled={!formState.formIsValid}>
