@@ -45,6 +45,11 @@ const MIME_TYPE_MAP = {
     'image/jpg': 'jpg',
 };
 
+// https://github.com/expressjs/multer#error-handling
+
+// When encountering an error, Multer will delegate the error to Express. You can display a nice error page with the express default error handler
+// If you want to catch errors specifically from Multer, you can call the middleware function by yourself, like we do here with fileFilter and calling the CB which in our case will be handled by the default express error handler
+
 const fileUpload = multer({
     limits: 500000,
     storage: multerS3({
@@ -52,7 +57,7 @@ const fileUpload = multer({
         bucket: process.env.AWS_BUCKET_NAME,
         acl: 'public-read',
         metadata: function (req, file, cb) {
-            cb(null, { fieldName: 'testing_META_DATA' });
+            cb(null, { fieldName: file.fieldname });
         },
         key: function (req, file, cb) {
             cb(null, Date.now().toString());
