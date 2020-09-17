@@ -20,7 +20,7 @@ const Education = (props) => {
         <li>
           <div>
             <span>Formations Udemy (certificats présentés sur demande)</span>
-            <span>(2019-2020)</span>
+            <span>(2020)</span>
             <ChevronItem label="React - The Complete Guide (incl Hooks, React Router, Redux)" />
             <ChevronItem label="Advanced CSS and Sass: Flexbox, Grid, Animations and More!" />
             <ChevronItem label="The Modern JavaScript Bootcamp Course (2020)" />

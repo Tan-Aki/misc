@@ -19,7 +19,7 @@ const Projects = (props) => {
   return (
     <div className={projectsClass}>
       <div className={classes.DivWith1Thumb}>
-        <h3>Burger Builder - React.JS/JSX/SASS modules/firebase (2019-2020)</h3>
+        <h3>Burger Builder - React.JS/JSX/SCSS modules/firebase (2020)</h3>
         <div>
           <ThumbnailWIthLink
             imgName="bbuilderThumbnail.png"
@@ -28,7 +28,7 @@ const Projects = (props) => {
         </div>
         <ul>
           <li>
-            <ChevronItem label="Responsive Single Page Application in React. Allows to build a burger by adding or deleting ingredients, place an order via a form, signup, login and visualize the placed orders." />
+            <ChevronItem label="Responsive Single Page Application in React.JS. Allows to build a burger by adding or deleting ingredients, place an order via a form, signup, login and visualize the placed orders." />
           </li>
           <li>
             <ChevronItem label="Libraries: Redux, Redux-Thunk, Redux-Saga, Axios, React Router, Node-SASS" />
@@ -57,7 +57,7 @@ const Projects = (props) => {
       </div>
 
       <div className={classes.DivWith3Thumbs}>
-        <h3>Natours, Trillo, Nexter - HTML/SASS (2019-2020)</h3>
+        <h3>Natours, Trillo, Nexter - HTML/SCSS (2020)</h3>
         <div>
           <ThumbnailWIthLink
             imgName="natoursThumbnail.png"
@@ -91,7 +91,7 @@ const Projects = (props) => {
       </div>
 
       <div className={classes.DivWith1Thumb}>
-        <h3>Ecomm - JavaScript/HTML/CSS (2019-2020)</h3>
+        <h3>Ecomm - JavaScript/HTML/CSS (2020)</h3>
         <div>
           <ThumbnailWIthLink
             imgName="ecommThumbnail.png"
@@ -119,7 +119,7 @@ const Projects = (props) => {
       </div>
 
       <div className={classes.DivWith1Thumb}>
-        <h3>Movies - JavaScript/HTML/CSS (2019-2020)</h3>
+        <h3>Movies - JavaScript/HTML/CSS (2020)</h3>
         <div>
           <ThumbnailWIthLink imgName="moviesThumbnail.png" link="https://movies-by-tan.web.app/" />
         </div>
@@ -144,14 +144,14 @@ const Projects = (props) => {
       </div>
 
       <div>
-        <h3>Online interactive resume - React.JS/JSX/SASS modules/firebase (2019-2020)</h3>
+        <h3>Online interactive resume - React.JS/JSX/SCSS modules/firebase (2020)</h3>
 
         <ul>
           <li>
             <ChevronItem label="You are currently on it ! : )" />
           </li>
           <li>
-            <ChevronItem label="Responsive Single Page Application in React." />
+            <ChevronItem label="Responsive Single Page Application in React.JS." />
           </li>
           <li>
             <ChevronItem label="Libraries: Redux, React Router, Classnames, Node-SASS" />
@@ -170,7 +170,7 @@ const Projects = (props) => {
       </div>
 
       <div>
-        <h3>Tme - ****************** (2019-2020)</h3>
+        <h3>Tme - ****************** (2020)</h3>
         <ul>
           <li>
             <ChevronItem label="Testing framework similar to Mocha/Chai." />

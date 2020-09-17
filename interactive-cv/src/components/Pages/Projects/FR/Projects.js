@@ -33,7 +33,7 @@ const Projects = (props) => {
   return (
     <div className={projectsClass}>
       <div className={classes.DivWith1Thumb}>
-        <h3>Burger Builder - React.JS/JSX/SASS modules/firebase (2019-2020)</h3>
+        <h3>Burger Builder - React.JS/JSX/SCSS modules/firebase (2020)</h3>
         <div>
           <ThumbnailWIthLink
             imgName="bbuilderThumbnail.png"
@@ -43,7 +43,7 @@ const Projects = (props) => {
 
         <ul>
           <li>
-            <ChevronItem label="Responsive Single Page Application en React permettant de construire un burger en ajoutant ou supprimant des aliments, de passer une commande via un formulaire, de s’inscrire et de s’authentifier, et de visualiser les commandes passées." />
+            <ChevronItem label="Responsive Single Page Application en React.JS permettant de construire un burger en ajoutant ou supprimant des aliments, de passer une commande via un formulaire, de s’inscrire et de s’authentifier, et de visualiser les commandes passées." />
           </li>
           <li>
             <ChevronItem label="Libraires: Redux, Redux-Thunk, Redux-Saga, Axios, React Router, Node-SASS" />
@@ -71,7 +71,7 @@ const Projects = (props) => {
       </div>
 
       <div className={classes.DivWith3Thumbs}>
-        <h3>Natours, Trillo, Nexter - HTML/SASS (2019-2020)</h3>
+        <h3>Natours, Trillo, Nexter - HTML/SCSS (2020)</h3>
         <div>
           <ThumbnailWIthLink
             imgName="natoursThumbnail.png"
@@ -105,7 +105,7 @@ const Projects = (props) => {
       </div>
 
       <div className={classes.DivWith1Thumb}>
-        <h3>Ecomm - JavaScript/HTML/CSS (2019-2020)</h3>
+        <h3>Ecomm - JavaScript/HTML/CSS (2020)</h3>
         <div>
           <ThumbnailWIthLink
             imgName="ecommThumbnail.png"
@@ -133,7 +133,7 @@ const Projects = (props) => {
       </div>
 
       <div className={classes.DivWith1Thumb}>
-        <h3>Movies - JavaScript/HTML/CSS (2019-2020)</h3>
+        <h3>Movies - JavaScript/HTML/CSS (2020)</h3>
         <div>
           <ThumbnailWIthLink imgName="moviesThumbnail.png" link="https://movies-by-tan.web.app/" />
         </div>
@@ -158,13 +158,13 @@ const Projects = (props) => {
       </div>
 
       <div>
-        <h3>CV interactif en ligne - React.JS/JSX/SASS modules/firebase (2019-2020)</h3>
+        <h3>CV interactif en ligne - React.JS/JSX/SCSS modules/firebase (2020)</h3>
         <ul>
           <li>
             <ChevronItem label="Vous êtes présentement dessus ! : ) " />
           </li>
           <li>
-            <ChevronItem label="Responsive Single Page Application en React." />
+            <ChevronItem label="Responsive Single Page Application en React.JS." />
           </li>
           <li>
             <ChevronItem label="Libraires: Redux, React Router, Classnames, Node-SASS" />
@@ -183,7 +183,7 @@ const Projects = (props) => {
       </div>
 
       <div>
-        <h3>tme - ****************** (2019-2020)</h3>
+        <h3>tme - ****************** (2020)</h3>
         <ul>
           <li>
             <ChevronItem label="Framework de test équivalent à Mocha /Chai" />
