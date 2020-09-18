@@ -44,7 +44,7 @@ const Education = (props) => {
       <div>
         <span>Certificates (provided upon request)</span>
         <ChevronItem label="ITIL V4 Foundation" />
-        <ChevronItem label="MICROSOFT–70-640 Active Directory Windows Serv 2008" />
+        <ChevronItem label="MICROSOFT–70-640 Active Directory Windows Serv. 2008" />
       </div>
     </div>
   );

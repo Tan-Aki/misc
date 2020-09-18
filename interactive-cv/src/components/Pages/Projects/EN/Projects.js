@@ -28,10 +28,10 @@ const Projects = (props) => {
         </div>
         <ul>
           <li>
-            <ChevronItem label="Responsive Single Page Application in React.JS. Allows to build a burger by adding or deleting ingredients, place an order via a form, signup, login and visualize the placed orders." />
+            <ChevronItem label="Responsive Single Page Application in React.JS. Allows to build a burger by adding or deleting ingredients, place an order via a form, signup, login and visualize placed orders." />
           </li>
           <li>
-            <ChevronItem label="Libraries: Redux, Redux-Thunk, Redux-Saga, Axios, React Router, Node-SASS" />
+            <ChevronItem label="Libraries: Redux, Redux-Thunk, Redux-Saga, Axios, React-Router, Node-SASS, etc..." />
           </li>
           <li>
             <ChevronItem label="Authentication via token and localStorage" />
@@ -40,7 +40,7 @@ const Projects = (props) => {
             <ChevronItem label="Tests with Jest" />
           </li>
           <li>
-            <ChevronItem label="Used concepts: Class based and functional components, lifecycle hooks, React-hooks, Redux-Thunk, Redux-Saga." />
+            <ChevronItem label="Used concepts: Class based and functional components, lifecycle hooks, React hooks, Redux-Thunk, Redux-Saga." />
           </li>
 
           <li className={classes.LiWithLink}>
@@ -75,7 +75,7 @@ const Projects = (props) => {
             <ChevronItem label="Three beautiful responsive websites." />
           </li>
           <li>
-            <ChevronItem label="Usage of CSS Float Grid, CSS Flexbox and CSS Grid Layout, with BEM methodology (Block Element Modifier)" />
+            <ChevronItem label="Usage of CSS Float Grid, CSS Flexbox and CSS Grid Layout, with BEM methodology (Block Element Modifier)." />
           </li>
           <li className={classes.LiWithLink}>
             <ChevronItem label="GIT:" />
@@ -103,7 +103,7 @@ const Projects = (props) => {
             <ChevronItem label="E-commerce website that allows to place orders for products, with a cart management feature, with an administration panel for adding/modifying/deleting the products and with Sign up and Sign in features." />
           </li>
           <li>
-            <ChevronItem label="Libraries: cookie-session, express.JS (with express.Router), express-validator, multer, Node Standard library" />
+            <ChevronItem label="Libraries: Cookie-Session, Express.JS (with Express-Router), Multer, Node Standard library, etc..." />
           </li>
           <li className={classes.LiWithLink}>
             <ChevronItem label="GIT:" />
@@ -128,7 +128,7 @@ const Projects = (props) => {
             <ChevronItem label="App that allows to fetch metadata about a movie (IMBD ratings, Metascore, Boxoffice, ...) from a free IMDB API, and to compare it to the metadata of another movie in order to pick one." />
           </li>
           <li>
-            <ChevronItem label="Libraries: Axios" />
+            <ChevronItem label="Libraries: Axios, etc..." />
           </li>
           <li className={classes.LiWithLink}>
             <ChevronItem label="GIT:" />
@@ -154,7 +154,7 @@ const Projects = (props) => {
             <ChevronItem label="Responsive Single Page Application in React.JS." />
           </li>
           <li>
-            <ChevronItem label="Libraries: Redux, React Router, Classnames, Node-SASS" />
+            <ChevronItem label="Libraries: Redux, React-Router, Classnames, Node-SASS, etc..." />
           </li>
           <li className={classes.LiWithLink}>
             <ChevronItem label="GIT:" />

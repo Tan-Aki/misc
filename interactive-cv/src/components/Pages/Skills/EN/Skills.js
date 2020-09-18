@@ -35,7 +35,7 @@ const Skills = (props) => {
             <ProgressBar percent="70" />
           </li>
           <li>
-            <ChevronItem label="Redux, Redux-Thunk, Redux-Saga, React Router" />
+            <ChevronItem label="Redux, Redux-Thunk, Redux-Saga, React-Router" />
             <ProgressBar percent="65" />
           </li>
         </ul>
