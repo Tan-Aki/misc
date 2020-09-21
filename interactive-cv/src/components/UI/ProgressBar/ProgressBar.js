@@ -1,31 +1,59 @@
-import * as React from "react";
-import useWindowSize from "../../../hooks/useWindowSize";
+import * as React from 'react';
+import useWindowSize from '../../../hooks/useWindowSize';
 
-import classes from "./ProgressBar.module.scss";
+import classes from './ProgressBar.module.scss';
 
 const ProgressBar = (props) => {
-  const [width] = useWindowSize();
+    const [width] = useWindowSize();
+    // const [firstRender, setFirstRender] = React.useState(false);
 
-  // const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-  let progressDivWidth;
-  width < 913 ? (progressDivWidth = (width * 33) / 100) : (progressDivWidth = 170);
+    // const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+    let progressDivWidth;
+    width < 913
+        ? (progressDivWidth = (width * 33) / 100)
+        : (progressDivWidth = 170);
 
-  const [progressWidth, setProgressWidth] = React.useState(0);
-  // let progressDivWidth = 150;
+    const [progressWidth, setProgressWidth] = React.useState(0);
+    // let progressDivWidth = 150;
 
-  React.useEffect(() => {
-    setProgressWidth((props.percent / 100) * progressDivWidth);
-    // console.log("rendering");
-    // return () => {
-    //   console.log("unmounting");
-    // };
-  }, [props.percent, progressDivWidth]);
+    // React.useEffect(() => {
+    //     console.log(firstRender);
+    //     if (!firstRender) {
+    //         setProgressWidth(0);
+    //         setFirstRender(true);
+    //     } else {
+    //         setTimeout(() => {
+    //             setProgressWidth((props.percent / 100) * progressDivWidth);
+    //         }, 1000);
+    //     }
+    //     // console.log("rendering");
+    //     // return () => {
+    //     //   console.log("unmounting");
+    //     // };
+    // }, [props.percent, progressDivWidth, firstRender]);
 
-  return (
-    <div className={classes.ProgressDiv} style={{ width: `${progressDivWidth}px` }}>
-      <div style={{ width: `${progressWidth}px` }} className={classes.Progress} />
-    </div>
-  );
+    React.useEffect(() => {
+        setTimeout(() => {
+            setProgressWidth((props.percent / 100) * progressDivWidth);
+        }, 1);
+
+        // console.log("rendering");
+        // return () => {
+        //   console.log("unmounting");
+        // };
+    }, [props.percent, progressDivWidth]);
+
+    return (
+        <div
+            className={classes.ProgressDiv}
+            style={{ width: `${progressDivWidth}px` }}
+        >
+            <div
+                style={{ width: `${progressWidth}px` }}
+                className={classes.Progress}
+            />
+        </div>
+    );
 };
 
 export default ProgressBar;
