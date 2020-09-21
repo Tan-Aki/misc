@@ -91,7 +91,7 @@ const Skills = (props) => {
                         <ChevronItem label="Networking, firewalls and protocols (TCP/IP, DNS, DHCP, FTP, HTTP, SSL, …)" />
                     </li>
                     <li>
-                        <ChevronItem label="Scripting in VBS and Powershell" />
+                        <ChevronItem label="Scripting in VBS and PowerShell" />
                     </li>
                     <li>
                         <ChevronItem label="Hosting services" />
