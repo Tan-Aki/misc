@@ -6,7 +6,7 @@ const ChevronItem = (props) => {
   return (
     <div className={classes.ChevronItem}>
       <ChevronLogo />
-      <span>{props.label}</span>
+      <span style={props.bold && {fontWeight: "bold"}}>{props.label}</span>
       {/* <ProgressBar max={props.max} value={props.value} /> */}
     </div>
   );
