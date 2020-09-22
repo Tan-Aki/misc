@@ -65,3 +65,5 @@ mongoose
     .catch((err) => {
         clg(err);
     });
+
+module.exports = app;
