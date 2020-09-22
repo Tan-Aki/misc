@@ -6,6 +6,8 @@ const jwt = require('jsonwebtoken');
 const HttpError = require('../models/http-error');
 const User = require('../models/user');
 
+require('dotenv').config();
+
 const getUsers = async (req, res, next) => {
     let users;
     try {
@@ -137,8 +139,7 @@ const login = async (req, res, next) => {
             new HttpError('Invalid credentials, could not log you in.', 403)
         );
     }
-
-
+    console.log(process.env.JWT_KEY);
     let token;
 
     try {
@@ -163,6 +164,14 @@ const login = async (req, res, next) => {
     });
 };
 
+const test = (req, res, next) => {
+    res.json({
+        userId: 'toto',
+        email: 'toto',
+    });
+};
+
 exports.getUsers = getUsers;
 exports.signup = signup;
 exports.login = login;
+exports.test = test;

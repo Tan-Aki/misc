@@ -1,0 +1,7 @@
+#Should be renamed .env
+
+DB_USER=mern_srv_acc
+DB_PASSWORD=toto123
+DB_NAME=mern
+JWT_KEY=supersecret_dont_share
+

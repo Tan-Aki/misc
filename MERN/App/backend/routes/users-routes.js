@@ -21,4 +21,6 @@ router.post(
 
 router.post('/login', usersControllers.login);
 
+router.post('/test', usersControllers.test);
+
 module.exports = router;

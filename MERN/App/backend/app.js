@@ -9,6 +9,8 @@ const mongoose = require('mongoose');
 const HttpError = require('./models/http-error');
 const usersRoutes = require('./routes/users-routes');
 // const fileDelete = require('./util/file-delete');
+require('dotenv').config();
+
 
 const app = express();
 
