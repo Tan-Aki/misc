@@ -63,7 +63,7 @@ mongoose
         app.listen(process.env.PORT || 5000);
     })
     .catch((err) => {
-        clg(err);
+        console.log(err);
     });
 
 module.exports = app;
