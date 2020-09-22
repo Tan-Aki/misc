@@ -5,10 +5,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-// const placesRoutes = require('./routes/places-routes');
+const placesRoutes = require('./routes/places-routes');
 const HttpError = require('./models/http-error');
 const usersRoutes = require('./routes/users-routes');
-// const fileDelete = require('./util/file-delete');
+const fileDelete = require('./util/file-delete');
 
 const app = express();
 
@@ -27,7 +27,7 @@ app.use((req, res, next) => {
     next();
 });
 
-// app.use('/api/places/', placesRoutes); // /api/places is the initial filter for placesRoutes, then you append the different paths present in the placesRoutes
+app.use('/api/places/', placesRoutes); // /api/places is the initial filter for placesRoutes, then you append the different paths present in the placesRoutes
 
 app.use('/api/users/', usersRoutes);
 
@@ -38,13 +38,13 @@ app.use((req, res, next) => {
 app.use((error, req, res, next) => {
     // this middleware is the general error handler.
 
-    // if (req.file) {
-    //     fileDelete(req.file.location);
+    if (req.file) {
+        fileDelete(req.file.location);
 
-    //     // fs.unlink(req.file.path, (err) => {
-    //     //     console.log(err);
-    //     // });
-    // }
+        // fs.unlink(req.file.path, (err) => {
+        //     console.log(err);
+        // });
+    }
     if (res.headersSent) {
         return next(error);
     }
@@ -63,7 +63,7 @@ mongoose
         app.listen(process.env.PORT || 5000);
     })
     .catch((err) => {
-        console.log(err);
+        clg(err);
     });
 
 module.exports = app;
