@@ -164,34 +164,36 @@
 //     getByText('Add #2');
 // });
 
-
 /////////////////////////////////////////////////////////////////////////////
 ////  testing async code  // TO DO
 /////////////////////////////////////////////////////////////////////////////
 
+import React from 'react';
+import { render, fireEvent, wait } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
-// import React from 'react';
-// import { render, fireEvent } from '@testing-library/react';
-// import userEvent from '@testing-library/user-event';
+import App from './App';
+import { api } from './api';
 
-// import App from './App';
+jest.mock('./api');
 
-// it('renders the correct content', () => {
-//     const { getByText, getByLabelText } = render(<App />);
+test('allows users to add items to their list', async () => {
+    const todoText = 'First task';
 
-//     getByText('TODOs');
-//     getByLabelText('What needs to be done?');
-//     getByText('Add #1');
-// });
+    api.createItem.mockResolvedValueOnce({ id: 123, text: todoText });
+    const { getByText, getByLabelText } = render(<App />);
 
-// test('allows users to add items to their list', () => {
-//     const { getByText, getByLabelText } = render(<App />);
+    const input = getByLabelText('What needs to be done?');
 
-//     const input = getByLabelText('What needs to be done?');
+    userEvent.type(input, todoText);
+    fireEvent.click(getByText('Add #1'));
 
-//     userEvent.type(input, 'First task');
-//     fireEvent.click(getByText('Add #1'));
+    await wait(() => getByText(todoText));
 
-//     getByText('First task');
-//     getByText('Add #2');
-// });
+    // to avoid false positives, make sure the api has been called
+    expect(api.createItem).toHaveBeenCalledTimes(1);
+    expect(api.createItem).toHaveBeenCalledWith(
+        '/items',
+        expect.objectContaining({ text: todoText })
+    );
+});
