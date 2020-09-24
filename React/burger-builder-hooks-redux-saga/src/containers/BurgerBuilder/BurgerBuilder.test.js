@@ -1,4 +1,4 @@
-import { BurgerBuilder } from "./BurgerBuilder";
+import BurgerBuilder from "./BurgerBuilder";
 import BuildControls from "../../components/Burger/BuildControls/BuildControls";
 import React from "react";
 
@@ -16,6 +16,7 @@ describe("<BurgerBuilder />", () => {
 
   it("should render <BuildControls /> when receiving ingredients", () => {
     wrapper.setProps({ ings: { salad: 0 } });
+    console.log(wrapper)
     // wrapper.setProps({ ings: null });
     expect(wrapper.find(BuildControls)).toHaveLength(1);
   });

@@ -58,7 +58,9 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+
 import { api } from './api';
+import { RandomComponent } from './RandomComponent';
 
 function App() {
     const [items, setItems] = React.useState([]);
@@ -87,6 +89,7 @@ function App() {
 
     return (
         <div>
+            <RandomComponent />
             <h1>TODOs</h1>
 
             <ul>
