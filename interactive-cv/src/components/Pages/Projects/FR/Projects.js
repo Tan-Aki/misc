@@ -54,7 +54,7 @@ const Projects = (props) => {
                         <ChevronItem label="Authentification via token et localStorage." />
                     </li>
                     <li>
-                        <ChevronItem label="Tests avec Jest." />
+                        <ChevronItem label="Tests avec Jest et Enzyme." />
                     </li>
                     <li>
                         <ChevronItem label="Concepts utilisés: Class based et functional components, lifecycle hooks, React hooks, Redux-Thunk, Redux-Saga" />
@@ -97,12 +97,15 @@ const Projects = (props) => {
                         <ChevronItem label="Authentification via token et localStorage." />
                     </li>
                     <li>
+                        <ChevronItem label="Tests avec Jest, React-Testing-Library et SuperTest." />
+                    </li>
+                    <li>
                         <ChevronItem label="API: Google Maps JavaScript API et Google Geocoding API" />
                     </li>
                     <li>
                         <ChevronItem
                             bold
-                            label="(note: Le backend étant hébergé gratuitement chez Heroku.com, le chargement initial dure quelques secondes)"
+                            label="(note: Le backend étant hébergé gratuitement chez Heroku.com, le chargement initial dure quelques secondes.)"
                         />
                     </li>
 

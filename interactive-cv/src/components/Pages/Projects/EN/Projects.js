@@ -39,7 +39,7 @@ const Projects = (props) => {
                         <ChevronItem label="Authentication via token and localStorage." />
                     </li>
                     <li>
-                        <ChevronItem label="Tests with Jest." />
+                        <ChevronItem label="Tests with Jest and Enzyme." />
                     </li>
                     <li>
                         <ChevronItem label="Used concepts: Class based and functional components, lifecycle hooks, React hooks, Redux-Thunk, Redux-Saga." />
@@ -83,12 +83,15 @@ Allows a user to sign up, sign in, create, edit and delete a place (with image u
                         <ChevronItem label="Authentication via token and localStorage." />
                     </li>
                     <li>
+                        <ChevronItem label="Tests with Jest, React-Testing-Library and SuperTest." />
+                    </li>
+                    <li>
                         <ChevronItem label="API: Google Maps JavaScript API and Google Geocoding API" />
                     </li>
                     <li>
                         <ChevronItem
                             bold
-                            label="(note: The initial loading time will take a few seconds since the backend is hosted for free on Heroku.com)"
+                            label="(note: The initial loading time will take a few seconds since the backend is hosted for free on Heroku.com.)"
                         />
                     </li>
 

@@ -58,7 +58,7 @@ const Skills = (props) => {
                     </li>
                     <li>
                         <ChevronItem label="Testing avec Chai/Mocha/Jest" />
-                        <ProgressBar percent="40" />
+                        <ProgressBar percent="45" />
                     </li>
                     <li>
                         <ChevronItem label="AWS S3" />
