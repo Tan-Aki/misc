@@ -1,6 +1,8 @@
 .ReactLogo {
-  min-height: 4rem;
-  min-width: 4rem;
+  height: 4rem;
+  width: 4rem;
+  min-width: 40px;
+  min-height: 40px;
   pointer-events: none;
   animation: ReactLogo-spin infinite 20s linear;
 }
