@@ -19,7 +19,8 @@ const Projects = (props) => {
     return (
         <div className={projectsClass}>
             <span>
-                Note : If you are interested about the projects I've worked on professionally, please <a href="/">contact me</a>.
+                Note: If you are interested about the projects I've worked on professionally, please <a href="/">contact me</a> to get the PDF version
+                of my resume.
             </span>
             <br />
             <br />

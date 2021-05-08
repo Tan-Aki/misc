@@ -33,7 +33,8 @@ const Projects = (props) => {
     return (
         <div className={projectsClass}>
             <span>
-                Note : Pour obtenir de l'information sur mes projets professionnels, merci de <a href="/"> me contacter directement</a>.
+                Note: Pour obtenir de l'information sur mes projets professionnels, merci de <a href="/"> me contacter directement</a> afin d'obtenir
+                mon CV en PDF.
             </span>
             <br />
             <br />
