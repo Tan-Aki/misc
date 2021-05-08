@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classes from '../Header.module.scss';
+import React from "react";
+import PropTypes from "prop-types";
+import classes from "../Header.module.scss";
 
 const Header = (props) => {
     return (
@@ -10,8 +10,7 @@ const Header = (props) => {
                 <span>–</span>Développeur Web<span>–</span>
             </h2>
             <h2>
-                Ancien technicien informatique/gestionnaire de changements TI
-                reconverti et spécialisé en JavaScript et en React.JS.
+                Ancien technicien informatique/gestionnaire de changements TI reconverti en développeur Web.
                 <br />
                 Passionné de technologie et avide de connaissance !
             </h2>

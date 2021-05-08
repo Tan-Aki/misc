@@ -1,12 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classes from '../Projects.module.scss';
-import ChevronItem from '../../../UI/ChevronItem/ChevronItem';
-import classNames from 'classnames/bind';
-import ThumbnailWIthLink from '../../../UI/ThumbnailWIthLink/ThumbnailWithLink';
-import ElevatorButton from '../../../UI/ElevatorButton/ElevatorButton.js';
+import React from "react";
+import PropTypes from "prop-types";
+import classes from "../Projects.module.scss";
+import ChevronItem from "../../../UI/ChevronItem/ChevronItem";
+import classNames from "classnames/bind";
+import ThumbnailWIthLink from "../../../UI/ThumbnailWIthLink/ThumbnailWithLink";
+import ElevatorButton from "../../../UI/ElevatorButton/ElevatorButton.js";
 
-import ProgressBar from '../../../UI/ProgressBar/ProgressBar';
+import ProgressBar from "../../../UI/ProgressBar/ProgressBar";
 
 const Projects = (props) => {
     const cx = classNames.bind(classes);
@@ -18,15 +18,16 @@ const Projects = (props) => {
 
     return (
         <div className={projectsClass}>
+            <span>
+                Note : If you are interested about the projects I've worked on professionally, please <a href="/">contact me</a>.
+            </span>
+            <br />
+            <br />
+
             <div className={classes.DivWith1Thumb}>
-                <h3>
-                    Burger Builder - React.JS/JSX/SCSS modules/firebase (2020)
-                </h3>
+                <h3>Burger Builder - React.JS/JSX/SCSS modules/firebase (2020)</h3>
                 <div>
-                    <ThumbnailWIthLink
-                        imgName="bbuilderThumbnail.png"
-                        link="https://burger-builder-by-tan.web.app/"
-                    />
+                    <ThumbnailWIthLink imgName="bbuilderThumbnail.png" link="https://burger-builder-by-tan.web.app/" />
                 </div>
                 <ul>
                     <li>
@@ -47,11 +48,7 @@ const Projects = (props) => {
 
                     <li className={classes.LiWithLink}>
                         <ChevronItem label="GIT:" />
-                        <a
-                            href="https://github.com/Tan-Aki/dev/tree/master/React"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
+                        <a href="https://github.com/Tan-Aki/dev/tree/master/React" target="_blank" rel="noopener noreferrer">
                             https://github.com/Tan-Aki/dev/tree/master/React
                         </a>
                     </li>
@@ -59,15 +56,9 @@ const Projects = (props) => {
             </div>
 
             <div className={classes.DivWith1Thumb}>
-                <h3>
-                    PlaceShare - MERN (MongoDB, Express.JS, React.JS, Node.JS) +
-                    AWS S3 (2020)
-                </h3>
+                <h3>PlaceShare - MERN (MongoDB, Express.JS, React.JS, Node.JS) + AWS S3 (2020)</h3>
                 <div>
-                    <ThumbnailWIthLink
-                        imgName="placeshareThumbnail.png"
-                        link="https://placeshare-by-tan.web.app/"
-                    />
+                    <ThumbnailWIthLink imgName="placeshareThumbnail.png" link="https://placeshare-by-tan.web.app/" />
                 </div>
                 <ul>
                     <li>
@@ -97,11 +88,7 @@ Allows a user to sign up, sign in, create, edit and delete a place (with image u
 
                     <li className={classes.LiWithLink}>
                         <ChevronItem label="GIT:" />
-                        <a
-                            href="https://github.com/Tan-Aki/dev/tree/master/MERN/App "
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
+                        <a href="https://github.com/Tan-Aki/dev/tree/master/MERN/App " target="_blank" rel="noopener noreferrer">
                             https://github.com/Tan-Aki/dev/tree/master/MERN/App
                         </a>
                     </li>
@@ -111,22 +98,13 @@ Allows a user to sign up, sign in, create, edit and delete a place (with image u
             <div className={classes.DivWith3Thumbs}>
                 <h3>Natours, Trillo, Nexter - HTML/SCSS (2020)</h3>
                 <div>
-                    <ThumbnailWIthLink
-                        imgName="natoursThumbnail.png"
-                        link="https://natours-by-tan.web.app/"
-                    />
+                    <ThumbnailWIthLink imgName="natoursThumbnail.png" link="https://natours-by-tan.web.app/" />
                 </div>
                 <div>
-                    <ThumbnailWIthLink
-                        imgName="nexterThumbnail.png"
-                        link="https://nexter-by-tan.web.app/"
-                    />
+                    <ThumbnailWIthLink imgName="nexterThumbnail.png" link="https://nexter-by-tan.web.app/" />
                 </div>
                 <div>
-                    <ThumbnailWIthLink
-                        imgName="trilloThumbnail.png"
-                        link="https://trillo-by-tan.web.app/"
-                    />
+                    <ThumbnailWIthLink imgName="trilloThumbnail.png" link="https://trillo-by-tan.web.app/" />
                 </div>
                 <ul>
                     <li>
@@ -137,11 +115,7 @@ Allows a user to sign up, sign in, create, edit and delete a place (with image u
                     </li>
                     <li className={classes.LiWithLink}>
                         <ChevronItem label="GIT:" />
-                        <a
-                            href="https://github.com/Tan-Aki/dev/tree/master/Advanced-HTML-CSS-and-SASS"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
+                        <a href="https://github.com/Tan-Aki/dev/tree/master/Advanced-HTML-CSS-and-SASS" target="_blank" rel="noopener noreferrer">
                             https://github.com/Tan-Aki/dev/tree/master/Advanced-HTML-CSS-and-SASS
                         </a>
                     </li>
@@ -151,10 +125,7 @@ Allows a user to sign up, sign in, create, edit and delete a place (with image u
             <div className={classes.DivWith1Thumb}>
                 <h3>Ecomm - JavaScript/HTML/CSS (2020)</h3>
                 <div>
-                    <ThumbnailWIthLink
-                        imgName="ecommThumbnail.png"
-                        link="http://www.tanneguy-jullin.xyz:3000/"
-                    />
+                    <ThumbnailWIthLink imgName="ecommThumbnail.png" link="http://www.tanneguy-jullin.xyz:3000/" />
                 </div>
                 <ul>
                     <li>
@@ -165,11 +136,7 @@ Allows a user to sign up, sign in, create, edit and delete a place (with image u
                     </li>
                     <li className={classes.LiWithLink}>
                         <ChevronItem label="GIT:" />
-                        <a
-                            href="https://github.com/Tan-Aki/dev/tree/master/Modern-JS-bootcamp-2020/ecomm"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
+                        <a href="https://github.com/Tan-Aki/dev/tree/master/Modern-JS-bootcamp-2020/ecomm" target="_blank" rel="noopener noreferrer">
                             https://github.com/Tan-Aki/dev/tree/master/Modern-JS-bootcamp-2020/ecomm
                         </a>
                     </li>
@@ -179,10 +146,7 @@ Allows a user to sign up, sign in, create, edit and delete a place (with image u
             <div className={classes.DivWith1Thumb}>
                 <h3>Movies - JavaScript/HTML/CSS (2020)</h3>
                 <div>
-                    <ThumbnailWIthLink
-                        imgName="moviesThumbnail.png"
-                        link="https://movies-by-tan.web.app/"
-                    />
+                    <ThumbnailWIthLink imgName="moviesThumbnail.png" link="https://movies-by-tan.web.app/" />
                 </div>
                 <ul>
                     <li>
@@ -193,11 +157,7 @@ Allows a user to sign up, sign in, create, edit and delete a place (with image u
                     </li>
                     <li className={classes.LiWithLink}>
                         <ChevronItem label="GIT:" />
-                        <a
-                            href="https://github.com/Tan-Aki/dev/tree/master/Modern-JS-bootcamp-2020/movies"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
+                        <a href="https://github.com/Tan-Aki/dev/tree/master/Modern-JS-bootcamp-2020/movies" target="_blank" rel="noopener noreferrer">
                             https://github.com/Tan-Aki/dev/tree/master/Modern-JS-bootcamp-2020/movies
                         </a>
                     </li>
@@ -205,10 +165,7 @@ Allows a user to sign up, sign in, create, edit and delete a place (with image u
             </div>
 
             <div>
-                <h3>
-                    Online interactive resume - React.JS/JSX/SCSS
-                    modules/firebase (2020)
-                </h3>
+                <h3>Online interactive resume - React.JS/JSX/SCSS modules/firebase (2020)</h3>
 
                 <ul>
                     <li>
@@ -222,11 +179,7 @@ Allows a user to sign up, sign in, create, edit and delete a place (with image u
                     </li>
                     <li className={classes.LiWithLink}>
                         <ChevronItem label="GIT:" />
-                        <a
-                            href="https://github.com/Tan-Aki/dev/tree/master/interactive-cv"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
+                        <a href="https://github.com/Tan-Aki/dev/tree/master/interactive-cv" target="_blank" rel="noopener noreferrer">
                             https://github.com/Tan-Aki/dev/tree/master/interactive-cv
                         </a>
                     </li>
@@ -238,11 +191,7 @@ Allows a user to sign up, sign in, create, edit and delete a place (with image u
                 <ul>
                     <li className={classes.LiWithLink}>
                         <ChevronItem label="Please visit my GitHub:" />
-                        <a
-                            href="https://github.com/Tan-Aki/dev"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
+                        <a href="https://github.com/Tan-Aki/dev" target="_blank" rel="noopener noreferrer">
                             https://github.com/Tan-Aki/dev
                         </a>
                     </li>

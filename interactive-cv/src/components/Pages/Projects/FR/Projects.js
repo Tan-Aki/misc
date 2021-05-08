@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classes from '../Projects.module.scss';
-import ChevronItem from '../../../UI/ChevronItem/ChevronItem';
-import classNames from 'classnames/bind';
-import ThumbnailWIthLink from '../../../UI/ThumbnailWIthLink/ThumbnailWithLink';
+import React from "react";
+import PropTypes from "prop-types";
+import classes from "../Projects.module.scss";
+import ChevronItem from "../../../UI/ChevronItem/ChevronItem";
+import classNames from "classnames/bind";
+import ThumbnailWIthLink from "../../../UI/ThumbnailWIthLink/ThumbnailWithLink";
 // import Elevator from "elevator.js";
-import ElevatorButton from '../../../UI/ElevatorButton/ElevatorButton.js';
+import ElevatorButton from "../../../UI/ElevatorButton/ElevatorButton.js";
 // import ProgressBar from "../../../UI/ProgressBar/ProgressBar";
 // import bbuilderThumbnail from "../../../../assets/bbuilderThumbnail.png";
 
@@ -32,15 +32,15 @@ const Projects = (props) => {
 
     return (
         <div className={projectsClass}>
+            <span>
+                Note : Pour obtenir de l'information sur mes projets professionnels, merci de <a href="/"> me contacter directement</a>.
+            </span>
+            <br />
+            <br />
             <div className={classes.DivWith1Thumb}>
-                <h3>
-                    Burger Builder - React.JS/JSX/SCSS modules/firebase (2020)
-                </h3>
+                <h3>Burger Builder - React.JS/JSX/SCSS modules/firebase (2020)</h3>
                 <div>
-                    <ThumbnailWIthLink
-                        imgName="bbuilderThumbnail.png"
-                        link="https://burger-builder-by-tan.web.app/"
-                    />
+                    <ThumbnailWIthLink imgName="bbuilderThumbnail.png" link="https://burger-builder-by-tan.web.app/" />
                 </div>
 
                 <ul>
@@ -61,11 +61,7 @@ const Projects = (props) => {
                     </li>
                     <li className={classes.LiWithLink}>
                         <ChevronItem label="GIT:" />
-                        <a
-                            href="https://github.com/Tan-Aki/dev/tree/master/React"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
+                        <a href="https://github.com/Tan-Aki/dev/tree/master/React" target="_blank" rel="noopener noreferrer">
                             https://github.com/Tan-Aki/dev/tree/master/React
                         </a>
                     </li>
@@ -73,15 +69,9 @@ const Projects = (props) => {
             </div>
 
             <div className={classes.DivWith1Thumb}>
-                <h3>
-                    PlaceShare - MERN (MongoDB, Express.JS, React.JS, Node.JS) +
-                    AWS S3 (2020)
-                </h3>
+                <h3>PlaceShare - MERN (MongoDB, Express.JS, React.JS, Node.JS) + AWS S3 (2020)</h3>
                 <div>
-                    <ThumbnailWIthLink
-                        imgName="placeshareThumbnail.png"
-                        link="https://placeshare-by-tan.web.app/"
-                    />
+                    <ThumbnailWIthLink imgName="placeshareThumbnail.png" link="https://placeshare-by-tan.web.app/" />
                 </div>
                 <ul>
                     <li>
@@ -111,11 +101,7 @@ const Projects = (props) => {
 
                     <li className={classes.LiWithLink}>
                         <ChevronItem label="GIT:" />
-                        <a
-                            href="https://github.com/Tan-Aki/dev/tree/master/MERN/App "
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
+                        <a href="https://github.com/Tan-Aki/dev/tree/master/MERN/App " target="_blank" rel="noopener noreferrer">
                             https://github.com/Tan-Aki/dev/tree/master/MERN/App
                         </a>
                     </li>
@@ -125,22 +111,13 @@ const Projects = (props) => {
             <div className={classes.DivWith3Thumbs}>
                 <h3>Natours, Trillo, Nexter - HTML/SCSS (2020)</h3>
                 <div>
-                    <ThumbnailWIthLink
-                        imgName="natoursThumbnail.png"
-                        link="https://natours-by-tan.web.app/"
-                    />
+                    <ThumbnailWIthLink imgName="natoursThumbnail.png" link="https://natours-by-tan.web.app/" />
                 </div>
                 <div>
-                    <ThumbnailWIthLink
-                        imgName="nexterThumbnail.png"
-                        link="https://nexter-by-tan.web.app/"
-                    />
+                    <ThumbnailWIthLink imgName="nexterThumbnail.png" link="https://nexter-by-tan.web.app/" />
                 </div>
                 <div>
-                    <ThumbnailWIthLink
-                        imgName="trilloThumbnail.png"
-                        link="https://trillo-by-tan.web.app/"
-                    />
+                    <ThumbnailWIthLink imgName="trilloThumbnail.png" link="https://trillo-by-tan.web.app/" />
                 </div>
                 <ul>
                     <li>
@@ -151,11 +128,7 @@ const Projects = (props) => {
                     </li>
                     <li className={classes.LiWithLink}>
                         <ChevronItem label="GIT:" />
-                        <a
-                            href="https://github.com/Tan-Aki/dev/tree/master/Advanced-HTML-CSS-and-SASS"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
+                        <a href="https://github.com/Tan-Aki/dev/tree/master/Advanced-HTML-CSS-and-SASS" target="_blank" rel="noopener noreferrer">
                             https://github.com/Tan-Aki/dev/tree/master/Advanced-HTML-CSS-and-SASS
                         </a>
                     </li>
@@ -165,10 +138,7 @@ const Projects = (props) => {
             <div className={classes.DivWith1Thumb}>
                 <h3>Ecomm - JavaScript/HTML/CSS (2020)</h3>
                 <div>
-                    <ThumbnailWIthLink
-                        imgName="ecommThumbnail.png"
-                        link="http://www.tanneguy-jullin.xyz:3000/"
-                    />
+                    <ThumbnailWIthLink imgName="ecommThumbnail.png" link="http://www.tanneguy-jullin.xyz:3000/" />
                 </div>
                 <ul>
                     <li>
@@ -179,11 +149,7 @@ const Projects = (props) => {
                     </li>
                     <li className={classes.LiWithLink}>
                         <ChevronItem label="GIT:" />
-                        <a
-                            href="https://github.com/Tan-Aki/dev/tree/master/Modern-JS-bootcamp-2020/ecomm"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
+                        <a href="https://github.com/Tan-Aki/dev/tree/master/Modern-JS-bootcamp-2020/ecomm" target="_blank" rel="noopener noreferrer">
                             https://github.com/Tan-Aki/dev/tree/master/Modern-JS-bootcamp-2020/ecomm
                         </a>
                     </li>
@@ -193,10 +159,7 @@ const Projects = (props) => {
             <div className={classes.DivWith1Thumb}>
                 <h3>Movies - JavaScript/HTML/CSS (2020)</h3>
                 <div>
-                    <ThumbnailWIthLink
-                        imgName="moviesThumbnail.png"
-                        link="https://movies-by-tan.web.app/"
-                    />
+                    <ThumbnailWIthLink imgName="moviesThumbnail.png" link="https://movies-by-tan.web.app/" />
                 </div>
                 <ul>
                     <li>
@@ -207,11 +170,7 @@ const Projects = (props) => {
                     </li>
                     <li className={classes.LiWithLink}>
                         <ChevronItem label="GIT:" />
-                        <a
-                            href="https://github.com/Tan-Aki/dev/tree/master/Modern-JS-bootcamp-2020/movies"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
+                        <a href="https://github.com/Tan-Aki/dev/tree/master/Modern-JS-bootcamp-2020/movies" target="_blank" rel="noopener noreferrer">
                             https://github.com/Tan-Aki/dev/tree/master/Modern-JS-bootcamp-2020/movies
                         </a>
                     </li>
@@ -219,10 +178,7 @@ const Projects = (props) => {
             </div>
 
             <div>
-                <h3>
-                    CV interactif en ligne - React.JS/JSX/SCSS modules/firebase
-                    (2020)
-                </h3>
+                <h3>CV interactif en ligne - React.JS/JSX/SCSS modules/firebase (2020)</h3>
                 <ul>
                     <li>
                         <ChevronItem label="Vous êtes présentement dessus ! : ) " />
@@ -235,11 +191,7 @@ const Projects = (props) => {
                     </li>
                     <li className={classes.LiWithLink}>
                         <ChevronItem label="GIT:" />
-                        <a
-                            href="https://github.com/Tan-Aki/dev/tree/master/interactive-cv"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
+                        <a href="https://github.com/Tan-Aki/dev/tree/master/interactive-cv" target="_blank" rel="noopener noreferrer">
                             https://github.com/Tan-Aki/dev/tree/master/interactive-cv
                         </a>
                     </li>
@@ -251,11 +203,7 @@ const Projects = (props) => {
                 <ul>
                     <li className={classes.LiWithLink}>
                         <ChevronItem label="Consultez mon GitHub:" />
-                        <a
-                            href="https://github.com/Tan-Aki/dev"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
+                        <a href="https://github.com/Tan-Aki/dev" target="_blank" rel="noopener noreferrer">
                             https://github.com/Tan-Aki/dev
                         </a>
                     </li>

@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classes from '../Skills.module.scss';
-import ChevronItem from '../../../UI/ChevronItem/ChevronItem';
-import classNames from 'classnames/bind';
-import ProgressBar from '../../../UI/ProgressBar/ProgressBar';
+import React from "react";
+import PropTypes from "prop-types";
+import classes from "../Skills.module.scss";
+import ChevronItem from "../../../UI/ChevronItem/ChevronItem";
+import classNames from "classnames/bind";
+import ProgressBar from "../../../UI/ProgressBar/ProgressBar";
 
 const Skills = (props) => {
     const cx = classNames.bind(classes);
@@ -19,24 +19,28 @@ const Skills = (props) => {
                 <h3>Compétences en programmation:</h3>
                 <ul>
                     <li>
-                        <ChevronItem label="React.JS (avec Lifecycle hooks/React hooks)" />
+                        <ChevronItem label="React.JS (avec Redux)" />
                         <ProgressBar percent="70" />
                     </li>
                     <li>
-                        <ChevronItem label="JavaScript ES5/ES6" />
+                        <ChevronItem label="AngularJS" />
+                        <ProgressBar percent="75" />
+                    </li>
+                    <li>
+                        <ChevronItem label="JavaScript ES5/ES6 (avec AJAX/JQuery)" />
                         <ProgressBar percent="70" />
                     </li>
                     <li>
-                        <ChevronItem label="HTML 5" />
-                        <ProgressBar percent="65" />
+                        <ChevronItem label="HTML5" />
+                        <ProgressBar percent="75" />
                     </li>
                     <li>
-                        <ChevronItem label="CSS 3/SCSS" />
+                        <ChevronItem label="CSS3/SCSS (avec Bootstrap 3/4)" />
                         <ProgressBar percent="70" />
                     </li>
                     <li>
-                        <ChevronItem label="Redux, Redux-Thunk, Redux-Saga, React-Router" />
-                        <ProgressBar percent="65" />
+                        <ChevronItem label="Python" />
+                        <ProgressBar percent="22.5" />
                     </li>
                 </ul>
                 <ul>
@@ -45,8 +49,8 @@ const Skills = (props) => {
                         <ProgressBar percent="50" />
                     </li>
                     <li>
-                        <ChevronItem label="GitHub" />
-                        <ProgressBar percent="50" />
+                        <ChevronItem label="Git" />
+                        <ProgressBar percent="60" />
                     </li>
                     <li>
                         <ChevronItem label="Express.JS" />
@@ -67,22 +71,25 @@ const Skills = (props) => {
                 </ul>
             </div>
             <div className={classes.Knowledge}>
-                <h3>Autres connaissances et notions en informatique:</h3>
+                <h3>Autres talents et notions en informatique:</h3>
                 <ul>
                     <li>
                         <ChevronItem label="Impliqué, rigoureux, autonome, excellent relationnel, solide compréhension générale du monde de l’informatique" />
                     </li>
                     <li>
-                        <ChevronItem label="Notions académiques de plusieurs langages de programmation (Java, PHP, ASP.net et C#.net, lisp, C, C++, Objective-C, assembleur)" />
+                        <ChevronItem label="Outils de développement (Bitbucket, JIRA, Confluence)" />
                     </li>
                     <li>
-                        <ChevronItem label="Méthodologie ITIL et notions méthodologie Agile & SCRUM" />
+                        <ChevronItem label="Méthodologies Agile & SCRUM & ITIL" />
+                    </li>
+                    <li>
+                        <ChevronItem label="Notions académiques de plusieurs langages de programmation (Java, PHP, ASP.net et C#.net, lisp, C, C++, Objective-C, assembleur)" />
                     </li>
                     <li>
                         <ChevronItem label="Windows 7, 8, 10 et Windows Serveurs, Linux, Mac OS, suite Office" />
                     </li>
                     <li>
-                        <ChevronItem label="Plateformes ITSM et outils de ticketing (JIRA, Octopus, Connectwise)" />
+                        <ChevronItem label="Plateformes ITSM et outils de ticketing (Octopus, Connectwise)" />
                     </li>
                     <li>
                         <ChevronItem label="Systèmes d’échanges de courriels, de virtualisation, de stockage, de sauvegarde, de bases de données, de monitoring" />
