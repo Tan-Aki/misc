@@ -27,7 +27,7 @@ const Skills = (props) => {
                         <ProgressBar percent="75" />
                     </li>
                     <li>
-                        <ChevronItem label="JavaScript ES5/ES6 (avec AJAX/JQuery)" />
+                        <ChevronItem label="JavaScript ES5/ES6 (with AJAX/JQuery)" />
                         <ProgressBar percent="70" />
                     </li>
                     <li>
