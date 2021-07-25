@@ -6,7 +6,7 @@ myArrayWithPrimitives.forEach((item, i, array) => {
 });
 console.log(myArrayWithPrimitives); // ["a", "z", "c"]
 
-const myArrayWithNonPrimitives = [{ letter: "a" }, { letter: "b" }, { letter: "c" }];
+let myArrayWithNonPrimitives = [{ letter: "a" }, { letter: "b" }, { letter: "c" }];
 
 myArrayWithNonPrimitives.forEach((item, i, array) => {
     array[1].letter = "z"; // mutates the object inside the array
