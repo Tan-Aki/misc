@@ -25,7 +25,7 @@ const About = (props) => {
             </div>
             <div>
                 <MobileLogo />
-                <a href="tel:+14384090506">(438) 409-0506</a>
+                <a href="tel:+1438xxxxxxx">(438) XXX-XXXX</a>
             </div>
             <div>
                 <MailLogo />
