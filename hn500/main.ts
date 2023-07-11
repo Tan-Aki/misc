@@ -20,17 +20,27 @@ const getBestStoriesWithMinScore = async (minScore: number) => {
         const story = await getStory(id);
 
         if (story.score >= minScore) {
-            bestStories.push(story);
+            // Only include the title and URL in the output
+            bestStories.push({
+                title: story.title,
+                url: story.url,
+            });
         }
     }
 
     return bestStories;
 };
 
+const formatStoriesForEmail = (stories: { title: string; url: string }[]) => {
+    return stories.map((story) => `<a href="${story.url}">${story.title}</a>`).join('<br>');
+};
+
 const run = async () => {
     const stories = await getBestStoriesWithMinScore(500);
 
-    console.log(stories);
+    const emailContent = formatStoriesForEmail(stories);
+
+    console.log(emailContent);
 };
 
 run().catch(console.error);
