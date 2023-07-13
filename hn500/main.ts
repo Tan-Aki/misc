@@ -3,12 +3,20 @@ import AWS from 'aws-sdk';
 import 'dotenv/config';
 import fs from 'fs';
 
+type APIStory = {
+    title: string;
+    url: string;
+    score: number;
+    id: number;
+    time: number;
+};
+
 type Story = {
     title: string;
     url: string;
-    score: string;
+    score: number;
     id: number;
-    time: string;
+    date: Date;
 };
 
 AWS.config.update({
@@ -21,7 +29,7 @@ const ses = new AWS.SES({ apiVersion: '2010-12-01' });
 
 const HN_API = 'https://hacker-news.firebaseio.com/v0';
 
-const getStory = async (storyId: number) => {
+const getStory = async (storyId: number): Promise<APIStory> => {
     const response = await axios.get(`${HN_API}/item/${storyId}.json`);
     return response.data;
 };
@@ -42,7 +50,7 @@ const getBestStoriesWithMinScore = async (minScore: number) => {
 
     for (const id of bestStoryIds) {
         const story = await getStory(id);
-        console.log(`${story.title} - ${story.score} points`);
+        console.log(`Fetched: ${story.title} - ${story.score} points`);
 
         if (story.score >= minScore) {
             const storyData = {
@@ -50,7 +58,7 @@ const getBestStoriesWithMinScore = async (minScore: number) => {
                 title: story.title,
                 url: story.url,
                 score: story.score,
-                time: new Date(story.time * 1000).toISOString(), // Convert Unix timestamp to ISO string
+                date: new Date(story.time * 1000), // Convert Unix timestamp
             };
 
             if (alreadySentStoryIds.includes(story.id)) {
@@ -65,7 +73,7 @@ const getBestStoriesWithMinScore = async (minScore: number) => {
 };
 
 const formatStoriesForEmail = (stories: Story[]) => {
-    stories.sort((a, b) => new Date(b.time).getTime() - new Date(a.time).getTime());
+    stories.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
     return stories.map((story) => `<a href="${story.url}">${story.title} - ${story.score} points </a>`).join('<br>');
 };
 
@@ -73,14 +81,18 @@ const run = async () => {
     const { newStories, oldStories } = await getBestStoriesWithMinScore(500);
 
     const formattedNewStories = formatStoriesForEmail(newStories);
-    const formattedOldStories = formatStoriesForEmail(oldStories);
+
+    const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+
+    const recentOldStories = oldStories.filter((story) => new Date(story.date) >= thirtyDaysAgo);
+    const formattedRecentOldStories = formatStoriesForEmail(recentOldStories);
 
     const emailContent =
         `<h2>HackerNews Best Stories above 500 points since last issue (most recent to the top)</h2>` +
         (formattedNewStories.length > 0 ? formattedNewStories : `Nothing new...`) +
         `<br><br><hr>` +
-        `<h2>All Past Stories Above 500 since July 13th (most recent to the top)</h2>` +
-        formattedOldStories;
+        `<h2>HackerNews Past Stories Above 500 points of the Last 30 Days (most recent to the top)</h2>` +
+        formattedRecentOldStories;
 
     var params = {
         Destination: {
