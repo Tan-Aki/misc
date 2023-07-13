@@ -8,6 +8,7 @@ type Story = {
     url: string;
     score: string;
     id: number;
+    time: string;
 };
 
 AWS.config.update({
@@ -49,6 +50,7 @@ const getBestStoriesWithMinScore = async (minScore: number) => {
                 title: story.title,
                 url: story.url,
                 score: story.score,
+                time: new Date(story.time * 1000).toISOString(), // Convert Unix timestamp to ISO string
             };
 
             if (alreadySentStoryIds.includes(story.id)) {
@@ -63,6 +65,7 @@ const getBestStoriesWithMinScore = async (minScore: number) => {
 };
 
 const formatStoriesForEmail = (stories: Story[]) => {
+    stories.sort((a, b) => new Date(b.time).getTime() - new Date(a.time).getTime());
     return stories.map((story) => `<a href="${story.url}">${story.title} - ${story.score} points </a>`).join('<br>');
 };
 
@@ -73,9 +76,10 @@ const run = async () => {
     const formattedOldStories = formatStoriesForEmail(oldStories);
 
     const emailContent =
-        `<h1>HackerNews Best Stories</h1><br><p>Here are the best stories on HackerNews with at least 500 points.</p><br><hr><br>` +
-        formattedNewStories +
-        `<h1>All Past Stories Above 500 since July 13th</h1><br>` +
+        `<h2>HackerNews Best Stories above 500 points since last issue (most recent to the top)</h2>` +
+        (formattedNewStories.length > 0 ? formattedNewStories : `Nothing new...`) +
+        `<br><br><hr>` +
+        `<h2>All Past Stories Above 500 since July 13th (most recent to the top)</h2>` +
         formattedOldStories;
 
     var params = {
