@@ -74,11 +74,18 @@ const getBestStoriesWithMinScore = async (minScore: number) => {
 
 const formatStoriesForEmail = (stories: Story[]) => {
     stories.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-    return stories.map((story) => `<a href="${story.url}">${story.title} - ${story.score} points </a>`).join('<br>');
+    return stories
+        .map((story) => `<a href="${story.url}">${story.title} - ${story.score} points </a>  //  <a href="https://news.ycombinator.com/item?id=${story.id}">HackerNews Link</a>`)
+        .join('<br>');
 };
-
 const run = async () => {
     const { newStories, oldStories } = await getBestStoriesWithMinScore(500);
+
+    // Don't send email if there are no new stories
+    if (newStories.length === 0) {
+        console.log('No new stories found.');
+        return;
+    }
 
     const formattedNewStories = formatStoriesForEmail(newStories);
 
@@ -89,7 +96,7 @@ const run = async () => {
 
     const emailContent =
         `<h2>HackerNews Stories above 500 points since last issue (most recent to the top)</h2>` +
-        (formattedNewStories.length > 0 ? formattedNewStories : `Nothing new...`) +
+        formattedNewStories +
         `<br><br><hr>` +
         `<h2>HackerNews Past Stories above 500 points within the Last 30 Days (most recent to the top)</h2>` +
         formattedRecentOldStories;
