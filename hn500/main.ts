@@ -88,7 +88,7 @@ const run = async () => {
     const formattedRecentOldStories = formatStoriesForEmail(recentOldStories);
 
     const emailContent =
-        `<h2>HackerNews Best Stories above 500 points since last issue (most recent to the top)</h2>` +
+        `<h2>HackerNews Stories above 500 points since last issue (most recent to the top)</h2>` +
         (formattedNewStories.length > 0 ? formattedNewStories : `Nothing new...`) +
         `<br><br><hr>` +
         `<h2>HackerNews Past Stories Above 500 points within the Last 30 Days (most recent to the top)</h2>` +
@@ -110,7 +110,7 @@ const run = async () => {
                 Data: 'HackerNews Best Stories',
             },
         },
-        Source: 'no-reply@hn500.xyz',
+        Source: 'HN500 <no-reply@hn500.xyz>',
     };
 
     ses.sendEmail(params, function (err, data) {
