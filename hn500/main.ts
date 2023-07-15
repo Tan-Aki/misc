@@ -79,7 +79,7 @@ const getBestStoriesWithMinScore = async (minScore: number) => {
 };
 
 const formatStoriesForEmail = (stories: Story[]) => {
-    stories.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    stories.sort((a, b) => b.score - a.score); // Sort stories by score, highest first
     return stories
         .map((story) => `• <a href="${story.url}">${story.title}</a> - ${story.score} points (<a href="https://news.ycombinator.com/item?id=${story.id}">HN Link</a>)`)
         .join('<br><br>');
@@ -102,10 +102,10 @@ const run = async () => {
     const formattedRecentOldStories = formatStoriesForEmail(recentOldStories);
 
     const emailContent =
-        `<h2>HackerNews Stories above 500 points since last issue (most recent to the top)</h2>` +
+        `<h2>HackerNews Stories above 500 points since last issue (highest scoring story to the top)</h2>` +
         formattedNewStories +
         `<br><br><hr>` +
-        `<h2>HackerNews Past Stories above 500 points within the Last 30 Days (most recent to the top)</h2>` +
+        `<h2>HackerNews Past Stories above 500 points within the Last 30 Days (highest scoring story to the top)</h2>` +
         formattedRecentOldStories;
 
     var params = {
