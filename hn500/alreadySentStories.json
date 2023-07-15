@@ -1,93 +1,106 @@
 [
   {
-    "id": 36703474,
-    "title": "Thunderbird 115 “Supernova”",
-    "url": "https://blog.thunderbird.net/2023/07/our-fastest-most-beautiful-release-ever-thunderbird-115-supernova-is-here/",
-    "score": 500,
-    "date": "2023-07-13T00:18:14.000Z"
-  },
-  {
-    "id": 36712497,
-    "title": "Passkeys will come at a cost",
-    "url": "https://fy.blackhats.net.au/blog/2023-02-02-how-hype-will-turn-your-security-key-into-junk/",
-    "score": 609,
-    "date": "2023-07-13T17:06:08.000Z"
-  },
-  {
-    "id": 36699016,
-    "title": "Creating a search engine with PostgreSQL",
-    "url": "https://xata.io/blog/postgres-full-text-search-engine",
-    "score": 510,
-    "date": "2023-07-12T18:05:04.000Z"
-  },
-  {
-    "id": 36706138,
-    "title": "Disney, Netflix, and more are fighting FTC's 'click to cancel' proposal",
-    "url": "https://www.businessinsider.com/hollywood-streamers-oppose-ftc-proposal-regulation-click-to-cancel-subscription-2023-7",
-    "score": 616,
-    "date": "2023-07-13T07:42:58.000Z"
-  },
-  {
     "id": 36686857,
     "title": "Kelly Rowland couldn't have used the =HYPERLINK() function to message Nelly",
     "url": "https://blog.jgc.org/2023/07/unfortunately-kelly-rowland-couldnt.html",
-    "score": 843,
-    "date": "2023-07-11T20:33:10.000Z"
-  },
-  {
-    "id": 36682509,
-    "title": "Newpipe.net removed from Google search results due to DMCA take down request",
-    "url": "https://newpipe.net/blog/pinned/announcement/newpipe-net-dmca-google-search/",
-    "score": 634,
-    "date": "2023-07-11T15:38:04.000Z"
+    "score": 863,
+    "date": "2023-07-11T20:33:10.000Z",
+    "previousScore": 863
   },
   {
     "id": 36681814,
     "title": "Displayport: A Better Video Interface",
     "url": "https://hackaday.com/2023/07/11/displayport-a-better-video-interface/",
-    "score": 798,
-    "date": "2023-07-11T14:50:23.000Z"
-  },
-  {
-    "id": 36678375,
-    "title": "Privatisation has been a costly failure in Britain",
-    "url": "https://www.economist.com/by-invitation/2023/07/10/mathew-lawrence-on-why-privatisation-has-been-a-costly-failure-in-britain",
-    "score": 501,
-    "date": "2023-07-11T09:20:43.000Z"
-  },
-  {
-    "id": 36678079,
-    "title": "SUSE is forking RHEL",
-    "url": "https://www.suse.com/news/SUSE-Preserves-Choice-in-Enterprise-Linux/",
-    "score": 539,
-    "date": "2023-07-11T08:41:22.000Z"
-  },
-  {
-    "id": 36676103,
-    "title": "Linux has achieved a 3% desktop market share",
-    "url": "https://linuxiac.com/linux-hits-3-percent-market-share/",
-    "score": 610,
-    "date": "2023-07-11T03:29:39.000Z"
-  },
-  {
-    "id": 36675934,
-    "title": "GPT-4 details leaked?",
-    "url": "https://threadreaderapp.com/thread/1678545170508267522.html",
-    "score": 647,
-    "date": "2023-07-11T03:00:19.000Z"
-  },
-  {
-    "id": 36673793,
-    "title": "Shortening the Let's Encrypt chain of trust",
-    "url": "https://letsencrypt.org/2023/07/10/cross-sign-expiration.html",
-    "score": 536,
-    "date": "2023-07-10T22:19:22.000Z"
+    "score": 820,
+    "date": "2023-07-11T14:50:23.000Z",
+    "previousScore": 820
   },
   {
     "id": 36673224,
     "title": "Self-hosted photo and video backups directly from your mobile phone",
     "url": "https://github.com/immich-app/immich",
-    "score": 744,
-    "date": "2023-07-10T21:28:40.000Z"
+    "score": 752,
+    "date": "2023-07-10T21:28:40.000Z",
+    "previousScore": 752
+  },
+  {
+    "id": 36706138,
+    "title": "Disney, Netflix, and more are fighting FTC's 'click to cancel' proposal",
+    "url": "https://www.businessinsider.com/hollywood-streamers-oppose-ftc-proposal-regulation-click-to-cancel-subscription-2023-7",
+    "score": 691,
+    "date": "2023-07-13T07:42:58.000Z",
+    "previousScore": 691
+  },
+  {
+    "id": 36682509,
+    "title": "Newpipe.net removed from Google search results due to DMCA take down request",
+    "url": "https://newpipe.net/blog/pinned/announcement/newpipe-net-dmca-google-search/",
+    "score": 662,
+    "date": "2023-07-11T15:38:04.000Z",
+    "previousScore": 662
+  },
+  {
+    "id": 36712497,
+    "title": "Passkeys will come at a cost",
+    "url": "https://fy.blackhats.net.au/blog/2023-02-02-how-hype-will-turn-your-security-key-into-junk/",
+    "score": 657,
+    "date": "2023-07-13T17:06:08.000Z",
+    "previousScore": 657
+  },
+  {
+    "id": 36675934,
+    "title": "GPT-4 details leaked?",
+    "url": "https://threadreaderapp.com/thread/1678545170508267522.html",
+    "score": 656,
+    "date": "2023-07-11T03:00:19.000Z",
+    "previousScore": 656
+  },
+  {
+    "id": 36676103,
+    "title": "Linux has achieved a 3% desktop market share",
+    "url": "https://linuxiac.com/linux-hits-3-percent-market-share/",
+    "score": 623,
+    "date": "2023-07-11T03:29:39.000Z",
+    "previousScore": 623
+  },
+  {
+    "id": 36678079,
+    "title": "SUSE is forking RHEL",
+    "url": "https://www.suse.com/news/SUSE-Preserves-Choice-in-Enterprise-Linux/",
+    "score": 548,
+    "date": "2023-07-11T08:41:22.000Z",
+    "previousScore": 548
+  },
+  {
+    "id": 36673793,
+    "title": "Shortening the Let's Encrypt chain of trust",
+    "url": "https://letsencrypt.org/2023/07/10/cross-sign-expiration.html",
+    "score": 542,
+    "date": "2023-07-10T22:19:22.000Z",
+    "previousScore": 542
+  },
+  {
+    "id": 36699016,
+    "title": "Creating a search engine with PostgreSQL",
+    "url": "https://xata.io/blog/postgres-full-text-search-engine",
+    "score": 523,
+    "date": "2023-07-12T18:05:04.000Z",
+    "previousScore": 523
+  },
+  {
+    "id": 36678375,
+    "title": "Privatisation has been a costly failure in Britain",
+    "url": "https://www.economist.com/by-invitation/2023/07/10/mathew-lawrence-on-why-privatisation-has-been-a-costly-failure-in-britain",
+    "score": 510,
+    "date": "2023-07-11T09:20:43.000Z",
+    "previousScore": 510
+  },
+  {
+    "id": 36703474,
+    "title": "Thunderbird 115 “Supernova”",
+    "url": "https://blog.thunderbird.net/2023/07/our-fastest-most-beautiful-release-ever-thunderbird-115-supernova-is-here/",
+    "score": 504,
+    "date": "2023-07-13T00:18:14.000Z",
+    "previousScore": 504
   }
 ]

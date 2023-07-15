@@ -17,6 +17,7 @@ type Story = {
     score: number;
     id: number;
     date: Date;
+    previousScore: number;
 };
 
 AWS.config.update({
@@ -39,45 +40,51 @@ const getBestStories = async () => {
     return response.data as number[];
 };
 
+const alreadySentStories = fs.existsSync('alreadySentStories.json') ? JSON.parse(fs.readFileSync('alreadySentStories.json', 'utf8')) : [];
+
 const getBestStoriesWithMinScore = async (minScore: number) => {
     const bestStoryIds = await getBestStories();
     const newStories: Story[] = [];
     const oldStories: Story[] = [];
 
-    const alreadySentStories = fs.existsSync('alreadySentStories.json') ? JSON.parse(fs.readFileSync('alreadySentStories.json', 'utf8')) : [];
+    const fetchedStories = await Promise.all(bestStoryIds.map((id) => getStory(id)));
 
-    const alreadySentStoryIds = alreadySentStories.map((story: Story) => story.id);
-
-    for (const id of bestStoryIds) {
-        const story = await getStory(id);
-        console.log(`Fetched: ${story.title} - ${story.score} points`);
-
+    fetchedStories.forEach((story) => {
         if (story.score >= minScore) {
-            const storyData = {
+            const alreadySentStory = alreadySentStories.find((sentStory: Story) => sentStory.id === story.id);
+
+            const storyData: Story = {
                 id: story.id,
                 title: story.title,
                 url: story.url,
                 score: story.score,
                 date: new Date(story.time * 1000), // Convert Unix timestamp
+                previousScore: alreadySentStory ? alreadySentStory.score : story.score,
             };
 
-            if (alreadySentStoryIds.includes(story.id)) {
+            if (alreadySentStory) {
+                if (storyData.score !== storyData.previousScore) {
+                    // The story's score has changed
+                    alreadySentStory.score = storyData.score;
+                    alreadySentStory.previousScore = storyData.previousScore;
+                }
                 oldStories.push(storyData);
             } else {
                 newStories.push(storyData);
+                alreadySentStories.push(storyData);
             }
         }
-    }
-
+    });
     return { newStories, oldStories };
 };
 
 const formatStoriesForEmail = (stories: Story[]) => {
     stories.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
     return stories
-        .map((story) => `<a href="${story.url}">${story.title} - ${story.score} points </a>  //  <a href="https://news.ycombinator.com/item?id=${story.id}">HackerNews Link</a>`)
-        .join('<br>');
+        .map((story) => `• <a href="${story.url}">${story.title}</a> - ${story.score} points (<a href="https://news.ycombinator.com/item?id=${story.id}">HN Link</a>)`)
+        .join('<br><br>');
 };
+
 const run = async () => {
     const { newStories, oldStories } = await getBestStoriesWithMinScore(500);
 
@@ -121,12 +128,12 @@ const run = async () => {
     };
 
     ses.sendEmail(params, function (err, data) {
-        if (err) console.log(err, err.stack);
-        else {
+        if (err) {
+            console.log(err, err.stack);
+        } else {
             console.log(data);
-            const oldStoriesFromFile = fs.existsSync('alreadySentStories.json') ? JSON.parse(fs.readFileSync('alreadySentStories.json', 'utf8')) : [];
-            const updatedStories = [...newStories, ...oldStoriesFromFile];
-            fs.writeFileSync('alreadySentStories.json', JSON.stringify(updatedStories, null, 2));
+            // Update the file with new and updated stories only after the email is successfully sent
+            fs.writeFileSync('alreadySentStories.json', JSON.stringify(alreadySentStories, null, 2));
         }
     });
 };
