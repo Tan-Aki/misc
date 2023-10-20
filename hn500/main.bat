@@ -1,2 +1,0 @@
-::   bat file to be used if you want to create a scheduled task in windows (after installing node, typescript and ts-node)
-cd C:\Users\Tan\dev\hn500\ && C:\Users\Tan\appdata\Roaming\npm\ts-node.cmd main.ts
